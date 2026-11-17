@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HST Atlas — EDB</title>
+<meta name="eds-version" content="2.0.0">
+<meta name="theme-color" content="#050a0e" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#edf3ff" media="(prefers-color-scheme: light)">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI5NiIgZmlsbD0iIzAwMzM2NiIvPjxwYXRoIGQ9Ik0xMzYgNzggSDM5MiBhMjIgMjIgMCAwIDEgMjIgMjIgVjQxMiBhMjIgMjIgMCAwIDEgLTIyIDIyIEgxMzYgYTM4IDM4IDAgMCAxIC0zOCAtMzggVjExNiBhMzggMzggMCAwIDEgMzggLTM4IFoiIGZpbGw9IiNlZGYzZmYiLz48cmVjdCB4PSIxMzYiIHk9Ijk4IiB3aWR0aD0iMTEiIGhlaWdodD0iMzE2IiByeD0iNS41IiBmaWxsPSIjMDAzMzY2Ii8+PHN2ZyB4PSIxODguMCIgeT0iMTc3LjEiIHdpZHRoPSIxOTIiIGhlaWdodD0iMjI5LjgiIHZpZXdCb3g9IjIwIDM1IDEzMiAxNTgiIGZpbGw9IiMwMDMzNjYiPjxkZWZzPjxtYXNrIGlkPSJtMTExIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4PSItMjAiIHk9Ii0yMCIgd2lkdGg9IjcwMCIgaGVpZ2h0PSIyNjAiPjxyZWN0IHg9Ii0yMCIgeT0iLTIwIiB3aWR0aD0iNzAwIiBoZWlnaHQ9IjI2MCIgZmlsbD0iI2ZmZiI+PC9yZWN0PjxyZWN0IHg9Ii0xMCIgeT0iMTgiIHdpZHRoPSI3MiIgaGVpZ2h0PSIxOTYiIGZpbGw9IiMwMDAiPjwvcmVjdD48L21hc2s+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMCkiPjxnIG1hc2s9InVybCgjbTExMSkiPjxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMTkwKSBzY2FsZSgwLjIsLTAuMikiIGQ9Ik03MjYgMjE0UTczNSAyMDkgNzM1IDIwM1E3MzUgMTk5IDczMiAxOTNMNjM4IC01UTYzNCAtMTQgNjI2IC0xNFE2MjEgLTE0IDYxNyAtMTBMNjEyIC01UTYwNyAwIDU5MiAwTDQ1IDBRMzAgMCAzMCAxNUwzMCA0NVEzMCA2MCA0NSA2MEw0NyA2MFExMTkgNjAgMTE5IDE1NUwxMTkgNTk0UTExOSA2ODkgNDYgNjg5TDQ1IDY4OVEzMCA2ODkgMzAgNzA0TDMwIDczNFEzMCA3NTAgNDUgNzUwTDU0NiA3NTBRNTU5IDc1MCA1NjUgNzU1TDU3MSA3NjBRNTc0IDc2MyA1NzkgNzYzUTU4NyA3NjMgNTkyIDc1NUw2NzEgNjE5UTY3NCA2MTUgNjc0IDYxMFE2NzQgNjAzIDY2NiA1OThMNjI2IDU3NlE2MTkgNTcyIDYxNSA1NzJRNjA4IDU3MiA2MDMgNTgxTDYwMCA1ODZRNTY5IDYzOCA1MzMuNSA2NTguNVE0OTggNjc5IDQ0MCA2NzlMMjc4IDY3OUwyNzggNDQ0TDM2NiA0NDRRNDExIDQ0NCA0MzYgNDYxUTQ2MSA0NzggNDYxIDUxMUw0NjEgNTE4UTQ2MSA1MzMgNDc2IDUzM0w1MDYgNTMzUTUyMSA1MzMgNTIxIDUxOEw1MjEgMjkxUTUyMSAyNzYgNTA2IDI3Nkw0NzYgMjc2UTQ2MSAyNzYgNDYxIDI5MUw0NjEgMjk3UTQ2MSAzMzEgNDM2LjUgMzQ3LjVRNDEyIDM2NCAzNjYgMzY0TDI3OCAzNjRMMjc4IDE2NlEyNzggNzEgMzQ3IDcxTDQxMiA3MVE0ODYgNzEgNTMyLjUgODVRNTc5IDk5IDYxMC41IDEzMlE2NDIgMTY1IDY3MCAyMjFMNjczIDIyN1E2NzggMjM1IDY4NiAyMzVRNjkxIDIzNSA2OTQgMjMzTDcyNiAyMTRaIj48L3BhdGg+PC9nPjxwYXRoIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIwLDM4KSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNDYgMiBMNDYgMTUyIEwxMCAxNTIgTDEwIDE0OSBDMTIgMTQ3IDE0IDE0NCAxNCAxMzggTDE0IDc0IEMxNCA3MCAxMiA2OCAxMCA2MiBDNiA1MSAzIDQ1IDMgMzggQzMgMjAgMTIgMSA0NiAyIFogTTIzIDIyIGE0IDQgMCAwIDEgOCAwIHYyMCBoLTggWiBNMjAuNSA0MiBoMTMgdjcgYTMgMyAwIDAgMSAtMyAzIGgtNyBhMyAzIDAgMCAxIC0zIC0zIFogTTI4LjcgNzggaDIuNiB2NjAgaC0yLjYgWiI+PC9wYXRoPjwvZz48L3N2Zz48L3N2Zz4=" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Atlas">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fira+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script>(function(){try{var m=localStorage.getItem('edb-theme');if(m==='light'||m==='dark'){document.documentElement.setAttribute('data-theme',m)}else if(m==='system'){document.documentElement.removeAttribute('data-theme')}}catch(e){}})();</script>
+<style>
+/* EDB brand v2.0.0 — subset of assets/edb-brand.css used by this page */
+:root{color-scheme:dark;
+--font-serif:'EB Garamond',Georgia,serif;--font-ui:'Source Sans 3',-apple-system,BlinkMacSystemFont,sans-serif;--font-mono:'Fira Mono',ui-monospace,monospace;
+--bg:#050a0e;--surface:#091622;--surface-high:#0f2030;--border:#16293d;--text:#eaf4ff;--muted:#2a5070;--muted-text:#6a90b8;--accent:#0077b6;--accent-text:#5bc0eb;--accent-dim:#002a40;--link:#5bc0eb;
+--error:#e11d48;--error-text:#fb7185;--warning:#fbbf24;--warning-text:#fde68a;--success:#10b981;--success-text:#6ee7b7;
+--error-dim:#240d16;--warning-dim:#2c2712;--success-dim:#072620;
+--disabled-bg:#0f2030;--disabled-text:#6a90b8;
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;
+--radius-sm:2px;--radius-md:4px;--radius-lg:6px;--radius-full:9999px;
+--shadow-raised:0 1px 3px rgba(0,0,0,0.40);--shadow-card:0 2px 8px rgba(0,0,0,0.50),0 10px 26px rgba(0,0,0,0.30);--shadow-hover:0 4px 14px rgba(0,0,0,0.55),0 18px 44px rgba(0,0,0,0.40);--shadow-overlay:0 8px 24px rgba(0,0,0,0.60),0 24px 64px rgba(0,0,0,0.45);
+--z-sig:50;--z-sticky:100;--z-popover:400;--z-toast:500;
+--container-content:720px;
+--duration-fast:100ms;--duration-base:200ms;--duration-slow:350ms;
+--ease-standard:cubic-bezier(0.2,0,0,1);--ease-enter:cubic-bezier(0,0,0.2,1);
+--transition:all var(--duration-base) var(--ease-standard);
+--focus-ring:0 0 0 2px var(--bg),0 0 0 4px var(--accent);
+--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);--safe-left:env(safe-area-inset-left,0px);--safe-right:env(safe-area-inset-right,0px)}
+[data-theme="light"]{color-scheme:light;--bg:#edf3ff;--surface:#ffffff;--surface-high:#f8fbff;--border:#c8d8f0;--text:#060e1e;--muted:#8ca8cc;--muted-text:#4a6898;--accent:#003366;--accent-text:#002855;--accent-dim:#d0dff5;--link:#003366;--error-text:#b00e31;--warning-text:#a94e08;--success-text:#047354;--disabled-bg:#c8d8f0;--disabled-text:#4a6898;--error-dim:#ebd5e5;--warning-dim:#efebdc;--success-dim:#caeaeb;--shadow-raised:0 1px 3px rgba(0,0,0,0.08);--shadow-card:0 2px 8px rgba(0,0,0,0.10),0 10px 26px rgba(0,0,0,0.08);--shadow-hover:0 6px 18px rgba(0,0,0,0.14),0 16px 40px rgba(0,0,0,0.12);--shadow-overlay:0 8px 24px rgba(0,0,0,0.18),0 24px 64px rgba(0,0,0,0.14)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]):not([data-theme="light"]){color-scheme:light;--bg:#edf3ff;--surface:#ffffff;--surface-high:#f8fbff;--border:#c8d8f0;--text:#060e1e;--muted:#8ca8cc;--muted-text:#4a6898;--accent:#003366;--accent-text:#002855;--accent-dim:#d0dff5;--link:#003366;--error-text:#b00e31;--warning-text:#a94e08;--success-text:#047354;--disabled-bg:#c8d8f0;--disabled-text:#4a6898;--error-dim:#ebd5e5;--warning-dim:#efebdc;--success-dim:#caeaeb;--shadow-raised:0 1px 3px rgba(0,0,0,0.08);--shadow-card:0 2px 8px rgba(0,0,0,0.10),0 10px 26px rgba(0,0,0,0.08);--shadow-hover:0 6px 18px rgba(0,0,0,0.14),0 16px 40px rgba(0,0,0,0.12);--shadow-overlay:0 8px 24px rgba(0,0,0,0.18),0 24px 64px rgba(0,0,0,0.14)}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:14px;line-height:1.4;margin:0;-webkit-font-smoothing:antialiased;transition:background var(--duration-base) var(--ease-standard),color var(--duration-base) var(--ease-standard)}
+h1,h2,h3{font-family:var(--font-serif);margin:0}
+h4{font-family:var(--font-ui);margin:0}
+h1{font-size:36px;font-weight:700;letter-spacing:-0.02em;line-height:1.1}
+h2{font-size:26px;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
+h4{font-size:16px;font-weight:600;line-height:1.3}
+@media (max-width:640px){h1{font-size:30px}h2{font-size:23px}}
+a{color:var(--link);text-decoration:none}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted-text)}
+.tag{font-family:var(--font-serif);font-size:11px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;line-height:1}
+.caption{font-size:11px;letter-spacing:0.02em;color:var(--muted-text)}
+.micro{font-size:12px;line-height:1.35}
+.hairline{border:0;border-top:1px solid var(--border);margin:var(--space-6) 0}
+.container{width:100%;max-width:var(--container-content);margin:0 auto;padding:var(--space-4) max(var(--space-4),var(--safe-left)) calc(var(--space-12) + var(--safe-bottom)) max(var(--space-4),var(--safe-right))}
+@media (min-width:768px){.container{padding-left:var(--space-6);padding-right:var(--space-6);padding-top:var(--space-6)}}
+.stack{display:flex;flex-direction:column;gap:var(--space-3)}
+.row{display:flex;align-items:center;gap:var(--space-3);flex-wrap:wrap}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);padding:calc(var(--space-3) + var(--safe-top)) var(--space-4) var(--space-3);border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:var(--z-sticky)}
+.icon{width:18px;height:18px;fill:currentColor;flex:none;vertical-align:-3px}
+.icon.sm{width:14px;height:14px;vertical-align:-2px}
+.btn{font-family:var(--font-ui);font-size:14px;font-weight:500;padding:var(--space-2) var(--space-4);border-radius:var(--radius-md);border:1px solid transparent;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:var(--space-2);min-height:36px}
+.btn:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{box-shadow:var(--shadow-hover);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{background:var(--surface-high);border-color:var(--accent)}
+.icon-btn{background:transparent;border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:var(--radius-md);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:var(--transition)}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent-text)}
+.icon-btn:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+@media (pointer:coarse){.btn,.icon-btn,.segmented button{min-height:44px}.icon-btn{min-width:44px}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-card)}
+.card p{color:var(--muted-text)}
+@media (max-width:640px){.card{padding:var(--space-4)}}
+.toast{position:fixed;bottom:calc(var(--space-6) + var(--safe-bottom));left:50%;transform:translateX(-50%);z-index:var(--z-toast);background:var(--surface-high);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-overlay);padding:var(--space-3) var(--space-4);font-size:13px;display:flex;align-items:center;gap:var(--space-3);max-width:calc(100% - 32px);animation:eds-rise var(--duration-slow) var(--ease-enter) both}
+.toast.ok{background:var(--success-dim);border-color:rgba(16,185,129,.35);color:var(--success-text)}
+.toast.warn{background:var(--warning-dim);border-color:rgba(251,191,36,.35);color:var(--warning-text)}
+.bar{height:4px;background:var(--surface-high);border-radius:var(--radius-full);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--accent);border-radius:var(--radius-full);transition:width var(--duration-base) var(--ease-standard)}
+.textarea{font-family:var(--font-ui);font-size:14px;color:var(--text);background:var(--surface-high);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);transition:var(--transition);width:100%;min-height:36px}
+@media (max-width:640px){.textarea{font-size:16px;min-height:44px}}
+.textarea:focus{outline:none;border-color:var(--accent);box-shadow:var(--focus-ring)}
+.textarea::placeholder{color:var(--muted-text)}
+.menu-wrap{position:relative;display:inline-block}
+.menu{position:absolute;right:0;top:calc(100% + 6px);min-width:230px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-overlay);padding:var(--space-2);z-index:var(--z-popover);animation:eds-scale var(--duration-base) var(--ease-enter) both}
+.menu[hidden]{display:none}
+.menu .menu-label{font-size:11px;color:var(--muted-text);padding:var(--space-1) var(--space-3);letter-spacing:0.02em}
+.menu .menu-item{display:flex;align-items:center;gap:var(--space-2);width:100%;text-align:left;background:none;border:none;color:var(--text);font-family:var(--font-ui);font-size:13px;padding:var(--space-2) var(--space-3);border-radius:var(--radius-md);cursor:pointer;transition:var(--transition);min-height:44px}
+.menu .menu-item:hover{background:var(--surface-high)}
+.menu .menu-item:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.menu .menu-sep{height:1px;background:var(--border);margin:var(--space-2) 0}
+.menu .about{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-3);color:var(--muted-text);font-size:11px}
+.menu .about .mark{display:inline-flex;height:14px;color:var(--text);opacity:.72}
+.menu .about .mark svg{height:14px;width:auto}
+.menu .about .v{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.segmented{display:inline-flex;background:var(--surface-high);border:1px solid var(--border);border-radius:var(--radius-md);padding:2px;gap:2px;margin:0 var(--space-3) var(--space-1)}
+.segmented button{background:none;border:none;color:var(--muted-text);font-family:var(--font-ui);font-size:12px;padding:4px 10px;border-radius:var(--radius-sm);cursor:pointer;transition:var(--transition)}
+.segmented button:hover{color:var(--text)}
+.segmented button.active{background:var(--surface);color:var(--text);box-shadow:var(--shadow-raised)}
+.segmented button:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.disclaimer{font-size:11px;color:var(--muted-text);border-top:1px solid var(--border);padding-top:var(--space-2);margin-top:var(--space-8)}
+.sig{position:fixed;left:calc(14px + var(--safe-left));bottom:calc(12px + var(--safe-bottom));height:18px;opacity:.72;pointer-events:none;z-index:var(--z-sig);color:var(--text)}
+.sig svg{height:100%;width:auto;display:block}
+details.acc{border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface)}
+details.acc summary{padding:var(--space-3) var(--space-4);cursor:pointer;font-weight:500;list-style:none;min-height:44px;display:flex;align-items:center;justify-content:space-between;gap:var(--space-3)}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+details.acc[open] summary{border-bottom:1px solid var(--border)}
+details.acc[open] summary .icon{transform:rotate(180deg)}
+details.acc .acc-body{padding:var(--space-3) var(--space-4);color:var(--muted-text)}
+@keyframes eds-rise{from{opacity:0;transform:translateY(8px)}}
+@keyframes eds-scale{from{opacity:0;transform:scale(.98)}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.btn-primary:hover{transform:none}}
+
+/* ── components from edb-brand.css not in the base subset ── */
+h3{font-size:20px;font-weight:500;line-height:1.3}
+.dense{font-size:13px;line-height:1.4}
+.pill{font-family:var(--font-serif);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;padding:3px 9px;border-radius:var(--radius-full);font-weight:400;display:inline-block}
+.pill-ocean{background:var(--accent-dim);color:var(--accent-text)}
+.pill-warning{background:var(--warning-dim);color:var(--warning-text)}
+.tabs{display:flex;gap:var(--space-1);border-bottom:1px solid var(--border);overflow-x:auto}
+.tab{padding:var(--space-2) var(--space-3);font-size:14px;color:var(--muted-text);cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:var(--transition);font-family:var(--font-ui);white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent-text);border-bottom-color:var(--accent)}
+.tab:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+@media (pointer:coarse){.tab{min-height:44px}}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.t{width:100%;border-collapse:collapse}
+table.t th{font-family:var(--font-serif);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted-text);font-weight:400;text-align:left;padding:8px 6px;border-bottom:1px solid var(--border)}
+table.t td{font-size:13px;padding:8px 6px;border-bottom:1px solid var(--border);vertical-align:top}
+table.t td.n,table.t th.n{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.input{font-family:var(--font-ui);font-size:14px;color:var(--text);background:var(--surface-high);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);transition:var(--transition);width:100%;min-height:36px}
+@media (max-width:640px){.input{font-size:16px;min-height:44px}}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:var(--focus-ring)}
+.input::placeholder{color:var(--muted-text)}
+.empty{text-align:center;padding:var(--space-12) var(--space-6);color:var(--muted-text)}
+.empty .tag{display:block;margin-bottom:var(--space-3)}
+.field{display:flex;flex-direction:column;gap:var(--space-1)}
+.field label{font-size:12px;color:var(--muted-text)}
+
+/* ── app-specific (tokens only) ── */
+.topbar .tag{color:var(--muted-text)}
+.topbar .left{display:flex;align-items:center;gap:var(--space-3);min-width:0}
+[hidden]{display:none!important}
+.hero{padding:var(--space-8) 0 var(--space-4)}
+.hero .tag{display:block;color:var(--muted-text);margin-bottom:var(--space-3)}
+.hero p{color:var(--muted-text);margin:var(--space-3) 0 0;max-width:56ch}
+.searchrow{position:relative;margin:var(--space-4) 0 var(--space-3)}
+.searchrow .icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted-text)}
+.searchrow .input{padding-left:38px}
+.segmented.flush{margin:0}
+.sys{margin-top:var(--space-8)}
+.sys>.tag{display:block;color:var(--muted-text);margin-bottom:var(--space-2)}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);width:100%;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);min-height:56px;color:var(--text);font-family:var(--font-ui);font-size:14px;cursor:pointer;transition:var(--transition);margin-bottom:var(--space-2);text-decoration:none}
+.prow:hover{border-color:var(--accent)}
+.prow:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.prow .nm{display:block;font-weight:500}
+.prow .mt{display:block;font-size:12px;color:var(--muted-text);margin-top:2px}
+.prow.soon{cursor:default;background:transparent;color:var(--muted-text)}
+.prow.soon:hover{border-color:var(--border)}
+.phead{padding:var(--space-6) 0 var(--space-4)}
+.phead .meta{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-3)}
+.phead .aim{color:var(--muted-text);font-size:16px;line-height:1.55;margin:var(--space-3) 0 0;max-width:56ch}
+.phead .status{font-size:11px;color:var(--muted-text);margin-top:var(--space-3);letter-spacing:0.02em}
+.tabs.sticky{position:sticky;top:var(--tabtop,59px);background:var(--bg);z-index:90;margin:0 calc(-1 * var(--space-4));padding:0 var(--space-4)}
+.pane{padding-top:var(--space-6)}
+.pane h3{margin:var(--space-8) 0 var(--space-3)}
+.pane h3:first-child{margin-top:0}
+.pane p{max-width:62ch}
+.pane p.lead{color:var(--muted-text);margin:0 0 var(--space-4)}
+.pane ul{margin:0;padding-left:18px}
+.pane li{margin:var(--space-2) 0;line-height:1.45;max-width:62ch}
+.step{display:flex;gap:var(--space-3);padding:var(--space-4) 0;border-bottom:1px solid var(--border)}
+.step:last-of-type{border-bottom:0}
+.step .no{flex:none;width:24px;font-size:13px;color:var(--muted-text);padding-top:2px}
+.step h4{margin-bottom:var(--space-1)}
+.step .how{margin:0}
+.step .why{margin:var(--space-2) 0 0;color:var(--muted-text);font-size:13px}
+.step .why b,.kv b{font-weight:600;color:var(--text)}
+.tip{display:flex;gap:var(--space-2);margin-top:var(--space-2);font-size:13px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-2) var(--space-3)}
+.tip .icon{color:var(--accent-text);margin-top:1px}
+.pit{border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);padding:var(--space-3) var(--space-4);margin-bottom:var(--space-2)}
+.pit h4{font-size:14px}
+.kv{margin:var(--space-2) 0 0;font-size:13px;color:var(--muted-text)}
+figure.dg{margin:0 0 var(--space-4);border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);padding:var(--space-3)}
+figure.dg svg{display:block;width:100%;height:auto;max-width:420px;margin:0 auto}
+figure.dg figcaption{font-size:12px;color:var(--muted-text);margin-top:var(--space-2);line-height:1.45}
+figure.dg text{font-family:var(--font-ui);font-size:11px;fill:var(--muted-text)}
+figure.dg text.b{fill:var(--text);font-weight:600}
+.notehd{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);margin:var(--space-6) 0 var(--space-2)}
+.notehd:first-of-type{margin-top:0}
+.notebox{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-3) var(--space-4);font-size:14px;line-height:1.6;-webkit-user-select:text;user-select:text}
+.notebox span.l{display:block}
+.notebox span.gap{display:block;height:var(--space-2)}
+.hl{background:var(--accent-dim);color:var(--accent-text);border-radius:var(--radius-sm);padding:0 3px}
+.sf{text-decoration:underline;text-decoration-style:dotted;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.legend{font-size:12px;color:var(--muted-text);margin:0 0 var(--space-4)}
+.btn.sm{min-height:32px;padding:var(--space-1) var(--space-3);font-size:13px}
+@media (pointer:coarse){.btn.sm{min-height:44px}}
+details.acc{margin-top:var(--space-2)}
+details.acc .acc-body ul{padding-left:18px;margin:0}
+details.acc .acc-body li{font-size:13px;margin:var(--space-1) 0}
+details.acc .acc-body a{text-decoration:underline}
+details.src{margin-top:var(--space-8)}
+details.src summary{font-weight:400;font-size:13px;color:var(--muted-text)}
+.qa summary{font-weight:500;line-height:1.4;padding-top:var(--space-3);padding-bottom:var(--space-3)}
+.debrief{margin-bottom:var(--space-4)}
+.debrief .tag{color:var(--muted-text);display:block;margin-bottom:var(--space-2)}
+.debrief dl{margin:0}
+.debrief dt{font-size:12px;color:var(--muted-text);margin-top:var(--space-2)}
+.debrief dd{margin:0;font-size:14px;white-space:pre-wrap}
+.dbform{display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-3)}
+.unc{font-size:11px;color:var(--warning-text);letter-spacing:0.02em;white-space:nowrap}
+details.stp{border-bottom:1px solid var(--border)}
+details.stp summary{display:flex;gap:var(--space-3);align-items:flex-start;padding:var(--space-4) 0;cursor:pointer;list-style:none;min-height:44px}
+details.stp summary::-webkit-details-marker{display:none}
+details.stp summary:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:var(--radius-sm)}
+details.stp summary>.icon{margin-top:5px;color:var(--muted-text);transition:transform var(--duration-base) var(--ease-standard)}
+details.stp[open] summary>.icon{transform:rotate(180deg)}
+details.stp .no{flex:none;width:24px;font-size:13px;color:var(--muted-text);padding-top:2px}
+details.stp .sb{flex:1;min-width:0}
+details.stp .st{display:block;font-size:16px;font-weight:600;line-height:1.3;margin-bottom:var(--space-1)}
+details.stp .how{display:block;line-height:1.45}
+details.stp .more{padding:0 var(--space-6) var(--space-4) 36px}
+details.stp .why{margin:0;color:var(--muted-text);font-size:13px}
+details.stp .why b{font-weight:600;color:var(--text)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<g id="edb-mark" fill="currentColor">
+<defs><mask id="edb-stem" maskUnits="userSpaceOnUse" x="-20" y="-20" width="700" height="260"><rect x="-20" y="-20" width="700" height="260" fill="#fff"/><rect x="-10" y="18" width="72" height="196" fill="#000"/></mask></defs>
+<g><g mask="url(#edb-stem)"><path transform="translate(0,190) scale(0.2,-0.2)" d="M726 214Q735 209 735 203Q735 199 732 193L638 -5Q634 -14 626 -14Q621 -14 617 -10L612 -5Q607 0 592 0L45 0Q30 0 30 15L30 45Q30 60 45 60L47 60Q119 60 119 155L119 594Q119 689 46 689L45 689Q30 689 30 704L30 734Q30 750 45 750L546 750Q559 750 565 755L571 760Q574 763 579 763Q587 763 592 755L671 619Q674 615 674 610Q674 603 666 598L626 576Q619 572 615 572Q608 572 603 581L600 586Q569 638 533.5 658.5Q498 679 440 679L278 679L278 444L366 444Q411 444 436 461Q461 478 461 511L461 518Q461 533 476 533L506 533Q521 533 521 518L521 291Q521 276 506 276L476 276Q461 276 461 291L461 297Q461 331 436.5 347.5Q412 364 366 364L278 364L278 166Q278 71 347 71L412 71Q486 71 532.5 85Q579 99 610.5 132Q642 165 670 221L673 227Q678 235 686 235Q691 235 694 233L726 214Z"/></g><path transform="translate(20,38)" fill-rule="evenodd" d="M46 2 L46 152 L10 152 L10 149 C12 147 14 144 14 138 L14 74 C14 70 12 68 10 62 C6 51 3 45 3 38 C3 20 12 1 46 2 Z M23 22 a4 4 0 0 1 8 0 v20 h-8 Z M20.5 42 h13 v7 a3 3 0 0 1 -3 3 h-7 a3 3 0 0 1 -3 -3 Z M28.7 78 h2.6 v60 h-2.6 Z"/></g><g transform="translate(155,0)"><path transform="translate(0,190) scale(0.2,-0.2)" d="M353 750Q473 750 563.5 705Q654 660 704.5 576Q755 492 755 376Q755 257 709 172.5Q663 88 579 44Q495 0 381 0L45 0Q30 0 30 15L30 45Q30 60 45 60L52 60Q85 60 102 85Q119 110 119 155L119 595Q119 690 46 690L45 690Q30 690 30 705L30 735Q30 750 45 750L353 750ZM278 150Q278 111 291 88Q304 65 352 65Q471 65 537 139Q603 213 603 376Q603 521 535 605.5Q467 690 325 690L278 690L278 150Z"/></g><g transform="translate(311,0)"><path transform="translate(0,190) scale(0.2,-0.2)" d="M367 750Q437 750 492.5 726Q548 702 581 661Q614 620 614 569Q614 526 588 490Q562 454 513 429Q591 407 635 351.5Q679 296 679 221Q679 156 645 106Q611 56 551 28Q491 0 412 0L45 0Q30 0 30 15L30 45Q30 60 45 60Q119 60 119 155L119 595Q119 690 45 690Q30 690 30 705L30 735Q30 750 45 750L367 750ZM335 448Q397 448 430.5 480Q464 512 464 569Q464 626 431 658Q398 690 339 690L278 690L278 448L335 448ZM369 60Q445 60 487 102.5Q529 145 529 221Q529 377 336 377L278 377L278 155Q278 109 295 84.5Q312 60 344 60L369 60Z"/></g>
+</g>
+<symbol id="ph-gear" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm88-29.84q.06-2.16,0-4.32l14.92-18.64a8,8,0,0,0,1.48-7.06,107.21,107.21,0,0,0-10.88-26.25,8,8,0,0,0-6-3.93l-23.72-2.64q-1.48-1.56-3-3L186,40.54a8,8,0,0,0-3.94-6,107.71,107.71,0,0,0-26.25-10.87,8,8,0,0,0-7.06,1.49L130.16,40Q128,40,125.84,40L107.2,25.11a8,8,0,0,0-7.06-1.48A107.6,107.6,0,0,0,73.89,34.51a8,8,0,0,0-3.93,6L67.32,64.27q-1.56,1.49-3,3L40.54,70a8,8,0,0,0-6,3.94,107.71,107.71,0,0,0-10.87,26.25,8,8,0,0,0,1.49,7.06L40,125.84Q40,128,40,130.16L25.11,148.8a8,8,0,0,0-1.48,7.06,107.21,107.21,0,0,0,10.88,26.25,8,8,0,0,0,6,3.93l23.72,2.64q1.49,1.56,3,3L70,215.46a8,8,0,0,0,3.94,6,107.71,107.71,0,0,0,26.25,10.87,8,8,0,0,0,7.06-1.49L125.84,216q2.16.06,4.32,0l18.64,14.92a8,8,0,0,0,7.06,1.48,107.21,107.21,0,0,0,26.25-10.88,8,8,0,0,0,3.93-6l2.64-23.72q1.56-1.48,3-3L215.46,186a8,8,0,0,0,6-3.94,107.71,107.71,0,0,0,10.87-26.25,8,8,0,0,0-1.49-7.06Zm-16.1-6.5a73.93,73.93,0,0,1,0,8.68,8,8,0,0,0,1.74,5.48l14.19,17.73a91.57,91.57,0,0,1-6.23,15L187,173.11a8,8,0,0,0-5.1,2.64,74.11,74.11,0,0,1-6.14,6.14,8,8,0,0,0-2.64,5.1l-2.51,22.58a91.32,91.32,0,0,1-15,6.23l-17.74-14.19a8,8,0,0,0-5-1.75h-.48a73.93,73.93,0,0,1-8.68,0,8,8,0,0,0-5.48,1.74L100.45,215.8a91.57,91.57,0,0,1-15-6.23L82.89,187a8,8,0,0,0-2.64-5.1,74.11,74.11,0,0,1-6.14-6.14,8,8,0,0,0-5.1-2.64L46.43,170.6a91.32,91.32,0,0,1-6.23-15l14.19-17.74a8,8,0,0,0,1.74-5.48,73.93,73.93,0,0,1,0-8.68,8,8,0,0,0-1.74-5.48L40.2,100.45a91.57,91.57,0,0,1,6.23-15L69,82.89a8,8,0,0,0,5.1-2.64,74.11,74.11,0,0,1,6.14-6.14A8,8,0,0,0,82.89,69L85.4,46.43a91.32,91.32,0,0,1,15-6.23l17.74,14.19a8,8,0,0,0,5.48,1.74,73.93,73.93,0,0,1,8.68,0,8,8,0,0,0,5.48-1.74L155.55,40.2a91.57,91.57,0,0,1,15,6.23L173.11,69a8,8,0,0,0,2.64,5.1,74.11,74.11,0,0,1,6.14,6.14,8,8,0,0,0,5.1,2.64l22.58,2.51a91.32,91.32,0,0,1,6.23,15l-14.19,17.74A8,8,0,0,0,199.87,123.66Z"/></symbol>
+<symbol id="ph-copy" viewBox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></symbol>
+<symbol id="ph-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="ph-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="ph-caret-right" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></symbol>
+<symbol id="ph-arrow-left" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"/></symbol>
+<symbol id="ph-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol>
+<symbol id="ph-lightbulb" viewBox="0 0 256 256"><path d="M176,232a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,232Zm40-128a87.55,87.55,0,0,1-33.64,69.21A16.24,16.24,0,0,0,176,186v6a16,16,0,0,1-16,16H96a16,16,0,0,1-16-16v-6a16,16,0,0,0-6.23-12.66A87.59,87.59,0,0,1,40,104.49C39.74,56.83,78.26,17.14,125.88,16A88,88,0,0,1,216,104Zm-16,0a72,72,0,0,0-73.74-72c-39,.92-70.47,33.39-70.26,72.39a71.65,71.65,0,0,0,27.64,56.3A32,32,0,0,1,96,186v6h64v-6a32.15,32.15,0,0,1,12.47-25.35A71.65,71.65,0,0,0,200,104Zm-16.11-9.34a57.6,57.6,0,0,0-46.56-46.55,8,8,0,0,0-2.66,15.78c16.57,2.79,30.63,16.85,33.44,33.45A8,8,0,0,0,176,104a9,9,0,0,0,1.35-.11A8,8,0,0,0,183.89,94.66Z"/></symbol>
+</defs></svg>
+
+<header class="topbar" id="topbar">
+  <div class="left">
+    <a class="icon-btn" id="back" href="#home" aria-label="Back to all procedures" hidden><svg class="icon" aria-hidden="true"><use href="#ph-arrow-left"/></svg></a>
+    <span class="tag">HST Atlas</span>
+  </div>
+  <div class="menu-wrap">
+    <button class="icon-btn" id="gear" aria-label="Settings" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#ph-gear"/></svg></button>
+    <div class="menu" id="menu" hidden>
+      <div class="menu-label">Theme</div>
+      <div class="segmented" role="group" aria-label="Theme"><button data-mode="system">System</button><button data-mode="light">Light</button><button data-mode="dark">Dark</button></div>
+      <div class="menu-sep"></div>
+      <div class="about"><span class="mark"><svg viewBox="20 35 434 158"><use href="#edb-mark"/></svg></span><span class="v">v2.0.0</span><span>© Ernest Tung</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="container" id="app"></main>
+
+<div class="sig" aria-label="EDB"><svg viewBox="20 35 434 158"><use href="#edb-mark"/></svg></div>
+
+<script>
+/* ── diagrams: original line drawings for this app ── */
+const DG = {
+ports:`<figure class="dg"><svg viewBox="0 0 340 280" role="img" aria-label="Theatre layout and port positions for laparoscopic appendicectomy">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<circle cx="170" cy="26" r="14"/><rect x="118" y="46" width="104" height="196" rx="30"/>
+<circle cx="170" cy="130" r="3"/>
+</g>
+<g fill="var(--accent-text)"><circle cx="170" cy="146" r="6"/><circle cx="203" cy="184" r="6"/><circle cx="170" cy="222" r="4.5"/></g>
+<g><text class="b" x="181" y="150">A</text><text class="b" x="213" y="188">B</text><text class="b" x="181" y="226">C</text></g>
+<g fill="var(--surface-high)" stroke="var(--border)" stroke-width="1"><rect x="244" y="64" width="84" height="30" rx="4"/><rect x="244" y="118" width="84" height="30" rx="4"/><rect x="12" y="170" width="84" height="30" rx="4"/></g>
+<text class="b" x="286" y="83" text-anchor="middle">Camera</text><text class="b" x="286" y="137" text-anchor="middle">Surgeon</text><text class="b" x="54" y="189" text-anchor="middle">Monitor</text>
+<text x="54" y="60" text-anchor="middle">Patient’s right</text><text x="286" y="48" text-anchor="middle">Patient’s left</text>
+<text x="170" y="266" text-anchor="middle">Head down, left side down. Left arm tucked.</text>
+</svg><figcaption><b>A</b> subumbilical 10 mm Hasson port, camera. <b>B</b> 10 mm left lower quadrant working port. <b>C</b> 5 mm suprapubic working port, in the midline above an empty bladder. Both operators stand on the patient’s left, facing a monitor at the right hip.</figcaption></figure>`,
+anat:`<figure class="dg"><svg viewBox="0 0 340 296" role="img" aria-label="Ileocaecal anatomy, anterior view, with positions of the appendix">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M110 8V170a40 40 0 0 0 80 0V8"/>
+<path d="M190 108C230 104 280 118 334 110"/><path d="M190 140C230 138 280 152 334 144"/>
+<path d="M150 8V160Q152 190 178 196" stroke-dasharray="1 4" stroke-linecap="round"/>
+</g>
+<path d="M181 196C205 208 218 236 210 268" fill="none" stroke="var(--text)" stroke-width="9" stroke-linecap="round"/>
+<path d="M181 196C205 208 218 236 210 268" fill="none" stroke="var(--surface)" stroke-width="6" stroke-linecap="round"/>
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round">
+<path d="M178 193C166 170 162 120 162 70"/><path d="M185 193C215 182 245 170 272 166"/>
+</g>
+<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
+<path d="M334 26C290 40 244 58 206 84"/>
+<path d="M236 66C234 82 232 96 230 107"/><path d="M229 112C226 122 224 132 222 141" stroke-dasharray="2 4"/><path d="M221 146C214 180 228 226 222 262"/>
+</g>
+<g fill="none" stroke="var(--muted-text)" stroke-width="1"><path d="M104 72H160"/><path d="M104 118H148"/></g>
+<text class="b" x="100" y="34" text-anchor="end">Ascending colon</text>
+<text x="100" y="76" text-anchor="end">Retrocaecal</text>
+<text x="100" y="122" text-anchor="end">Taenia, to the base</text>
+<text class="b" x="100" y="184" text-anchor="end">Caecum</text>
+<text class="b" x="250" y="134">Terminal ileum</text>
+<text x="196" y="26">Ileocolic artery</text>
+<text x="236" y="212">Appendicular artery,</text><text x="236" y="226">behind the ileum</text>
+<text x="252" y="186">Pre- or post-ileal</text>
+<text x="196" y="288" text-anchor="end">Pelvic</text>
+</svg><figcaption>Anterior view; the patient’s right is on your left. The three taeniae converge on the base, which is why following a taenia always finds the appendix. The artery reaches the mesoappendix from behind the terminal ileum. Dashed outlines show other positions of the tip.</figcaption></figure>`
+};
+
+/* ── procedures ── */
+const P = [{
+id:'lap-appendicectomy', name:'Laparoscopic appendicectomy', aka:'appendix appendectomy lap appen appendicitis rif',
+system:'Colorectal and small bowel', list:'emergency', approach:'Laparoscopic',
+aim:'Source control. Remove the appendix, clear the contamination, and miss nothing else in the right iliac fossa or pelvis.',
+status:'Draft 0.2 · 17/11/2026 · sourced, not yet tested by you in theatre',
+
+steps:[
+{t:'Checks and position', how:'WHO checklist. General anaesthesia, supine, left arm tucked. Bladder emptied. Antibiotic given within 60 minutes before incision. Pregnancy test result seen.', why:'The tucked left arm lets surgeon and camera stand together on the left. An empty bladder is out of the way of the low port.', tip:'Ask for the left arm to be tucked before the drapes go on. It is the request most often forgotten and the hardest to fix later.'},
+{t:'Access', how:'Subumbilical incision, linea alba split, peritoneum opened under vision. Hasson port. Carbon dioxide to 12 mmHg.', why:'Open entry puts the first port in under direct vision; nothing is passed blind.', tip:'Lift the umbilical stalk with a clip and cut down onto its base: the linea alba is thinnest and most reliably midline there.'},
+{t:'Working ports', how:'10 mm left lower quadrant and 5 mm suprapubic ports under laparoscopic vision.', why:'Two instruments from the left and from below meet over the right iliac fossa at a working angle, with the camera between them. The left port is 10 mm so the camera can move there later while the specimen leaves through the umbilicus.', tip:'Left port: transilluminate and stay lateral to the rectus edge, clear of the inferior epigastric vessels. Suprapubic port: midline, and watch the tip come through above the bladder.'},
+{t:'Tilt and survey', how:'Head down, left side down. Sweep omentum and small bowel out of the pelvis. Look at all four quadrants and the pelvis before touching the appendix.', why:'Gravity does the retraction, which matters with only two working hands. The survey is what makes laparoscopy better than a gridiron: other pathology is found now or not at all.'},
+{t:'Find the appendix', how:'Follow the anterior taenia of the caecum down to its base. Free omentum with blunt and sharp dissection.', why:'The three taeniae meet at the base in every patient, wherever the tip has gone.', tip:'Do not grasp the inflamed tip; it tears and spills. Hold the mesoappendix, or lasso the appendix with a loop and use the tail as a handle.'},
+{t:'Mesoappendix', how:'Open a window at the base. Divide the mesoappendix with diathermy, staying on the appendix, until the base is skeletonised all the way round.', why:'Staying close to the appendix keeps heat away from caecum and ileum. No device has been shown to be better than simple diathermy.', tip:'If the tip is buried, start at the base and work towards the tip (retrograde). The base is the only part you must see.'},
+{t:'Base', how:'Three PDS Endoloops: two on the stump, one on the specimen side. Divide between them. Leave a short stump and inspect it.', why:'Two on the stump for security; one on the specimen so the cut end does not spill. A long stump can inflame again years later.', tip:'Pass the grasper through the open loop first, then grasp the appendix and slide the loop down over it. Cut the tail at about 5 mm, not flush.'},
+{t:'Retrieve', how:'Appendix into an Endopouch and out through the subumbilical port.', why:'A bagged specimen never touches the wound.', tip:'Move the camera to the left 10 mm port and bring the bag out through the umbilicus under vision.'},
+{t:'Wash and drain', how:'House practice: irrigate with warm saline until clear, suck dry, drain through the suprapubic port site to the pelvis, anchored with 2-0 Nylon.', why:'See “House and evidence” below. The guideline position differs on both points.'},
+{t:'Close', how:'Ports out under vision. Fascia with 2-0 Vicryl at the 10 mm sites, skin with 3-0 Ethilon. Local anaesthetic to the wounds, dressing. Counts confirmed. Appendix to histology.', why:'Watching the ports come out is the only chance to see an abdominal wall bleeder. Every appendix goes to histology because the eye misses tumours.'}
+],
+house:[
+['Irrigation','Warm saline until clear','Suction alone. Irrigation adds no benefit and does not prevent abscess (WSES 4.8, strong).'],
+['Drain','Routine, to the pelvis','Recommended against in adults, even when perforated: no fewer abscesses, longer stay (WSES 4.12, strong).'],
+['Base','PDS Endoloops ×3','Agrees. Endoloops or polymeric clips; stapler only at discretion in complicated cases (WSES 4.10, strong).'],
+['Mesoappendix','Diathermy','Agrees. Monopolar or bipolar is the most cost-effective (WSES 4.9, weak).'],
+['Third port','Right lower quadrant','No guideline. Suprapubic is the usual description and triangulates better; this page uses it.']
+],
+
+anatomy:{
+points:[
+'Base: posteromedial wall of the caecum, about 2 cm below the ileocaecal valve, where the three taeniae converge. The base is constant; only the tip moves.',
+'Artery: the appendicular artery is a branch of the ileocolic. It passes behind the terminal ileum and runs in the free edge of the mesoappendix. It is an end artery, so thrombosis in appendicitis leads quickly to gangrene.',
+'Bloodless fold of Treves: the ileocaecal fold, from the antimesenteric border of the terminal ileum to the base. It carries no named vessel and tells you that you are at the ileocaecal junction.',
+'Pain: visceral afferents with the midgut (T10), hence periumbilical first; parietal irritation localises it later.'
+],
+positions:[['Retrocaecal','65.3%','Loin or flank tenderness, psoas sign, soft anterior abdomen'],['Pelvic','31.0%','Diarrhoea, urinary symptoms, obturator sign, tender on rectal examination'],['Subcaecal','2.3%',''],['Pre-ileal','1.0%',''],['Post-ileal','0.4%','Vomiting and diarrhoea, few peritoneal signs']],
+danger:[
+'Right ureter, gonadal vessels and iliac vessels: directly behind a retrocaecal or pelvic appendix. In a stuck retrocaecal dissection stay on the appendix, not on the retroperitoneum.',
+'Terminal ileum and caecal wall: thermal injury from diathermy on the mesoappendix. It declares itself days later as a leak.',
+'Inferior epigastric vessels: at the lateral edge of the rectus, at risk from the left lower quadrant port.',
+'Bladder: at risk from the suprapubic port if not emptied.'
+]
+},
+
+pitfalls:[
+{t:'Cannot find the appendix', a:'Follow the taenia. Divide the lateral peritoneal attachment of the caecum and roll it medially: a retrocaecal appendix lies behind it.', r:'Still not found after mobilising the caecum: stop and call.'},
+{t:'Friable or necrotic base', a:'An Endoloop on dead tissue cuts through.', r:'Caecum healthy: staple across a cuff of caecum, clear of the ileocaecal valve, or wedge it. Caecum unhealthy: this is an ileocaecal resection. Call.'},
+{t:'Long stump', a:'Skeletonise to the caecal wall before looping, so the loop sits at the true base.', r:'If the stump looks long, place another loop closer. Aim for under about 5 mm.', u:'weak evidence: case series'},
+{t:'Heat on the caecum or ileum', a:'Short bursts, on the appendix side, tissue lifted away from bowel.', r:'A blanched patch on bowel wall is oversewn now, not watched.'},
+{t:'Bleeding from the appendicular artery', a:'Divide the mesoappendix in small bites so the artery is sealed before it is cut.', r:'Grasp the bleeding point, then bipolar or clip. No blind diathermy towards the ileum. Not controlled promptly: call.'},
+{t:'Appendix looks normal', a:'Look for another cause: run the last metre of ileum for a Meckel’s and for terminal ileitis, mesenteric nodes, caecum and sigmoid, gallbladder and duodenum, and the pelvic organs.', r:'Nothing else found in a symptomatic patient: remove it (WSES 5.3, weak). The eye is unreliable for early inflammation.'},
+{t:'Crohn’s terminal ileitis', a:'Recognise it: fat wrapping, thickened mesentery, inflamed ileum with a normal appendix.', r:'Base and caecum healthy: appendicectomy is reasonable and prevents a later diagnostic dilemma. Base involved: leave it, fistula risk. Call before deciding.'},
+{t:'Mucocele or mass at the base', a:'A distended, pale, non-inflamed appendix is a mucocele until proven otherwise. Do not grasp it.', r:'It must come out intact and bagged; rupture seeds the peritoneum. A hard mass at the base or caecum is an oncological resection. Call.'},
+{t:'Dropped faecolith', a:'Loop before dividing, bag before moving.', r:'Find it and remove it. A retained faecolith becomes an abscess.'},
+{t:'Appendix mass or abscess found', a:'Suspect it before surgery with a long history and a palpable mass; scan first.', r:'Dense phlegmon with unsafe anatomy: drain, stop, antibiotics. Forcing it risks an ileocaecal resection. Call.'}
+],
+call:['Appendix not identified after mobilising the caecum','Base cannot be secured, or the caecal wall is involved','Mucocele, or any mass at the base or caecum','Bowel injury, or bleeding not controlled promptly','Unexpected pathology that needs a resection','You are thinking about converting','Pregnant patient, or any patient unstable on the table'],
+
+setup:{
+theatre:['Supine, left arm tucked, right arm out','Table able to tilt head down and left side down; patient secured for the tilt','Monitor at the patient’s right hip','Surgeon and camera holder on the left; scrub nurse beside or opposite'],
+kit:['Hasson port, one 10 mm and one 5 mm port','Laparoscope: check which size and angle your theatre stocks','Two atraumatic graspers, Maryland dissector, scissors, hook diathermy','Suction-irrigation','PDS Endoloops ×3 and an Endopouch','Tube drain and 2-0 Nylon if the consultant drains','2-0 Vicryl, 3-0 Ethilon, local anaesthetic'],
+standby:['Endoscopic linear stapler, for a base that will not take a loop','Clip applicator and bipolar forceps','Open set, in the room']
+},
+
+consent:{
+note:`Consent for laparoscopic appendicectomy, possible open
+Diagnosis and indication explained: [[acute appendicitis on clinical assessment and CT]]
+Nature of operation explained: keyhole removal of the appendix under general anaesthesia, possible conversion to open operation
+Alternative discussed: antibiotics alone, with about 4 in 10 needing appendicectomy within 5 years; [[patient opts for operation]]
+Benefits: removes the source of infection, prevents perforation and recurrence
+General risks: bleeding, wound infection, chest infection, deep vein thrombosis and pulmonary embolism, cardiac events
+Anaesthetic risks in brief: sore throat, nausea and vomiting, dental injury, allergic reaction, aspiration; anaesthetist to discuss in detail
+Specific risks: intra-abdominal collection or abscess, injury to bowel, bladder or blood vessels, conversion to open, leak from the stump, ileus, port-site hernia, adhesive bowel obstruction
+Appendix may be found normal, or other pathology found and treated
+Small chance of bowel resection or stoma in severe disease
+Histology may show a tumour needing further surgery
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Conversion to open','1.4–2.0%','Tampere cohort'],
+['Organ-space infection','1.4–3.5%','Tampere cohort'],
+['Any complication','3.0–6.1%','Tampere cohort'],
+['Any complication, complicated appendicitis','5.6–18%','Tampere cohort'],
+['Infective complication or death by 90 days, complex appendicitis','8–10%','APPIC'],
+['Appendicectomy within 5 years after antibiotics alone','39.1%','APPAC'],
+['Appendicectomy within 90 days after antibiotics alone','29%','CODA']
+],
+versus:'Against open surgery, laparoscopy roughly halves wound infection (odds ratio 0.42) but carries more intra-abdominal abscess (odds ratio 1.65), with about a day less in hospital (Cochrane 2018).'
+},
+
+notes:{
+findings:`[[Acutely inflamed appendix, pelvic in position, not perforated]]
+[[Base and caecum healthy]]
+[[Small volume of reactive free fluid in pelvis, no pus]]
+[[Terminal ileum normal, no Meckel's diverticulum]]
+[[Uterus, tubes and ovaries normal]]`,
+procedure:`Supine, general anaesthesia, skin prepped and draped
+Subumbilical incision, linea alba split, peritoneal cavity entered by {{open method}}
+Hasson trocar introduced, capnoperitoneum created at pressure [[12]] mmHg
+[[10 mm left lower quadrant and 5 mm suprapubic]] working ports inserted {{under laparoscopic guidance}}
+Diagnostic laparoscopy performed, findings as above
+Blunt and sharp dissection, appendix identified
+Mesoappendix dissected with [[diathermy]], appendix skeletonised
+Base of appendix controlled with [[PDS Endoloops x3]] then divided
+{{Stump secure, haemostasis ensured}}
+Appendix retrieved via subumbilical port within Endopouch
+[[Irrigation with warm normal saline till clear, peritoneal fluid sucked dry]]
+[[Drain inserted via suprapubic port to pelvis, anchored with 2-0 Nylon]]
+Ports removed {{under vision}}
+Fascia closed with [[2-0 Vicryl]], skin with [[3-0 Ethilon]]
+Local anaesthetic infiltration, dressing
+{{Swab, needle and instrument counts correct}}
+Appendix sent for histology`,
+decisions:[
+['No drain','No residual cavity or ongoing contamination, drain not placed'],
+['Drain','Drain placed to pelvis in view of [[purulent contamination]]'],
+['Suction only','Purulent fluid aspirated from pelvis and right paracolic gutter, no irrigation']
+],
+deviations:[
+['Conversion to open',`Dense adhesions around caecum, appendix unable to be dissected safely laparoscopically
+Decided to convert to open
+[[Lanz incision]], muscle split, peritoneal cavity entered
+Appendicectomy completed, base [[ligated with 2-0 Vicryl]]`],
+['Bleeding',`Bleeding from appendicular artery in mesoappendix
+Controlled with [[bipolar diathermy / clips]]
+Haemostasis rechecked at end of procedure, estimated blood loss [[__]] ml`],
+['Bowel or serosal injury',`[[Serosal tear over caecum, __ cm]], recognised intraoperatively
+Repaired with [[3-0 PDS interrupted]]
+Repair inspected, no leak`],
+['Appendix not identified',`Dissection at base of caecum
+Appendix unable to be identified
+Caecum mobilised along lateral peritoneal reflection
+Senior kindly scrubbed in`],
+['Base unsuitable for Endoloop',`Base of appendix friable, unsuitable for Endoloop
+Base taken with [[endoscopic linear stapler]] across cuff of healthy caecum
+Ileocaecal valve clear, staple line intact and haemostatic`],
+['Unexpected finding',`Appendix macroscopically normal
+[[Meckel's diverticulum / terminal ileitis / tubo-ovarian pathology]] found
+Discussed with [[senior]] intraoperatively
+[[Appendicectomy performed]]`],
+['Procedure not completed',`Appendix mass with dense phlegmon, anatomy unable to be defined safely
+Decided for drainage only
+Drain placed to [[right iliac fossa]]
+For antibiotics and interval imaging`],
+['Senior called',`Senior kindly scrubbed in at [[__:__]]
+[[Dr __]] continued as chief surgeon`]
+],
+postop:`DAT when fully conscious
+IVF until DAT well
+Analgesics regular and PRN
+[[No post-op Abx (uncomplicated appendicitis)]]
+[[BP/P Q1H x4 then Q4H if stable]]
+Early mobilisation, DVT prophylaxis as assessed
+[[Chart drain output, off drain when minimal and serous]]
+Inform if T > 38, P > 100 or increasing pain`,
+postopAlt:['Complicated appendicitis','[[IV Abx]], review at 48h, stop by D3 to D5 if source control adequate'],
+discharge:`Home when afebrile, DAT and pain controlled, [[D1]]
+Wound care advice given, [[STO D7 to D10]]
+SL [[__ days]]
+FU surgical clinic [[4 to 6 weeks]], trace histology
+To return if fever, increasing pain, vomiting or wound discharge`
+},
+
+viva:[
+['What is the blood supply of the appendix, and why does it matter?','The appendicular artery, from the ileocolic branch of the superior mesenteric, passing behind the terminal ileum into the free edge of the mesoappendix. It is an end artery: once it thromboses there is no collateral, so gangrene and perforation follow early. The gallbladder, by contrast, has collateral supply from the liver bed.'],
+['Where can the tip lie, and how does that change the presentation?','Wakeley’s series of 10,000: retrocaecal 65%, pelvic 31%, subcaecal 2%, pre-ileal 1%, post-ileal 0.4%. Retrocaecal gives loin tenderness and a psoas sign with a soft abdomen; pelvic gives diarrhoea, urinary symptoms and an obturator sign; post-ileal gives vomiting with few signs. Other series quote different proportions; the principle is that the base is fixed and the tip is not.'],
+['You find a normal-looking appendix at laparoscopy. What do you do?','Complete the survey first: terminal ileum for Meckel’s and Crohn’s, mesenteric nodes, caecum and sigmoid, gallbladder and duodenum, pelvic organs. If nothing else explains the symptoms, remove it: visual assessment of early appendicitis is unreliable (WSES 5.3, weak recommendation, low-quality evidence). Be ready to give the argument against as well: every operation carries risk.'],
+['What is the evidence for antibiotics instead of surgery?','APPAC: in CT-proven uncomplicated appendicitis, 39.1% of the antibiotic group had appendicectomy by 5 years. CODA: antibiotics were non-inferior at 30 days on quality of life, but 29% had appendicectomy by 90 days, and 41% of those with an appendicolith. So it is a reasonable option for uncomplicated disease without an appendicolith in an informed patient; appendicectomy remains definitive.'],
+['How do you manage an appendix mass or abscess?','Stable with a contained process: antibiotics, with percutaneous drainage of an abscess. Laparoscopic surgery is an alternative where expertise exists, with a low threshold to convert (WSES 6.1 and 6.2). Routine interval appendicectomy is not recommended under 40; offer it for recurrent symptoms. At 40 or over, colonoscopy and interval CT, because 3–17% of complicated cases in that age group hide a neoplasm (WSES 6.3 and 6.4).'],
+['Your consultant drains and irrigates. What does the evidence say?','In adults with complicated appendicitis, drains do not reduce abscess and lengthen stay, and irrigation offers nothing over suction alone (WSES 4.12 and 4.8, both strong). Post-operative antibiotics for complicated disease need not exceed 3 to 5 days, and APPIC found 2 days non-inferior to 5, at the cost of more readmissions (12% against 6%). Say what the evidence shows, then do it the way the consultant does it.'],
+['Histology shows a 1.5 cm neuroendocrine tumour. What next?','Under 1 cm with clear margins: appendicectomy is enough. Over 2 cm: right hemicolectomy is conventionally offered. Between 1 and 2 cm the decision turns on risk features (mesoappendiceal invasion, involved base or margin, lymphovascular invasion, higher grade) and is made at the multidisciplinary meeting; recent cohort data question whether hemicolectomy improves survival in this group.','guidance shifting: check current ENETS']
+],
+
+sources:{
+steps:[
+'House technique: senior’s CMS personal template “Lap Appen” (YO Templates, transcribed 17/11/2026).',
+'<a href="https://doi.org/10.1186/s13017-020-00306-3">Di Saverio et al. WSES Jerusalem guidelines, 2020 update. World J Emerg Surg 15:27</a>: statements 3.1, 3.2, 4.8–4.12, 5.1, 7.1.',
+'Zollinger’s Atlas of Surgical Operations, 10th edition, chapter 49, pages 166–169 (handling the tip, loop as a handle).',
+'Farquharson’s Textbook of Operative General Surgery, 9th edition, chapter 21, pages 379–383.',
+'Tips marked with a lamp are craft points from standard teaching and the texts above. Treat them as unverified until you have tried them.'],
+anatomy:[
+'Wakeley CPG. The position of the vermiform appendix as ascertained by an analysis of 10,000 cases. J Anat 1933;67:277–283.',
+'Senior notes: Billy notes, Anatomy (colorectal); Derek notes, Appendicitis.',
+'Farquharson’s, 9th edition, chapter 21.'],
+pitfalls:[
+'<a href="https://doi.org/10.1186/s13017-020-00306-3">WSES Jerusalem guidelines 2020</a>: statements 5.3, 6.1, 6.2.',
+'Senior notes: Billy notes, colorectal (friable base, wedge of caecum; Crohn’s found at operation); Derek notes, Appendicitis.',
+'Stump length: case-series evidence only; no trial defines a safe length.'],
+setup:[
+'Theatre layout and the umbilical, left lower quadrant and suprapubic ports: <a href="https://doi.org/10.1007/978-3-319-91164-9_31">operative chapter on laparoscopic appendectomy, Springer</a>.',
+'The senior’s CMS template “Lap Appen” puts the third port in the right lower quadrant. No trial result found that favours either position.'],
+consent:[
+'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10449719">Tampere University Hospital cohort, 1,560 appendicectomies, 2014–2017</a>. Ranges are the two surgeon groups reported.',
+'de Wijkerslooth et al. APPIC: 2 days versus 5 days of post-operative antibiotics for complex appendicitis. Lancet 2023;401:366–376.',
+'<a href="https://doi.org/10.1002/14651858.CD001546.pub4">Jaschinski et al. Laparoscopic versus open surgery for suspected appendicitis. Cochrane 2018</a>.',
+'Salminen et al. APPAC five-year follow-up. JAMA 2018;320:1259–1265.',
+'CODA Collaborative. N Engl J Med 2020;383:1907–1919.',
+'Figures are European and American. Replace with your unit’s own when you have them.'],
+notes:[
+'Wording follows the senior’s CMS personal templates. The operation record is spelt out; the orders use common HA short forms.',
+'<a href="https://doi.org/10.1186/s13017-020-00306-3">WSES Jerusalem guidelines 2020</a>: statements 7.1, 7.2 (post-operative antibiotics).'],
+viva:[
+'<a href="https://doi.org/10.1186/s13017-020-00306-3">WSES Jerusalem guidelines 2020</a>.',
+'Wakeley 1933; APPAC (JAMA 2018); CODA (N Engl J Med 2020); APPIC (Lancet 2023).',
+'Neuroendocrine tumour thresholds: ENETS guidance; senior notes (Billy notes, colorectal).']
+}
+}];
+
+const SOON = [
+['Laparoscopic cholecystectomy','Hepatobiliary','elective'],
+['Open inguinal hernia repair','Hernia','elective'],
+['Hemithyroidectomy','Endocrine','elective']
+];
+
+/* ── helpers ── */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ic=(n,c='')=>`<svg class="icon ${c}" aria-hidden="true"><use href="#ph-${n}"/></svg>`;
+const ul=a=>`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`;
+const num=s=>esc(s).replace(/(\d[\d.,–]*%?)/g,'<span class="mono">$1</span>');
+const noteHTML=t=>t.split('\n').map(l=>l.trim()===''?'<span class="gap"></span>':`<span class="l">${esc(l).replace(/\[\[(.+?)\]\]/g,'<span class="hl">$1</span>').replace(/\{\{(.+?)\}\}/g,'<span class="sf">$1</span>')}</span>`).join('');
+const noteText=t=>t.replace(/\[\[|\]\]|\{\{|\}\}/g,'');
+const srcs=a=>a&&a.length?`<details class="acc src"><summary><span>Sources (<span class="mono">${a.length}</span>)</span>${ic('caret-down','sm')}</summary><div class="acc-body"><ul>${a.map(x=>`<li>${x}</li>`).join('')}</ul></div></details>`:'';
+const NOTES={};
+function noteBlock(title,text,bare){const k='n'+Object.keys(NOTES).length;NOTES[k]=noteText(text);return `<div class="notehd"${bare?' style="margin-top:0"':''}>${bare?'<span class="caption">Replacement lines</span>':`<h4>${esc(title)}</h4>`}<button class="btn btn-ghost sm" data-copy="${k}">${ic('copy','sm')}Copy</button></div><div class="notebox">${noteHTML(text)}</div>`;}
+const store={get(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ── state ── */
+let filter='all', query='', tab='steps';
+const TABS=[['steps','Steps'],['anatomy','Anatomy'],['pitfalls','Pitfalls'],['setup','Set-up'],['consent','Consent'],['notes','Post-op note'],['viva','Viva']];
+
+/* ── home ── */
+function home(){
+  $('#back').hidden=true; document.title='HST Atlas — EDB';
+  $('#app').innerHTML=`<div class="hero"><span class="tag">General surgery · Hong Kong</span><h1>Operative atlas</h1><p>Read it before the case. Write the note from it afterwards.</p></div>
+  <div class="searchrow">${ic('magnifying-glass')}<input class="input" id="q" type="search" placeholder="Search a procedure" aria-label="Search a procedure" value="${esc(query)}"></div>
+  <div class="segmented flush" role="group" aria-label="List">${[['all','All'],['emergency','Emergency'],['elective','Elective']].map(([k,l])=>`<button data-list="${k}" class="${filter===k?'active':''}" aria-pressed="${filter===k}">${l}</button>`).join('')}</div>
+  <div id="list"></div>`;
+  $('#q').addEventListener('input',e=>{query=e.target.value;list();});
+  $$('[data-list]').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.list;$$('[data-list]').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});list();}));
+  list();
+}
+function list(){
+  const q=query.trim().toLowerCase();
+  const hit=(name,aka,l)=>(filter==='all'||l===filter)&&(!q||(name+' '+(aka||'')).toLowerCase().includes(q));
+  const ready=P.filter(p=>hit(p.name,p.aka,p.list)), soon=SOON.filter(s=>hit(s[0],'',s[2]));
+  let h='';
+  const bySys={}; ready.forEach(p=>(bySys[p.system]=bySys[p.system]||[]).push(p));
+  Object.keys(bySys).forEach(s=>{h+=`<div class="sys"><span class="tag">${esc(s)}</span>${bySys[s].map(p=>`<a class="prow" href="#${p.id}"><span><span class="nm">${esc(p.name)}</span><span class="mt">${p.list==='emergency'?'Emergency':'Elective'} · ${esc(p.approach)}</span></span>${ic('caret-right')}</a>`).join('')}</div>`;});
+  if(soon.length) h+=`<div class="sys"><span class="tag">Batch one · in preparation</span>${soon.map(s=>`<div class="prow soon"><span><span class="nm">${esc(s[0])}</span><span class="mt">${esc(s[1])} · ${s[2]==='emergency'?'Emergency':'Elective'}</span></span></div>`).join('')}</div>`;
+  if(!ready.length&&!soon.length) h=`<div class="empty"><span class="tag">Nothing here yet</span>No procedure matches. Clear the search or switch list.</div>`;
+  else if(!ready.length&&filter==='elective'&&!q) h=`<div class="empty" style="padding-bottom:0"><span class="tag">No elective pages yet</span>The first three arrive with batch one.</div>`+h;
+  $('#list').innerHTML=h;
+}
+
+/* ── procedure ── */
+function panes(p){
+  const s=p.sources||{};
+  const steps=`<p class="lead">Tap a step for the reason and the time-saver.</p>
+  ${p.steps.map((x,i)=>`<details class="stp"><summary><span class="no mono">${String(i+1).padStart(2,'0')}</span><span class="sb"><span class="st">${esc(x.t)}</span><span class="how">${esc(x.how)}</span></span>${ic('caret-down','sm')}</summary><div class="more"><p class="why"><b>Why.</b> ${esc(x.why)}</p>${x.tip?`<div class="tip">${ic('lightbulb')}<span>${esc(x.tip)}</span></div>`:''}</div></details>`).join('')}
+  <details class="acc" style="margin-top:var(--space-6)"><summary>House and evidence${ic('caret-down','sm')}</summary><div class="acc-body"><p style="margin:0 0 var(--space-2)">Do it the consultant’s way. Know what the guideline says when asked.</p><div class="table-wrap"><table class="t"><thead><tr><th>Step</th><th>House</th><th>Guideline</th></tr></thead><tbody>${p.house.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${num(r[2])}</td></tr>`).join('')}</tbody></table></div></div></details>${srcs(s.steps)}`;
+  const a=p.anatomy;
+  const anatomy=`${DG.anat}<h3>What matters</h3>${ul(a.points)}
+  <h3>Where the tip lies</h3><div class="table-wrap"><table class="t"><thead><tr><th>Position</th><th class="n">Share</th><th>Presentation</th></tr></thead><tbody>${a.positions.map(r=>`<tr><td>${esc(r[0])}</td><td class="n">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>
+  <h3>Danger zones</h3>${ul(a.danger)}${srcs(s.anatomy)}`;
+  const pitfalls=`<p class="lead">Each one: how to avoid it, then what to do when it has already happened.</p>
+  ${p.pitfalls.map(x=>`<div class="pit"><h4>${esc(x.t)}${x.u?` <span class="unc">· ${esc(x.u)}</span>`:''}</h4><p class="kv"><b>Avoid.</b> ${esc(x.a)}</p><p class="kv"><b>Rescue.</b> ${num(x.r)}</p></div>`).join('')}
+  <h3>Stop and call</h3><p class="lead">In the note this reads “senior kindly scrubbed in”. In theatre it reads as judgement.</p>${ul(p.call)}${srcs(s.pitfalls)}`;
+  const u=p.setup;
+  const setup=`${DG.ports}<h3>Theatre</h3>${ul(u.theatre)}<h3>Ask for</h3>${ul(u.kit)}<h3>Have in the room</h3>${ul(u.standby)}${srcs(s.setup)}`;
+  const c=p.consent;
+  const consent=`<p class="legend"><span class="hl">Shaded</span> text changes with the patient. Type it into CMS as the record of what you discussed.</p>${noteBlock('Consent discussion',c.note)}
+  <h3>Figures to quote</h3><div class="table-wrap"><table class="t"><thead><tr><th>Risk</th><th class="n">Rate</th><th>Source</th></tr></thead><tbody>${c.figures.map(r=>`<tr><td>${esc(r[0])}</td><td class="n">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div><p class="kv">${num(c.versus)}</p>${srcs(s.consent)}`;
+  const n=p.notes;
+  const notes=`<p class="legend"><span class="hl">Shaded</span>: amend to the case. <span class="sf">Dotted underline</span>: a safety claim, true only if you did it.</p>
+  ${noteBlock('Findings',n.findings)}${noteBlock('Procedure record',n.procedure)}
+  <h3>Decision lines</h3><p class="lead">Swap one in where you made the choice.</p>${n.decisions.map(d=>noteBlock(d[0],d[1])).join('')}
+  <h3>When it did not go to plan</h3><p class="lead">Replace the matching lines of the record. What happened, what you did, who came.</p>${n.deviations.map(d=>`<details class="acc"><summary>${esc(d[0])}${ic('caret-down','sm')}</summary><div class="acc-body" style="color:var(--text)">${noteBlock(d[0],d[1],true)}</div></details>`).join('')}
+  <h3>Orders</h3>${noteBlock('Post-op orders',n.postop)}${n.postopAlt?noteBlock(n.postopAlt[0],n.postopAlt[1]):''}${noteBlock('Discharge and follow-up',n.discharge)}${srcs(s.notes)}`;
+  const viva=`<p class="lead">What a senior asks across the table, and an examiner asks across a desk. Answer aloud before you open one.</p>${p.viva.map(v=>`<details class="acc qa"><summary>${esc(v[0])}${ic('caret-down','sm')}</summary><div class="acc-body">${num(v[1])}${v[2]?` <span class="unc">· ${esc(v[2])}</span>`:''}</div></details>`).join('')}${srcs(s.viva)}`;
+  return {steps,anatomy,pitfalls,setup,consent,notes,viva};
+}
+let cur=null;
+function proc(p){
+  cur=p; $('#back').hidden=false; document.title=p.name+' — HST Atlas';
+  for(const k in NOTES) delete NOTES[k];
+  const pn=panes(p);
+  $('#app').innerHTML=`<div class="phead"><div class="meta"><span class="pill ${p.list==='emergency'?'pill-warning':'pill-ocean'}">${p.list==='emergency'?'Emergency':'Elective'}</span><span class="pill pill-ocean">${esc(p.approach)}</span></div><h1>${esc(p.name)}</h1><p class="aim">${esc(p.aim)}</p><p class="status">${num(p.status)}</p></div>
+  <div class="tabs sticky" role="tablist" aria-label="Sections">${TABS.map(([k,l])=>`<button class="tab" role="tab" id="t-${k}" data-tab="${k}" aria-controls="p-${k}">${l}</button>`).join('')}</div>
+  ${TABS.map(([k])=>`<div class="pane" role="tabpanel" id="p-${k}" aria-labelledby="t-${k}" hidden>${pn[k]}</div>`).join('')}
+  <p class="disclaimer">Decision support only — verify against local protocols. No patient-identifiable data.</p>`;
+  setTab(tab,false);
+  $$('.tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab,true)));
+}
+function setTab(k,scroll){
+  tab=k;
+  $$('.tab').forEach(b=>{const on=b.dataset.tab===k;b.classList.toggle('active',on);b.setAttribute('aria-selected',on);if(on&&b.scrollIntoView)b.scrollIntoView({inline:'center',block:'nearest'});});
+  $$('.pane').forEach(x=>x.hidden=x.id!=='p-'+k);
+  if(scroll){const t=$('.tabs.sticky'),top=t.getBoundingClientRect().top+window.scrollY-$('#topbar').offsetHeight;if(window.scrollY>top)window.scrollTo(0,top);}
+}
+
+/* ── copy, toast ── */
+let tt;
+function toast(msg,kind){$$('.toast').forEach(x=>x.remove());const el=document.createElement('div');el.className='toast '+(kind||'');el.setAttribute('role','status');el.textContent=msg;document.body.appendChild(el);clearTimeout(tt);tt=setTimeout(()=>el.remove(),3500);}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy]'); if(!b) return;
+  const text=NOTES[b.dataset.copy]||'', fail=()=>toast('Copy was blocked here. Press and hold the text to select it.','warn');
+  try{ if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(()=>toast('Copied without the markers.','ok'),fail); else fail(); }catch(err){ fail(); }
+});
+
+/* ── router ── */
+function route(){
+  const id=(location.hash||'').replace('#','');
+  const p=P.find(x=>x.id===id);
+  if(p){ proc(p); } else { home(); }
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',()=>{tab='steps';route();});
+function fit(){document.documentElement.style.setProperty('--tabtop',$('#topbar').offsetHeight+'px');}
+window.addEventListener('resize',fit);
+
+/* ── settings menu and theme ── */
+const gear=$('#gear'), menu=$('#menu');
+function setMenu(o){menu.hidden=!o;gear.setAttribute('aria-expanded',String(o));}
+gear.addEventListener('click',e=>{e.stopPropagation();setMenu(menu.hidden);});
+document.addEventListener('click',e=>{if(!menu.hidden&&!menu.contains(e.target))setMenu(false);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){setMenu(false);gear.focus();}});
+function mode(){const t=document.documentElement.getAttribute('data-theme');return t==='light'||t==='dark'?t:'system';}
+function paintMode(){const m=mode();$$('.menu .segmented button').forEach(b=>{const on=b.dataset.mode===m;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});}
+$$('.menu .segmented button').forEach(b=>b.addEventListener('click',()=>{const m=b.dataset.mode;if(m==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',m);try{localStorage.setItem('edb-theme',m)}catch(e){}paintMode();}));
+paintMode(); fit(); route();
+</script>
+</body>
+</html>
