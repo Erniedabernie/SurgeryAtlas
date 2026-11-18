@@ -265,54 +265,12 @@ details.stp .why b{font-weight:600;color:var(--text)}
 <div class="sig" aria-label="EDB"><svg viewBox="20 35 434 158"><use href="#edb-mark"/></svg></div>
 
 <script>
-/* ── diagrams: original line drawings for this app ── */
-const DG = {
-ports:`<figure class="dg"><svg viewBox="0 0 340 280" role="img" aria-label="Theatre layout and port positions for laparoscopic appendicectomy">
-<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
-<circle cx="170" cy="26" r="14"/><rect x="118" y="46" width="104" height="196" rx="30"/>
-<circle cx="170" cy="130" r="3"/>
-</g>
-<g fill="var(--accent-text)"><circle cx="170" cy="146" r="6"/><circle cx="203" cy="184" r="6"/><circle cx="170" cy="222" r="4.5"/></g>
-<g><text class="b" x="181" y="150">A</text><text class="b" x="213" y="188">B</text><text class="b" x="181" y="226">C</text></g>
-<g fill="var(--surface-high)" stroke="var(--border)" stroke-width="1"><rect x="244" y="64" width="84" height="30" rx="4"/><rect x="244" y="118" width="84" height="30" rx="4"/><rect x="12" y="170" width="84" height="30" rx="4"/></g>
-<text class="b" x="286" y="83" text-anchor="middle">Camera</text><text class="b" x="286" y="137" text-anchor="middle">Surgeon</text><text class="b" x="54" y="189" text-anchor="middle">Monitor</text>
-<text x="54" y="60" text-anchor="middle">Patient’s right</text><text x="286" y="48" text-anchor="middle">Patient’s left</text>
-<text x="170" y="266" text-anchor="middle">Head down, left side down. Left arm tucked.</text>
-</svg><figcaption><b>A</b> subumbilical 10 mm Hasson port, camera. <b>B</b> 10 mm left lower quadrant working port. <b>C</b> 5 mm suprapubic working port, in the midline above an empty bladder. Both operators stand on the patient’s left, facing a monitor at the right hip.</figcaption></figure>`,
-anat:`<figure class="dg"><svg viewBox="0 0 340 296" role="img" aria-label="Ileocaecal anatomy, anterior view, with positions of the appendix">
-<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
-<path d="M110 8V170a40 40 0 0 0 80 0V8"/>
-<path d="M190 108C230 104 280 118 334 110"/><path d="M190 140C230 138 280 152 334 144"/>
-<path d="M150 8V160Q152 190 178 196" stroke-dasharray="1 4" stroke-linecap="round"/>
-</g>
-<path d="M181 196C205 208 218 236 210 268" fill="none" stroke="var(--text)" stroke-width="9" stroke-linecap="round"/>
-<path d="M181 196C205 208 218 236 210 268" fill="none" stroke="var(--surface)" stroke-width="6" stroke-linecap="round"/>
-<g fill="none" stroke="var(--muted-text)" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round">
-<path d="M178 193C166 170 162 120 162 70"/><path d="M185 193C215 182 245 170 272 166"/>
-</g>
-<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
-<path d="M334 26C290 40 244 58 206 84"/>
-<path d="M236 66C234 82 232 96 230 107"/><path d="M229 112C226 122 224 132 222 141" stroke-dasharray="2 4"/><path d="M221 146C214 180 228 226 222 262"/>
-</g>
-<g fill="none" stroke="var(--muted-text)" stroke-width="1"><path d="M104 72H160"/><path d="M104 118H148"/></g>
-<text class="b" x="100" y="34" text-anchor="end">Ascending colon</text>
-<text x="100" y="76" text-anchor="end">Retrocaecal</text>
-<text x="100" y="122" text-anchor="end">Taenia, to the base</text>
-<text class="b" x="100" y="184" text-anchor="end">Caecum</text>
-<text class="b" x="250" y="134">Terminal ileum</text>
-<text x="196" y="26">Ileocolic artery</text>
-<text x="236" y="212">Appendicular artery,</text><text x="236" y="226">behind the ileum</text>
-<text x="252" y="186">Pre- or post-ileal</text>
-<text x="196" y="288" text-anchor="end">Pelvic</text>
-</svg><figcaption>Anterior view; the patient’s right is on your left. The three taeniae converge on the base, which is why following a taenia always finds the appendix. The artery reaches the mesoappendix from behind the terminal ileum. Dashed outlines show other positions of the tip.</figcaption></figure>`
-};
-
-/* ── procedures ── */
-const P = [{
+const P = [];
+P.push({
 id:'lap-appendicectomy', name:'Laparoscopic appendicectomy', aka:'appendix appendectomy lap appen appendicitis rif',
 system:'Colorectal and small bowel', list:'emergency', approach:'Laparoscopic',
 aim:'Source control. Remove the appendix, clear the contamination, and miss nothing else in the right iliac fossa or pelvis.',
-status:'Draft 0.2 · 17/11/2026 · sourced, not yet tested by you in theatre',
+status:'Draft 0.3 · 17/11/2026 · sourced, not yet tested by you in theatre',
 
 steps:[
 {t:'Checks and position', how:'WHO checklist. General anaesthesia, supine, left arm tucked. Bladder emptied. Antibiotic given within 60 minutes before incision. Pregnancy test result seen.', why:'The tucked left arm lets surgeon and camera stand together on the left. An empty bladder is out of the way of the low port.', tip:'Ask for the left arm to be tucked before the drapes go on. It is the request most often forgotten and the hardest to fix later.'},
@@ -322,7 +280,7 @@ steps:[
 {t:'Find the appendix', how:'Follow the anterior taenia of the caecum down to its base. Free omentum with blunt and sharp dissection.', why:'The three taeniae meet at the base in every patient, wherever the tip has gone.', tip:'Do not grasp the inflamed tip; it tears and spills. Hold the mesoappendix, or lasso the appendix with a loop and use the tail as a handle.'},
 {t:'Mesoappendix', how:'Open a window at the base. Divide the mesoappendix with diathermy, staying on the appendix, until the base is skeletonised all the way round.', why:'Staying close to the appendix keeps heat away from caecum and ileum. No device has been shown to be better than simple diathermy.', tip:'If the tip is buried, start at the base and work towards the tip (retrograde). The base is the only part you must see.'},
 {t:'Base', how:'Three PDS Endoloops: two on the stump, one on the specimen side. Divide between them. Leave a short stump and inspect it.', why:'Two on the stump for security; one on the specimen so the cut end does not spill. A long stump can inflame again years later.', tip:'Pass the grasper through the open loop first, then grasp the appendix and slide the loop down over it. Cut the tail at about 5 mm, not flush.'},
-{t:'Retrieve', how:'Appendix into an Endopouch and out through the subumbilical port.', why:'A bagged specimen never touches the wound.', tip:'Move the camera to the left 10 mm port and bring the bag out through the umbilicus under vision.'},
+{t:'Retrieve', how:'Appendix into an Endopouch and out through the subumbilical port. Cut it open on the back table and look at the lumen and mucosa.', why:'A bagged specimen never touches the wound. Opening it tells you today, not in two weeks, whether there is a faecolith, a mucocele or a tumour at the base.', tip:'Move the camera to the left 10 mm port and bring the bag out through the umbilicus under vision.'},
 {t:'Wash and drain', how:'House practice: irrigate with warm saline until clear, suck dry, drain through the suprapubic port site to the pelvis, anchored with 2-0 Nylon.', why:'See “House and evidence” below. The guideline position differs on both points.'},
 {t:'Close', how:'Ports out under vision. Fascia with 2-0 Vicryl at the 10 mm sites, skin with 3-0 Ethilon. Local anaesthetic to the wounds, dressing. Counts confirmed. Appendix to histology.', why:'Watching the ports come out is the only chance to see an abdominal wall bleeder. Every appendix goes to histology because the eye misses tumours.'}
 ],
@@ -341,7 +299,7 @@ points:[
 'Bloodless fold of Treves: the ileocaecal fold, from the antimesenteric border of the terminal ileum to the base. It carries no named vessel and tells you that you are at the ileocaecal junction.',
 'Pain: visceral afferents with the midgut (T10), hence periumbilical first; parietal irritation localises it later.'
 ],
-positions:[['Retrocaecal','65.3%','Loin or flank tenderness, psoas sign, soft anterior abdomen'],['Pelvic','31.0%','Diarrhoea, urinary symptoms, obturator sign, tender on rectal examination'],['Subcaecal','2.3%',''],['Pre-ileal','1.0%',''],['Post-ileal','0.4%','Vomiting and diarrhoea, few peritoneal signs']],
+table:{title:'Where the tip lies', head:['Position','Share','Presentation'], num:1, rows:[['Retrocaecal','65.3%','Loin or flank tenderness, psoas sign, soft anterior abdomen'],['Pelvic','31.0%','Diarrhoea, urinary symptoms, obturator sign, tender on rectal examination'],['Subcaecal','2.3%',''],['Pre-ileal','1.0%',''],['Post-ileal','0.4%','Vomiting and diarrhoea, few peritoneal signs']]},
 danger:[
 'Right ureter, gonadal vessels and iliac vessels: directly behind a retrocaecal or pelvic appendix. In a stuck retrocaecal dissection stay on the appendix, not on the retroperitoneum.',
 'Terminal ileum and caecal wall: thermal injury from diathermy on the mesoappendix. It declares itself days later as a leak.',
@@ -402,7 +360,8 @@ findings:`[[Acutely inflamed appendix, pelvic in position, not perforated]]
 [[Base and caecum healthy]]
 [[Small volume of reactive free fluid in pelvis, no pus]]
 [[Terminal ileum normal, no Meckel's diverticulum]]
-[[Uterus, tubes and ovaries normal]]`,
+[[Uterus, tubes and ovaries normal]]
+[[Specimen cut open: faecolith within, no mucosal lesion]]`,
 procedure:`Supine, general anaesthesia, skin prepped and draped
 Subumbilical incision, linea alba split, peritoneal cavity entered by {{open method}}
 Hasson trocar introduced, capnoperitoneum created at pressure [[12]] mmHg
@@ -413,6 +372,7 @@ Mesoappendix dissected with [[diathermy]], appendix skeletonised
 Base of appendix controlled with [[PDS Endoloops x3]] then divided
 {{Stump secure, haemostasis ensured}}
 Appendix retrieved via subumbilical port within Endopouch
+Specimen cut open, findings as above
 [[Irrigation with warm normal saline till clear, peritoneal fluid sucked dry]]
 [[Drain inserted via suprapubic port to pelvis, anchored with 2-0 Nylon]]
 Ports removed {{under vision}}
@@ -462,7 +422,6 @@ Analgesics regular and PRN
 Early mobilisation, DVT prophylaxis as assessed
 [[Chart drain output, off drain when minimal and serous]]
 Inform if T > 38, P > 100 or increasing pain`,
-postopAlt:['Complicated appendicitis','[[IV Abx]], review at 48h, stop by D3 to D5 if source control adequate'],
 discharge:`Home when afebrile, DAT and pain controlled, [[D1]]
 Wound care advice given, [[STO D7 to D10]]
 SL [[__ days]]
@@ -507,19 +466,1433 @@ consent:[
 'Figures are European and American. Replace with your unit’s own when you have them.'],
 notes:[
 'Wording follows the senior’s CMS personal templates. The operation record is spelt out; the orders use common HA short forms.',
-'<a href="https://doi.org/10.1186/s13017-020-00306-3">WSES Jerusalem guidelines 2020</a>: statements 7.1, 7.2 (post-operative antibiotics).'],
+'<a href="https://doi.org/10.1186/s13017-020-00306-3">WSES Jerusalem guidelines 2020</a>: statement 7.1 (no post-operative antibiotics after uncomplicated appendicitis).'],
 viva:[
 '<a href="https://doi.org/10.1186/s13017-020-00306-3">WSES Jerusalem guidelines 2020</a>.',
 'Wakeley 1933; APPAC (JAMA 2018); CODA (N Engl J Med 2020); APPIC (Lancet 2023).',
 'Neuroendocrine tumour thresholds: ENETS guidance; senior notes (Billy notes, colorectal).']
-}
-}];
+},
+dg:{setup:`<figure class="dg"><svg viewBox="0 0 340 280" role="img" aria-label="Theatre layout and port positions for laparoscopic appendicectomy">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<circle cx="170" cy="26" r="14"/><rect x="118" y="46" width="104" height="196" rx="30"/>
+<circle cx="170" cy="130" r="3"/>
+</g>
+<g fill="var(--accent-text)"><circle cx="170" cy="146" r="6"/><circle cx="203" cy="184" r="6"/><circle cx="170" cy="222" r="4.5"/></g>
+<g><text class="b" x="181" y="150">A</text><text class="b" x="213" y="188">B</text><text class="b" x="181" y="226">C</text></g>
+<g fill="var(--surface-high)" stroke="var(--border)" stroke-width="1"><rect x="244" y="64" width="84" height="30" rx="4"/><rect x="244" y="118" width="84" height="30" rx="4"/><rect x="12" y="170" width="84" height="30" rx="4"/></g>
+<text class="b" x="286" y="83" text-anchor="middle">Camera</text><text class="b" x="286" y="137" text-anchor="middle">Surgeon</text><text class="b" x="54" y="189" text-anchor="middle">Monitor</text>
+<text x="54" y="60" text-anchor="middle">Patient’s right</text><text x="286" y="48" text-anchor="middle">Patient’s left</text>
+<text x="170" y="266" text-anchor="middle">Head down, left side down. Left arm tucked.</text>
+</svg><figcaption><b>A</b> subumbilical 10 mm Hasson port, camera. <b>B</b> 10 mm left lower quadrant working port. <b>C</b> 5 mm suprapubic working port, in the midline above an empty bladder. Both operators stand on the patient’s left, facing a monitor at the right hip.</figcaption></figure>`,
+anat:`<figure class="dg"><svg viewBox="0 0 340 296" role="img" aria-label="Ileocaecal anatomy, anterior view, with positions of the appendix">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M110 8V170a40 40 0 0 0 80 0V8"/>
+<path d="M190 108C230 104 280 118 334 110"/><path d="M190 140C230 138 280 152 334 144"/>
+<path d="M150 8V160Q152 190 178 196" stroke-dasharray="1 4" stroke-linecap="round"/>
+</g>
+<path d="M181 196C205 208 218 236 210 268" fill="none" stroke="var(--text)" stroke-width="9" stroke-linecap="round"/>
+<path d="M181 196C205 208 218 236 210 268" fill="none" stroke="var(--surface)" stroke-width="6" stroke-linecap="round"/>
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round">
+<path d="M178 193C166 170 162 120 162 70"/><path d="M185 193C215 182 245 170 272 166"/>
+</g>
+<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
+<path d="M334 26C290 40 244 58 206 84"/>
+<path d="M236 66C234 82 232 96 230 107"/><path d="M229 112C226 122 224 132 222 141" stroke-dasharray="2 4"/><path d="M221 146C214 180 228 226 222 262"/>
+</g>
+<g fill="none" stroke="var(--muted-text)" stroke-width="1"><path d="M104 72H160"/><path d="M104 118H148"/></g>
+<text class="b" x="100" y="34" text-anchor="end">Ascending colon</text>
+<text x="100" y="76" text-anchor="end">Retrocaecal</text>
+<text x="100" y="122" text-anchor="end">Taenia, to the base</text>
+<text class="b" x="100" y="184" text-anchor="end">Caecum</text>
+<text class="b" x="250" y="134">Terminal ileum</text>
+<text x="196" y="26">Ileocolic artery</text>
+<text x="236" y="212">Appendicular artery,</text><text x="236" y="226">behind the ileum</text>
+<text x="252" y="186">Pre- or post-ileal</text>
+<text x="196" y="288" text-anchor="end">Pelvic</text>
+</svg><figcaption>Anterior view; the patient’s right is on your left. The three taeniae converge on the base, which is why following a taenia always finds the appendix. The artery reaches the mesoappendix from behind the terminal ileum. Dashed outlines show other positions of the tip.</figcaption></figure>`}
+});
 
-const SOON = [
-['Laparoscopic cholecystectomy','Hepatobiliary','elective'],
-['Open inguinal hernia repair','Hernia','elective'],
-['Hemithyroidectomy','Endocrine','elective']
-];
+P.push({
+id:'lap-cholecystectomy', name:'Laparoscopic cholecystectomy', aka:'chole lap chole gallbladder gallstones cholecystitis calot',
+system:'Hepatobiliary', list:'both', approach:'Laparoscopic',
+aim:'Remove the gallbladder without touching the bile duct. Every step exists to prove which two structures you are about to divide.',
+status:'Draft 0.1 · 17/11/2026 · sourced, not yet tested by you in theatre',
+
+steps:[
+{t:'Checks and position', how:'WHO checklist. General anaesthesia, supine, left arm tucked. Liver function and duct diameter on imaging reviewed.', why:'A dilated duct or deranged liver function means stones may be in the duct, and the plan changes before you start. The tucked arm leaves room for an image intensifier if a cholangiogram is needed.'},
+{t:'Access', how:'Subumbilical incision, linea alba split, peritoneum opened under vision. Hasson port. Carbon dioxide to 12 mmHg.', why:'Open entry puts the first port in under direct vision.'},
+{t:'Working ports', how:'10 mm epigastric port and two 5 mm right subcostal ports under laparoscopic vision.', why:'The epigastric port is the operating hand; the subcostal ports hold the fundus and Hartmann’s pouch.', tip:'Bring the epigastric port in to the right of the falciform ligament, aimed at the gallbladder neck, so the instrument does not fight the ligament for the whole case.'},
+{t:'Exposure', how:'Head up, left side down. Fundus pushed up over the liver towards the right shoulder. Hartmann’s pouch pulled out to the right and down.', why:'Pulling the pouch laterally opens the triangle and swings the cystic duct away from the common duct. Pulling it upwards alone lines the two ducts up, which is how the common duct gets mistaken for the cystic duct.'},
+{t:'Landmarks before dissection', how:'Find Rouvière’s sulcus and the base of segment IV. All dissection stays above that level, on the gallbladder.', why:'The sulcus marks the plane of the bile duct. Looking for it first fixes the safe zone before inflammation distorts your sense of where you are.', tip:'Say it aloud to the assistant: “sulcus is there, we stay above it”. It costs five seconds and anchors everyone.'},
+{t:'Open the peritoneum', how:'Anterior and posterior peritoneal coverings of the gallbladder opened, high on the gallbladder, on both sides of the neck.', why:'The posterior leaf is the one that hides the anatomy. Opening both lets the neck unfold.', tip:'With dense adhesions at the triangle, join the front and the back at the gallbladder bed early, then follow that line down towards the neck.'},
+{t:'Critical view of safety', how:'Triangle cleared of fat and fibrous tissue. Lower third of the gallbladder lifted off the liver bed. Two structures, and only two, entering the gallbladder. Seen from the front and from behind.', why:'It is identification by exclusion: when nothing else is left, the two that remain can only be the cystic duct and artery.', tip:'Stop and say “critical view” before the clip applicator comes in. A deliberate pause is recommended practice, and it is the last moment an error is free.'},
+{t:'Clip and divide', how:'Cystic artery skeletonised, metal clips ×3, divided. Cystic duct skeletonised, Hem-o-lok clips ×3, divided.', why:'Artery first lets the duct lengthen and straighten. A locking clip on the duct cannot slip.', tip:'A duct too wide for a clip takes an Endoloop. Milk any stone in the cystic duct back into the gallbladder before clipping.'},
+{t:'Off the liver bed', how:'Gallbladder dissected from the liver bed with hook diathermy in the areolar plane, keeping traction.', why:'Too deep enters liver and the small ducts of the bed; too shallow opens the gallbladder.', tip:'Before the last attachment is divided, use the gallbladder as a handle to lift the liver and check the bed and the clips.'},
+{t:'Wash and check', how:'Irrigation with warm saline, sucked dry. Haemostasis, clips and liver bed inspected. No bile.', why:'Bile on a clean swab at this point has a source, and it has to be found before leaving.'},
+{t:'Retrieve and open', how:'Gallbladder into an Endopouch and out through the subumbilical port. Cut it open on the back table: stones, mucosa, any thickening.', why:'An unsuspected polyp or tumour is seen today, and the findings are complete.'},
+{t:'Close', how:'Ports out under vision. Fascia with 2-0 Vicryl at the 10 mm sites, skin with 3-0 Ethilon. Local anaesthetic, dressing. Counts confirmed. Gallbladder to histology.', why:'Watching the ports come out is the only chance to see an abdominal wall bleeder.'}
+],
+house:[
+['Critical view','Achieved before clipping','Agrees. Use it to identify duct and artery (multi-society 2020, expert opinion).'],
+['Pause before clipping','Not in the template','A momentary pause to confirm the view is suggested as best practice (expert opinion).'],
+['Cholangiogram','Not routine','Liberal use in acute cholecystitis (conditional). Use biliary imaging whenever anatomy is uncertain or injury suspected (strong).'],
+['View not achievable','Not in the template','Subtotal cholecystectomy is preferred over a fundus-first total cholecystectomy (expert opinion).'],
+['Timing in acute cholecystitis','Unit dependent','Within 72 hours of symptom onset for mild disease (conditional).']
+],
+
+anatomy:{
+points:[
+'Hepatocystic triangle: cystic duct below, common hepatic duct medially, liver above. It holds the cystic artery, the cystic node, and sometimes the right hepatic artery or an aberrant duct.',
+'Cystic artery: from the right hepatic artery, usually inside the triangle. It often splits into anterior and posterior branches; clip only the anterior one and the posterior one bleeds from behind.',
+'Cystic node (Lund’s node): lies on the artery. Dissect on the gallbladder side of it.',
+'Rouvière’s sulcus: a cleft on the liver to the right of the hilum carrying the right posterior pedicle. It is present in most patients and marks the level of the common duct.',
+'Liver bed: the cystic plate. Small subvesical ducts (ducts of Luschka) run in it and leak if the plane is too deep.',
+'Variants that cause injury: a short or absent cystic duct, a cystic duct joining the right hepatic duct, an aberrant right posterior duct entering low, and a right hepatic artery looping up into the triangle.'
+],
+table:{title:'Bile duct injury: Strasberg', head:['Type','What it is'], rows:[
+['A','Leak from the cystic duct stump or a small duct in the liver bed'],
+['B','Aberrant right sectoral duct occluded'],
+['C','Aberrant right sectoral duct divided and leaking'],
+['D','Lateral injury to the main duct'],
+['E1','Main duct divided more than 2 cm below the confluence'],
+['E2','Divided less than 2 cm below the confluence'],
+['E3','At the confluence, right and left ducts still communicate'],
+['E4','Confluence destroyed, right and left ducts separated'],
+['E5','Main duct injury together with an aberrant right sectoral duct']
+]},
+danger:[
+'Common bile duct and common hepatic duct: mistaken for the cystic duct when traction lines them up. The classic injury clips the common duct, divides the hepatic duct and takes the right hepatic artery with it.',
+'Right hepatic artery: can bulge into the triangle and be taken for the cystic artery. A “cystic artery” that looks too large probably is not.',
+'Duodenum and colon: adherent to an inflamed gallbladder, at risk from diathermy.',
+'Middle hepatic vein tributaries: just under the liver bed; a plane that is too deep bleeds from them.'
+]
+},
+
+pitfalls:[
+{t:'Common duct mistaken for the cystic duct', a:'Lateral traction on Hartmann’s pouch. Critical view from front and back. Nothing clipped until only two structures remain.', r:'If you suspect it: stop. Do not explore and do not repair. Cholangiogram if available, drain, call. Confirmed or suspected injury goes to a hepatobiliary team (strong recommendation).'},
+{t:'Critical view cannot be achieved', a:'Recognise the frozen triangle early: dense fibrosis and no progress.', r:'Stop dissecting in the triangle. Options, in order: cholangiogram to define anatomy, subtotal cholecystectomy, conversion, or drainage alone. Call before choosing.'},
+{t:'Bleeding in the triangle', a:'Skeletonise the artery before clipping and look for a posterior branch.', r:'Press with the gallbladder neck or a swab and wait. Then one precise clip under vision. No blind clips or diathermy here: the bile duct and right hepatic artery are behind the blood.'},
+{t:'Bile in the field', a:'Gentle traction; stay in the areolar plane on the liver bed.', r:'Find the source: a hole in the gallbladder, the cystic stump, a duct in the bed, or the main duct. Unexplained bile is a duct injury until proven otherwise: cholangiogram, drain, call.'},
+{t:'Perforated gallbladder and spilled stones', a:'Grasp the fundus firmly once, not repeatedly. Bag before extraction.', r:'Close the hole with a grasper or loop. Retrieve every stone you can see, irrigate, and record it. Retained stones present late as abscesses.'},
+{t:'Cystic duct too wide or too short for a clip', a:'Clear enough length before applying anything.', r:'Endoloop or stapler. If there is no safe length at all, treat it as a subtotal.'},
+{t:'Bleeding from the liver bed', a:'Stay in the plane; keep traction so the plane shows itself.', r:'Pressure with a swab, then spray diathermy or a haemostatic agent. Brisk venous bleeding is a hepatic vein tributary: pack and call.'},
+{t:'Heat near duodenum or colon', a:'Cold or blunt dissection where bowel is adherent to the gallbladder.', r:'A blanched patch on bowel is oversewn now.'},
+{t:'Looks like cancer', a:'Suspect it with a hard mass, an irregular thick wall, or a polyp over 1 cm on imaging.', r:'Do not breach the gallbladder. Stop and call: the operation changes.'},
+{t:'Unexpected duct stones', a:'Read the liver function and duct diameter before you start.', r:'Wide cystic duct or small stones milked from it: cholangiogram if available, and plan clearance with the senior.'}
+],
+call:['Critical view not achieved after a fair attempt','Bile seen and the source not found','Bleeding in the triangle not controlled by pressure','A structure divided that you cannot name','Suspected cancer','You are thinking about converting, or about a subtotal','Bowel injury'],
+
+setup:{
+theatre:['Supine, left arm tucked, on a table that will take an image intensifier','Head up, left side down once the ports are in','Monitor at the patient’s right shoulder','Surgeon and camera holder on the left; assistant on the right holding the fundus'],
+kit:['Hasson port, 10 mm epigastric port, two 5 mm ports','Laparoscope: check which size and angle your theatre stocks','Two graspers (one locking, for the fundus), Maryland dissector, scissors, hook diathermy','Clip applicator with metal clips; Hem-o-lok applicator and clips','Suction-irrigation, Endopouch','2-0 Vicryl, 3-0 Ethilon, local anaesthetic'],
+standby:['Cholangiogram catheter, contrast and image intensifier','Endoloops','Tube drain','Open set, in the room']
+},
+
+consent:{
+note:`Consent for laparoscopic cholecystectomy, possible open
+Diagnosis and indication explained: [[symptomatic gallstones with biliary colic]]
+Nature of operation explained: keyhole removal of the gallbladder under general anaesthesia, possible conversion to open operation
+Alternative discussed: conservative management, with risk of recurrent pain, cholecystitis, jaundice or pancreatitis; [[patient opts for operation]]
+Benefits: relief of biliary symptoms, prevention of gallstone complications
+General risks: bleeding, wound infection, chest infection, deep vein thrombosis and pulmonary embolism, cardiac events
+Anaesthetic risks in brief: sore throat, nausea and vomiting, dental injury, allergic reaction, aspiration; anaesthetist to discuss in detail
+Specific risks: bile duct injury which may need major reconstructive surgery, bile leak, injury to bowel or blood vessels, conversion to open, retained stone in bile duct needing ERCP, port-site hernia
+Possible subtotal cholecystectomy or drain if anatomy unsafe
+Persistent symptoms or loose stools in a minority after operation
+Histology may show unexpected tumour needing further treatment
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Conversion to open','3.4%','CholeS, 8,820 patients'],
+['Any complication within 30 days','10.8%','CholeS'],
+['Readmission within 30 days','7.1%','CholeS'],
+['Complications, easiest to hardest operative grade','7.6% to 24.4%','CholeS, Nassar scale'],
+['Bile duct injury','0.1–0.5%','Senior notes, unverified today']
+],
+versus:'Risk of conversion rises with age, male sex, cholecystitis or duct stones as the indication, higher ASA grade, a thick-walled gallbladder and a dilated duct. Quote the higher end to those patients.'
+},
+
+notes:{
+findings:`[[Gallbladder distended, not acutely inflamed, multiple stones]]
+[[No adhesions at Calot's triangle]]
+[[Cystic duct and common bile duct not dilated]]
+[[Liver normal in appearance]]
+[[Specimen cut open: multiple stones, no mucosal lesion]]`,
+procedure:`Supine, general anaesthesia, skin prepped and draped
+Subumbilical incision, linea alba split, peritoneal cavity entered by {{open method}}
+Hasson trocar introduced, capnoperitoneum created at pressure [[12]] mmHg
+Findings as above
+[[10 mm epigastric working port and 5 mm right subcostal working ports x2]] inserted {{under laparoscopic guidance}}
+Anterior and posterior peritoneal coverings of gallbladder opened
+Calot's triangle dissected, {{critical view of safety achieved}}
+Cystic artery skeletonised, controlled with [[metal clips x3]] then divided
+Cystic duct skeletonised, controlled with [[Hem-o-lok clips x3]] then divided
+Gallbladder dissected out from liver bed
+[[Irrigation with warm normal saline, peritoneal fluid sucked dry]]
+{{Haemostasis ensured, no bile leak}}
+Specimen retrieved via subumbilical port within Endopouch
+Specimen cut open, findings as above
+Ports removed {{under vision}}
+Fascia closed with [[2-0 Vicryl]], skin with [[3-0 Ethilon]]
+Local anaesthetic infiltration, dressing
+{{Swab, needle and instrument counts correct}}
+Gallbladder sent for histology`,
+decisions:[
+['No drain','Liver bed dry, no bile, drain not placed'],
+['Drain','Drain placed to subhepatic space in view of [[oozing from gallbladder bed]]'],
+['No cholangiogram','Intraoperative cholangiogram not performed: anatomy clear, ducts not dilated, liver function normal'],
+['Cholangiogram','Intraoperative cholangiogram performed via cystic duct: [[normal biliary anatomy, no filling defect, free flow into duodenum]]']
+],
+deviations:[
+['Conversion to open',`Dense adhesions at Calot's triangle, anatomy unable to be defined safely laparoscopically
+Decided to convert to open
+[[Right subcostal incision]], peritoneal cavity entered
+Cholecystectomy completed, cystic duct and artery ligated with [[2-0 Vicryl]]`],
+['Critical view not achieved, subtotal',`Dense fibrosis at Calot's triangle, critical view of safety unable to be achieved
+Decided for subtotal cholecystectomy
+Gallbladder opened, stones removed
+Anterior wall excised, posterior wall left on liver bed, mucosa cauterised
+Cystic duct orifice [[closed from within with 3-0 PDS]]
+Drain placed to subhepatic space`],
+['Bleeding',`Bleeding from [[posterior branch of cystic artery]]
+Controlled with pressure then [[metal clip under vision]]
+Haemostasis rechecked at end of procedure, estimated blood loss [[__]] ml`],
+['Gallbladder perforated',`Gallbladder perforated during dissection, bile and [[__]] stones spilled
+All visible stones retrieved
+Copious irrigation with warm normal saline`],
+['Bile seen',`Bile seen at [[liver bed]]
+Senior kindly scrubbed in
+[[Intraoperative cholangiogram performed]]
+Drain placed to subhepatic space`],
+['Bowel or serosal injury',`[[Serosal tear over duodenum, __ cm]], recognised intraoperatively
+Repaired with [[3-0 PDS interrupted]]
+Repair inspected, no leak`],
+['Unexpected finding',`[[Thickened gallbladder wall with firm mass at fundus]]
+Discussed with [[senior]] intraoperatively
+[[Procedure stopped, gallbladder not breached]]`],
+['Senior called',`Senior kindly scrubbed in at [[__:__]]
+[[Dr __]] continued as chief surgeon`]
+],
+postop:`DAT when fully conscious
+IVF until DAT well
+Analgesics regular and PRN
+[[BP/P Q1H x4 then Q4H if stable]]
+Early mobilisation, DVT prophylaxis as assessed
+[[Chart drain output, inform if bile-stained]]
+Inform if T > 38, P > 100, increasing pain or jaundice`,
+discharge:`Home when DAT and pain controlled, [[D0 to D1]]
+Wound care advice given, [[STO D7 to D10]]
+SL [[__ days]]
+FU surgical clinic [[4 to 6 weeks]], trace histology
+To return if fever, increasing pain, jaundice or vomiting`
+},
+
+viva:[
+['Define the critical view of safety.','Three criteria, all required. The hepatocystic triangle is cleared of fat and fibrous tissue. The lower third of the gallbladder is separated from the cystic plate. Two structures, and only two, are seen entering the gallbladder. It is a method of identification, not of dissection, and it should be confirmed from the front and the back before anything is clipped.'],
+['You cannot achieve it. What are your options?','Stop dissecting in the triangle. Define the anatomy another way with a cholangiogram; perform a subtotal cholecystectomy, which the multi-society guideline prefers over a fundus-first total; convert to open, accepting that conversion alone has not been shown to prevent injury; or drain and come back. Call for a second surgeon early: the guideline suggests a low threshold.'],
+['What is Rouvière’s sulcus and why do you look for it?','A cleft on the under-surface of the right liver, to the right of the hilum, containing the right posterior pedicle. It lies at the level of the common duct, so a line from it to the base of segment IV marks the floor of the safe zone. Dissection stays above it.'],
+['Classify bile duct injury.','Strasberg A to E. A: leak from the cystic stump or a duct in the bed. B and C: an aberrant right sectoral duct, occluded or leaking. D: lateral injury to the main duct. E1 to E5: division of the main duct by level, following Bismuth, from more than 2 cm below the confluence to involvement of the confluence itself.'],
+['When should acute cholecystitis be operated on?','For mild disease, within 72 hours of symptom onset (conditional recommendation, very low certainty). Early surgery gives a shorter stay and avoids readmission with recurrent attacks, with similar conversion and complication rates to interval surgery. Late presenters are cooled down and done at about six weeks; the unfit get antibiotics, with cholecystostomy if they fail.'],
+['You recognise a bile duct injury during the operation. What now?','Stop. Do not attempt a repair unless a hepatobiliary surgeon is doing it. Define the injury with a cholangiogram if that is possible without more dissection, place a subhepatic drain, and refer promptly to a hepatobiliary unit: that is a strong recommendation. Tell the patient and document exactly what was seen.'],
+['Day three: pain, fever, bile in the drain.','A bile leak until proven otherwise. Resuscitate, antibiotics, liver function tests, ultrasound or CT for a collection and drain it. Then define the leak: most are from the cystic stump or a duct in the bed (Strasberg A) and settle with ERCP, sphincterotomy and a stent. A main duct injury goes to a hepatobiliary unit.']
+],
+
+sources:{
+steps:[
+'House technique: senior’s CMS personal template “Lap Chole” (YO Templates).',
+'<a href="https://sages.org/publications/guidelines/safe-cholecystectomy-multi-society-practice-guideline">Brunt et al. Safe cholecystectomy multi-society practice guideline. Ann Surg 2020</a>.',
+'Senior notes: Billy notes, hepatobiliary (Rouvière’s sulcus; joining front and back at the gallbladder bed).',
+'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
+anatomy:[
+'Strasberg SM, Hertl M, Soper NJ. An analysis of the problem of biliary injury during laparoscopic cholecystectomy. J Am Coll Surg 1995;180:101–125.',
+'Senior notes: Billy notes, hepatobiliary and anatomy.'],
+pitfalls:[
+'<a href="https://sages.org/publications/guidelines/safe-cholecystectomy-multi-society-practice-guideline">Multi-society guideline 2020</a>: subtotal cholecystectomy, biliary imaging, second surgeon, referral of injuries.',
+'Senior notes: Billy notes, hepatobiliary (the six SAGES safe cholecystectomy strategies).'],
+setup:[
+'Port positions: senior’s CMS template “Lap Chole”.',
+'Left arm tucked for cholangiography: Majumder, Altieri, Brunt. How do I do it: laparoscopic cholecystectomy. Ann Laparosc Endosc Surg 2020.'],
+consent:[
+'<a href="https://pure.ul.ie/en/publications/population-based-cohort-study-of-outcomes-following-cholecystecto/">CholeS Study Group. Population-based cohort study of outcomes following cholecystectomy. Br J Surg 2016;103:1704–1715</a>.',
+'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5094477">Sutcliffe et al. Preoperative risk factors for conversion. HPB 2016;18:922–928</a>.',
+'Griffiths et al. Utilisation of an operative difficulty grading scale. Surg Endosc 2019.',
+'Bile duct injury range: Billy notes, hepatobiliary. Not re-verified against a primary source today.'],
+notes:[
+'Wording follows the senior’s CMS personal template “Lap Chole”. The operation record is spelt out; the orders use common HA short forms.'],
+viva:[
+'<a href="https://sages.org/publications/guidelines/safe-cholecystectomy-multi-society-practice-guideline">Multi-society guideline 2020</a>.',
+'Strasberg 1995; senior notes (Billy notes, hepatobiliary) for timing and management of acute cholecystitis.']
+},
+
+dg:{
+setup:`<figure class="dg"><svg viewBox="0 0 340 280" role="img" aria-label="Theatre layout and port positions for laparoscopic cholecystectomy">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5"><circle cx="170" cy="26" r="14"/><rect x="118" y="46" width="104" height="196" rx="30"/><circle cx="170" cy="150" r="3"/></g>
+<g fill="var(--accent-text)"><circle cx="170" cy="166" r="6"/><circle cx="164" cy="92" r="6"/><circle cx="144" cy="108" r="4.5"/><circle cx="130" cy="130" r="4.5"/></g>
+<text class="b" x="181" y="170">A</text><text class="b" x="175" y="96">B</text><text class="b" x="151" y="122">C</text><text class="b" x="137" y="144">D</text>
+<g fill="var(--surface-high)" stroke="var(--border)" stroke-width="1"><rect x="244" y="96" width="84" height="30" rx="4"/><rect x="244" y="150" width="84" height="30" rx="4"/><rect x="12" y="56" width="84" height="30" rx="4"/><rect x="12" y="150" width="84" height="30" rx="4"/></g>
+<text class="b" x="286" y="115" text-anchor="middle">Surgeon</text><text class="b" x="286" y="169" text-anchor="middle">Camera</text><text class="b" x="54" y="75" text-anchor="middle">Monitor</text><text class="b" x="54" y="169" text-anchor="middle">Assistant</text>
+<text x="54" y="44" text-anchor="middle">Patient’s right</text><text x="286" y="84" text-anchor="middle">Patient’s left</text>
+<text x="170" y="266" text-anchor="middle">Head up, left side down. Left arm tucked.</text>
+</svg><figcaption><b>A</b> subumbilical 10 mm Hasson port, camera. <b>B</b> 10 mm epigastric working port, to the right of the falciform ligament. <b>C</b> 5 mm right subcostal port for Hartmann’s pouch. <b>D</b> 5 mm right subcostal port for the fundus.</figcaption></figure>`,
+anat:`<figure class="dg"><svg viewBox="0 0 340 290" role="img" aria-label="Critical view of safety: two structures entering the gallbladder">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M0 62C80 22 230 20 340 66"/>
+<path d="M74 42C40 60 58 132 116 166C132 174 148 162 142 146C124 104 116 52 74 42Z"/>
+<path d="M30 236L96 222" stroke-width="3" stroke-linecap="round"/>
+<path d="M100 221H234" stroke-dasharray="4 4" stroke-width="1"/>
+</g>
+<g fill="none" stroke-linecap="round">
+<path d="M244 112V282" stroke="var(--text)" stroke-width="11"/><path d="M244 112V282" stroke="var(--surface)" stroke-width="8"/>
+<path d="M134 162C172 172 208 198 240 222" stroke="var(--text)" stroke-width="8"/><path d="M134 162C172 172 208 198 240 222" stroke="var(--surface)" stroke-width="5"/>
+</g>
+<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
+<path d="M336 122C306 118 276 120 252 126"/><path d="M236 128C200 124 166 130 140 146"/>
+</g>
+<text class="b" x="170" y="50" text-anchor="middle">Liver</text>
+<text class="b" x="18" y="188">Gallbladder</text>
+<text x="158" y="118">Cystic artery</text>
+<text x="160" y="158">Liver seen</text><text x="160" y="172">through here</text>
+<text x="128" y="208">Cystic duct</text>
+<text x="262" y="96">Right hepatic</text><text x="262" y="110">artery</text>
+<text x="256" y="160">Common</text><text x="256" y="174">hepatic duct</text>
+<text x="256" y="252">Common</text><text x="256" y="266">bile duct</text>
+<text x="18" y="256">Rouvière’s sulcus</text>
+<text x="18" y="274">Stay above this level</text>
+</svg><figcaption>The view you must have before a clip goes on, with the patient’s right on your left. The triangle is empty, the lower gallbladder is off the liver, and two structures remain. The dashed line runs from Rouvière’s sulcus at the level of the bile duct.</figcaption></figure>`}
+});
+
+P.push({
+id:'open-inguinal-hernia', name:'Open inguinal hernia repair', aka:'lichtenstein groin hernia mesh inguinal herniorrhaphy hernioplasty',
+system:'Hernia', list:'elective', approach:'Open, Lichtenstein',
+aim:'A tension-free mesh behind an intact cord, with three nerves seen and none caught. Recurrence and chronic pain are both decided in theatre.',
+status:'Draft 0.1 · 17/11/2026 · sourced, not yet tested by you in theatre',
+
+steps:[
+{t:'Checks and position', how:'Side marked with the patient awake. Bladder emptied. Supine. Skin prepped and draped.', why:'Wrong side is the one error here that no technique recovers from. A full bladder sits in the medial end of the wound.'},
+{t:'Local anaesthetic', how:'0.5% lignocaine with adrenaline: along the skin line, into the subcutaneous layer, then under the external oblique aponeurosis before it is opened.', why:'Local anaesthesia is the recommended technique for an open repair of a reducible hernia. Fluid under the aponeurosis blocks the nerves and lifts the aponeurosis off them.', tip:'Add a block 2 cm medial to and above the anterior superior iliac spine: two pops, through the external then the internal oblique. Work out the maximum dose before you draw up.'},
+{t:'Incision', how:'Suprainguinal incision in a skin crease, from over the pubic tubercle laterally. Down through Scarpa’s fascia to the external oblique aponeurosis.', why:'The medial end must reach the tubercle: that is where the mesh has to overlap and where recurrences happen.', tip:'Two or three superficial veins cross the wound. Tie them; they are the usual source of a wound haematoma.'},
+{t:'Open the canal', how:'External oblique aponeurosis split along its fibres through the superficial ring. Upper and lower leaves lifted to show the conjoint tendon above and the inguinal ligament below.', why:'The ilioinguinal nerve lies directly under the aponeurosis on the cord and is cut by the scissors that open it.', tip:'Lift the aponeurosis with two clips and nick it away from the ring first, look for the nerve, then extend through the ring.'},
+{t:'Sling the cord', how:'Cord freed at the pubic tubercle and slung. Ilioinguinal nerve on the cord, iliohypogastric nerve on the internal oblique above, genital branch with the blue vein behind the cord: all three looked for. Vas deferens identified.', why:'Recognising the nerves is recommended because it is the one step shown to bear on chronic pain.', tip:'Take the cord with its cremaster off the floor at the tubercle, where the plane is cleanest, and keep the blue external spermatic vein with the cord: the genital branch runs with it.'},
+{t:'Find the sac', how:'Cremaster opened along the cord. Indirect sac sought on the anteromedial side of the cord; posterior wall inspected for a direct bulge medial to the epigastric vessels.', why:'One hernia does not exclude the other. A missed indirect sac is the classic early “recurrence”.', tip:'A lipoma of the cord looks like a sac until you find the white edge of peritoneum above it. Dissect to the deep ring, where preperitoneal fat appears.'},
+{t:'Deal with the sac', how:'Indirect sac dissected from the cord to the deep ring, opened, contents reduced, transfixed at the neck with 2-0 Vicryl and divided. Direct sac inverted and the posterior wall opposed with 2-0 Vicryl.', why:'Opening it proves the contents are reduced and nothing is caught in the stitch.', tip:'A sac that runs into the scrotum is divided at the canal and the distal part left open. Chasing it downwards strips the cord and risks the testis.'},
+{t:'Mesh', how:'Polypropylene mesh in the Lichtenstein manner, anchored with 2-0 Prolene: overlapping the pubic tubercle medially, along the inguinal ligament below, to the conjoint tendon above, tails crossed around the cord lateral to the deep ring.', why:'The mesh, not the stitches, is the repair. It must lie slightly lax, because it shrinks and the wall behind it moves when the patient stands.', tip:'First stitch into the tissue over the tubercle, not the periosteum, with 2 cm of mesh medial to it. Take shallow bites of the ligament. The new ring should admit the tip of a clip beside the cord.'},
+{t:'Close', how:'Haemostasis. Cord returned. External oblique aponeurosis with 2-0 Vicryl, Scarpa’s fascia with 2-0 Vicryl, skin with 3-0 Ethilon. Testis pulled down into the scrotum. Pressure dressing.', why:'The testis rides up during the operation; left high it stays high.'}
+],
+house:[
+['Anaesthesia','Local, lignocaine with adrenaline','Agrees. Local anaesthesia is recommended for open repair of a reducible hernia (HerniaSurge, strong).'],
+['Antibiotics','Unit dependent','Not recommended for open mesh repair in average- or low-risk settings (HerniaSurge, strong).'],
+['Nerves','Vas named in the template; nerves not','Identify all three (strong). Do not divide the ilioinguinal nerve routinely; resect a nerve that is injured or lies in the way of the mesh.'],
+['Fixation','2-0 Prolene sutures','Atraumatic fixation, glue or self-fixing mesh, is suggested (weak, very low evidence). Sutures remain standard practice.'],
+['Mesh','Flat polypropylene','Agrees. Lightweight mesh gives short-term comfort only, with no long-term gain.']
+],
+
+anatomy:{
+points:[
+'The canal runs from the deep ring, at the midpoint of the inguinal ligament, to the superficial ring above the pubic tubercle.',
+'Walls: external oblique aponeurosis in front; transversalis fascia behind, reinforced medially by the conjoint tendon; internal oblique and transversus arching over as the roof; inguinal ligament as the floor.',
+'Indirect hernias leave through the deep ring, lateral to the inferior epigastric vessels, inside the cord coverings. Direct hernias push through the posterior wall medial to the vessels, in Hesselbach’s triangle.',
+'Hesselbach’s triangle: inferior epigastric vessels laterally, lateral edge of rectus medially, inguinal ligament below.',
+'The cord carries the vas with its artery, the testicular artery and pampiniform veins, lymphatics, and the genital branch of the genitofemoral nerve.'
+],
+table:{title:'The three nerves', head:['Nerve','Where you meet it','If caught'], rows:[
+['Ilioinguinal','On the front of the cord, directly under the external oblique aponeurosis','Pain or numbness at the root of the penis, upper scrotum or labium, inner thigh'],
+['Iliohypogastric','On the internal oblique above the cord; pierces the aponeurosis above the superficial ring','Suprapubic pain or numbness. At risk from the upper mesh stitches'],
+['Genital branch of genitofemoral','Behind the cord with the blue external spermatic vein','Scrotal pain, loss of cremasteric reflex. At risk when the cord is lifted or thinned']
+]},
+danger:[
+'Testicular vessels and vas: stripped or tied when a long sac is chased, or strangled by a tight new ring. The result is ischaemic orchitis and atrophy.',
+'Femoral vein: directly under the lateral inguinal ligament. A deep bite of the ligament enters it.',
+'Bladder: forms the medial wall of a direct or sliding sac.',
+'Colon: caecum on the right and sigmoid on the left form the wall of a sliding indirect sac. A thick-walled sac is bowel until proven otherwise.',
+'Inferior epigastric vessels: at the medial edge of the deep ring.'
+]
+},
+
+pitfalls:[
+{t:'Nerve in a stitch or under the mesh edge', a:'See all three nerves before the mesh goes in. No blind bites of the internal oblique muscle.', r:'A nerve that is damaged or lies across the mesh is divided cleanly and its end buried in muscle, then recorded. Severe pain straight after the operation suggests entrapment: early re-exploration is considered.'},
+{t:'Second hernia missed', a:'Open the cremaster and look for an indirect sac in every case, even with an obvious direct bulge. Feel below the ligament for a femoral hernia.', r:'Found late in the operation: deal with it before the mesh.'},
+{t:'Sliding hernia', a:'Suspect it with a large, long-standing hernia and a sac that feels thick on one side.', r:'Do not open or transfix through the thick wall. Free the sac and reduce it whole, then repair over it.'},
+{t:'Ring too tight, or cord stripped', a:'Leave the distal sac. Keep cremaster on the cord. New ring admits the tip of a clip.', r:'A dusky testis at the end: release the lateral tails and call.'},
+{t:'Medial recurrence', a:'2 cm of mesh medial to the pubic tubercle, lying flat on the rectus sheath.', r:'A mesh that only reaches the tubercle is replaced, not accepted.'},
+{t:'Deep bite of the inguinal ligament', a:'Shallow bites of the shelving edge only, especially lateral to the deep ring.', r:'Dark blood welling from a needle hole: remove the stitch, press, do not tie. Call if it continues.'},
+{t:'Bleeding and haematoma', a:'Tie the superficial veins; check the cord and the cremasteric stump before the mesh.', r:'Re-open the layer and find the point. A pressure dressing is not haemostasis.'},
+{t:'Vas divided', a:'Identify it early by feel: a firm cord at the back of the bundle.', r:'Stop and call. Record it and tell the patient; repair is a urological decision.'},
+{t:'Contents not viable', a:'An irreducible, tender hernia is not a local-anaesthetic day case.', r:'Open the sac before anything is reduced. Dead bowel means a resection and a decision about mesh in a contaminated field. Call.'},
+{t:'Bladder opened', a:'Keep dissection of a direct sac on the sac, not medial to it.', r:'Two-layer absorbable repair, catheter, and call.'}
+],
+call:['Bowel in the sac that is dusky or will not reduce','Vas or testicular vessels injured','Bladder or bowel opened','Recurrent hernia with no recognisable anatomy','Sliding hernia you cannot reduce whole','Patient not tolerating local anaesthesia'],
+
+setup:{
+theatre:['Supine, arms out','Side marked and confirmed aloud at the time-out','Local anaesthetic drawn up and the maximum dose calculated','Diathermy pad on; monitoring even under local anaesthesia'],
+kit:['Self-retaining retractor and two Langenbeck retractors','Sling for the cord','Flat polypropylene mesh','2-0 Prolene for the mesh','2-0 Vicryl for the sac, aponeurosis and Scarpa’s fascia; 3-0 Ethilon for skin','Pressure dressing'],
+standby:['Bowel clamps and a laparotomy set if the hernia is irreducible','Anaesthetist available to convert to general anaesthesia']
+},
+
+consent:{
+note:`Consent for [[right]] open inguinal hernia repair with mesh under [[local anaesthesia]]
+Diagnosis and indication explained: [[symptomatic reducible right inguinal hernia]]
+Side confirmed with patient
+Nature of operation explained: groin incision, hernia reduced, synthetic mesh placed to reinforce the abdominal wall
+Alternatives discussed: watchful waiting, laparoscopic repair; [[patient opts for open repair]]
+Benefits: relief of symptoms, prevention of incarceration and strangulation
+General risks: bleeding, wound infection, chest infection, deep vein thrombosis
+Anaesthetic risks in brief: [[local anaesthetic toxicity, possible conversion to general anaesthesia]]
+Specific risks: wound haematoma or seroma, scrotal bruising and swelling, urinary retention, chronic groin pain, numbness around the wound and groin, recurrence, mesh infection which may need removal of mesh, injury to testicular vessels with testicular atrophy, injury to vas deferens, injury to bowel or bladder
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Chronic pain that matters clinically','10–12%','HerniaSurge'],
+['Severe chronic pain with long-term disability','1–3%','Köckerling and Simons'],
+['Recurrence, all primary repairs','11%','Köckerling and Simons'],
+['Recurrence after Lichtenstein','About 2%','Senior notes, unverified today']
+],
+versus:'Chronic pain falls over time. Watchful waiting is safe in men with few or no symptoms, though many come to surgery later. Laparoscopic repair is preferred for bilateral hernias, for recurrence after an open repair, and in women.'
+},
+
+notes:{
+findings:`[[Right indirect inguinal hernia]]
+[[Sac containing omentum, reducible, viable]]
+[[Posterior wall intact]]
+[[No femoral hernia]]`,
+procedure:`Supine, skin prepped and draped
+[[Local anaesthesia with 0.5% lignocaine with adrenaline]]
+[[Right]] suprainguinal incision, dissection down to external oblique aponeurosis
+External oblique aponeurosis split, cord slung
+{{Ilioinguinal nerve identified and preserved}}
+{{Vas deferens and testicular vessels identified and safeguarded}}
+[[Indirect sac dissected out from cord structures down to deep inguinal ring then opened, contents reduced into peritoneal cavity]]
+[[Sac transfixed with 2-0 Vicryl at preperitoneal level then divided]]
+[[Posterior wall intact]]
+{{Haemostasis ensured}}
+[[Prolene mesh]] repair done in Lichtenstein manner, anchored with [[2-0 Prolene]], overlapping pubic tubercle
+External oblique aponeurosis closed with [[2-0 Vicryl]], Scarpa's fascia with [[2-0 Vicryl]], skin with [[3-0 Ethilon]]
+{{Testis in scrotum at end of procedure}}
+Pressure dressing
+{{Swab, needle and instrument counts correct}}`,
+decisions:[
+['Mesh and fixation','[[Standard-weight]] polypropylene mesh [[__ x __ cm]], [[2-0 Prolene continuous to inguinal ligament, interrupted to conjoint tendon]]'],
+['Direct hernia','Direct sac inverted, posterior wall opposed with 2-0 Vicryl'],
+['Nerve divided','[[Ilioinguinal]] nerve lying across lower edge of mesh, divided and proximal end buried in internal oblique'],
+['Distal sac left','Inguinoscrotal sac divided at canal, distal sac left open, edges cauterised']
+],
+deviations:[
+['Bleeding',`Bleeding from [[cremasteric vessels]]
+Controlled with [[ligature]]
+Haemostasis rechecked before mesh placement`],
+['Sliding hernia',`Sliding hernia with [[sigmoid colon]] forming wall of sac
+Sac not opened, mobilised and reduced en masse
+Deep ring narrowed with [[2-0 Vicryl]]`],
+['Contents not viable',`Sac opened, [[small bowel]] found [[dusky, not recovering after release]]
+Senior kindly scrubbed in
+[[Segmental resection and primary anastomosis performed]]`],
+['Vas or vessel injury',`[[Vas deferens]] injured during dissection of sac
+Senior kindly scrubbed in
+[[Urologist consulted intraoperatively]]`],
+['Unclear anatomy',`Recurrent hernia with dense scarring, cord structures unable to be defined safely
+Senior kindly scrubbed in`],
+['Local anaesthesia not tolerated',`Patient unable to tolerate procedure under local anaesthesia
+Converted to general anaesthesia by anaesthetist`],
+['Senior called',`Senior kindly scrubbed in at [[__:__]]
+[[Dr __]] continued as chief surgeon`]
+],
+postop:`DAT
+Analgesics regular and PRN
+Observe wound and scrotum for haematoma
+Check PU before discharge
+Early mobilisation
+Inform if scrotal swelling, wound bleeding or unable to PU`,
+discharge:`Home same day when PU and pain controlled
+Scrotal support, wound care advice given
+Normal activities as soon as comfortable
+[[STO D7 to D10]]
+SL [[__ days]]
+FU surgical clinic [[4 to 6 weeks]]
+To return if increasing swelling, fever or unable to PU`
+},
+
+viva:[
+['Describe the inguinal canal.','About 4 cm, from the deep ring at the midpoint of the inguinal ligament to the superficial ring above the pubic tubercle. Anterior wall: external oblique aponeurosis, with internal oblique laterally. Posterior wall: transversalis fascia, with the conjoint tendon medially. Roof: arching fibres of internal oblique and transversus. Floor: the inguinal and lacunar ligaments.'],
+['Which nerves are at risk and what does each do?','Ilioinguinal, on the cord under the aponeurosis: skin at the root of the penis, upper scrotum and inner thigh. Iliohypogastric, on the internal oblique above: suprapubic skin. Genital branch of genitofemoral, behind the cord with the external spermatic vein: cremaster and scrotal skin. In laparoscopic repair the set changes to the lateral cutaneous nerve of the thigh and the femoral branch of genitofemoral.'],
+['Why mesh, and why Lichtenstein?','Mesh-based repair is strongly recommended for inguinal hernia because sutured repairs under tension recur more. Lichtenstein is the recommended open mesh technique; laparo-endoscopic repair gives faster recovery where the expertise exists. If no mesh can be used, Shouldice is the suture repair of choice.'],
+['How common is chronic pain and how do you prevent it?','Clinically significant pain in 10–12%, falling with time; severe disabling pain in 1–3%. Prevention is identification of the three nerves, no routine neurectomy but resection of a nerve that is injured or in the way, careful placement of stitches away from nerves and periosteum, and a mesh that lies flat.'],
+['When would you choose a laparoscopic repair?','Bilateral primary hernias, recurrence after an anterior repair, and women, in whom a femoral hernia is otherwise missed. After a failed posterior repair the reverse applies: go anterior.'],
+['Does every hernia need an operation?','No. Watchful waiting is safe in men with no or minimal symptoms; the risk of strangulation is low, though many cross over to surgery because of symptoms. Symptomatic hernias, and all femoral hernias, are repaired.'],
+['You open the sac in an emergency and the bowel is dead. Mesh or not?','Resect and anastomose first. In a clean or clean-contaminated field a large-pore monofilament polypropylene mesh is suggested (weak recommendation). With frank contamination, a suture repair and acceptance of a higher recurrence is the safer course. It is a senior decision.']
+],
+
+sources:{
+steps:[
+'House technique: senior’s CMS personal template “Inguinal Hernia” (YO Templates).',
+'<a href="https://doi.org/10.1007/s10029-017-1668-x">HerniaSurge Group. International guidelines for groin hernia management. Hernia 2018;22:1–165</a>.',
+'Senior notes: Billy notes, hernia (local anaesthetic technique, mesh overlap, avoiding the periosteum).',
+'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
+anatomy:[
+'Senior notes: Billy notes, hernia (the three nerves and their territories).',
+'<a href="https://doi.org/10.1007/s10029-017-1668-x">HerniaSurge guidelines 2018</a>: nerve recognition.'],
+pitfalls:[
+'<a href="https://ales.amegroups.org/article/view/4219/html">Highlights from the international guidelines for groin hernia management. Ann Laparosc Endosc Surg</a>: nerve handling, early re-operation for severe immediate pain, mesh in emergency repair.',
+'Senior notes: Billy notes, hernia.'],
+setup:['House set-up from the senior’s CMS template; local anaesthetic technique from senior notes (Billy notes, hernia).'],
+consent:[
+'<a href="https://pubmed.ncbi.nlm.nih.gov/29330835/">HerniaSurge guidelines 2018</a>: clinically significant chronic pain 10–12%.',
+'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5981671">Köckerling and Simons. Current concepts of inguinal hernia repair. Visc Med 2018</a>: recurrence and severe chronic pain.',
+'Recurrence after Lichtenstein of about 2%: Billy notes, hernia. Not re-verified against a primary source today.'],
+notes:['Wording follows the senior’s CMS personal template “Inguinal Hernia”. The operation record is spelt out; the orders use common HA short forms.'],
+viva:[
+'<a href="https://doi.org/10.1007/s10029-017-1668-x">HerniaSurge guidelines 2018</a> and the <a href="https://ales.amegroups.org/article/view/4219/html">published highlights</a>.',
+'Senior notes: Billy notes, hernia.']
+},
+
+dg:{
+anat:`<figure class="dg"><svg viewBox="0 0 340 270" role="img" aria-label="Right inguinal canal opened, showing the cord, three nerves and the mesh position">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M20 90L310 230" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="20" cy="90" r="5"/><circle cx="310" cy="230" r="5"/>
+<path d="M192 168C204 130 218 86 240 36"/>
+<rect x="94" y="114" width="236" height="64" rx="14" transform="rotate(25.8 212 146)" stroke-dasharray="5 4" stroke-width="1"/>
+<path d="M250 106L234 150" stroke-width="1"/><path d="M166 156L158 184" stroke-width="1"/>
+</g>
+<g fill="none" stroke-linecap="round">
+<path d="M172 146L292 206" stroke="var(--text)" stroke-width="15"/><path d="M172 146L292 206" stroke="var(--surface)" stroke-width="12"/>
+</g>
+<circle cx="172" cy="146" r="9" fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"/>
+<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
+<path d="M96 66C150 88 220 124 270 152"/>
+<path d="M110 108C140 122 160 134 176 144L292 202"/>
+<path d="M180 159L288 213" stroke-dasharray="2 4"/>
+</g>
+<text x="6" y="74">Iliac spine</text>
+<text x="334" y="254" text-anchor="end">Pubic tubercle</text>
+<text x="34" y="150">Inguinal ligament</text>
+<text class="b" x="112" y="200">Deep ring: indirect</text>
+<text class="b" x="336" y="30" text-anchor="end">Epigastric vessels</text>
+<text class="b" x="246" y="88">Direct: medial</text><text class="b" x="246" y="102">to the vessels</text>
+<text class="b" x="150" y="78">1</text><text class="b" x="128" y="106">2</text><text class="b" x="232" y="204">3</text>
+</svg><figcaption>Right groin with the external oblique opened; the patient’s right is on your left. <b>1</b> iliohypogastric nerve, above the cord. <b>2</b> ilioinguinal nerve, on the front of the cord. <b>3</b> genital branch, behind the cord. The dashed outline is the mesh: past the tubercle medially and beyond the deep ring laterally.</figcaption></figure>`}
+});
+
+P.push({
+id:'hemithyroidectomy', name:'Hemithyroidectomy', aka:'thyroid lobectomy thyroidectomy thyroid nodule goitre isthmusectomy',
+system:'Endocrine', list:'elective', approach:'Open, cervical',
+aim:'One lobe and the isthmus out, with the recurrent laryngeal nerve seen along its course and both parathyroids left alive on their pedicles.',
+status:'Draft 0.1 · 17/11/2026 · sourced, not yet tested by you in theatre',
+
+steps:[
+{t:'Checks and position', how:'Side confirmed against imaging and cytology. Vocal cord check documented. General anaesthesia. Supine, shoulder support and head ring, neck extended, table head-up.', why:'Extension lifts the gland out of the chest; head-up empties the neck veins. The pre-operative cord check is the baseline every later voice complaint is judged against.', tip:'Mark the incision in a skin crease with the patient sitting up before anaesthesia. Creases move once the neck is extended.'},
+{t:'Incision and flaps', how:'5 cm collar incision along the skin crease one finger above the sternal notch. Platysma divided. Subplatysmal flaps raised to the thyroid cartilage above and the sternal notch below.', why:'The plane under platysma is bloodless and leaves the anterior jugular veins down on the strap muscles.'},
+{t:'Midline', how:'Strap muscles split in the midline from thyroid cartilage to sternal notch and lifted off the lobe.', why:'The midline raphe has no vessels. Getting sternothyroid cleanly off the gland capsule is what gives room at the upper pole.', tip:'A high upper pole comes down easily once the top of sternothyroid is divided. It is a small muscle and costs the patient nothing.'},
+{t:'Middle thyroid vein', how:'Lobe retracted medially. Middle thyroid vein divided.', why:'It tethers the lobe laterally. Once divided the lobe rotates and the lateral space opens. Torn rather than tied, it floods exactly where the nerve will be sought.'},
+{t:'Superior pole', how:'Space opened between the upper pole and cricothyroid. Superior thyroid vessels ligated individually, close to the gland, superior pedicle doubly ligated.', why:'The external branch of the superior laryngeal nerve travels with these vessels and turns medially to cricothyroid just above the pole. Ligating on the gland keeps the ties below it.', tip:'Pull the pole down and out, and take the branches one at a time. A mass ligature is how the nerve is caught and how a pedicle slips.'},
+{t:'Parathyroids', how:'Superior and inferior glands identified and left on their lateral blood supply by dissecting on the thyroid capsule.', why:'Their vessels come from the lateral side. Dividing the thyroid’s vessels on the capsule, branch by branch, leaves the glands’ supply intact.'},
+{t:'Recurrent laryngeal nerve', how:'Nerve identified in the tracheo-oesophageal groove and followed to its entry into the larynx. Branches of the inferior thyroid artery divided on the capsule once the nerve is seen.', why:'Nothing lateral or posterior is divided until the nerve is seen. Seeing it is the standard; monitoring adds to that and does not replace it.', tip:'Three places to find it: low in the groove where nobody has dissected, where it crosses the inferior thyroid artery, or at its entry under the inferior horn of the thyroid cartilage, which never moves. The tubercle of Zuckerkandl points at it.'},
+{t:'Berry’s ligament and isthmus', how:'Ligament of Berry divided under direct vision of the nerve. Isthmus divided, pyramidal lobe included. Lobe removed.', why:'The last 2 cm, at the ligament, is where the nerve is tethered to the gland, where it may already have branched, and where most injuries happen.', tip:'Small bleeders at the ligament get a pledget and patience, then a fine tie or precise bipolar. No energy device here.'},
+{t:'Haemostasis', how:'Bed inspected with head down and a Valsalva manoeuvre from the anaesthetist. Nerve and parathyroids looked at once more.', why:'The Valsalva raises venous pressure to what a cough on extubation will produce.'},
+{t:'Close', how:'Strap muscles with continuous 3-0 Vicryl, subcutaneous layer with 3-0 Vicryl, skin with 4-0 Monocryl and Steristrips. Local anaesthetic to the wound. Counts confirmed. Specimen to histology.', why:'The straps are closed loosely so that blood cannot be sealed in around the trachea.', tip:'Leave the lowest centimetre of the strap closure open, so a bleed shows as swelling under the skin instead of pressing silently on the airway.'}
+],
+house:[
+['Nerve','Identified and safeguarded','Agrees. Visual identification is the standard; nerve monitoring is an adjunct and has not been shown to lower injury rates when used routinely (senior notes).'],
+['Drain','Redivac in the house total thyroidectomy note','Routine drains have not been shown to prevent haematoma. Quoted from memory of the Cochrane review; not re-checked today.'],
+['Extubation','No digital compression during extubation','House practice. No guideline statement found.'],
+['Day case','Unit dependent','Restricted to hemithyroidectomy by high-volume surgeons, with caution in men, older patients, retrosternal goitre and redo surgery (BAETS).']
+],
+
+anatomy:{
+points:[
+'Recurrent laryngeal nerve: on the right it loops under the subclavian artery and climbs obliquely; on the left it loops under the aortic arch and climbs vertically in the groove. Both enter the larynx behind the cricothyroid joint, under the lower edge of the inferior constrictor.',
+'It may divide before entering the larynx. The anterior branch is the motor one, so every branch is kept.',
+'Its relation to the inferior thyroid artery is not fixed: it may pass behind, in front, or between the branches.',
+'Non-recurrent nerve: about 1%, on the right only for practical purposes, with an aberrant right subclavian artery. It leaves the vagus at the level of the larynx and crosses the field like a vessel.',
+'Tubercle of Zuckerkandl: a posterior bulge of the lobe. The nerve usually runs deep to it.',
+'Ligament of Berry: the dense attachment of the lobe to the upper trachea. The nerve passes through or beside it.'
+],
+table:{title:'Nerves and glands', head:['Structure','Where you meet it','If lost'], rows:[
+['Recurrent laryngeal nerve','Tracheo-oesophageal groove, deep to Zuckerkandl’s tubercle, at Berry’s ligament','Hoarse, breathy voice and weak cough. Both sides: airway obstruction'],
+['External branch, superior laryngeal nerve','With the superior thyroid vessels, turning medially to cricothyroid at the pole','Lost pitch and projection, voice fatigue'],
+['Superior parathyroid','Back of the upper lobe, above the artery, behind the plane of the nerve','Low calcium only if the other side is also lost'],
+['Inferior parathyroid','On or below the lower pole, in front of the plane of the nerve; more variable','As above']
+]},
+danger:[
+'The last 2 cm of the recurrent nerve at Berry’s ligament: traction and heat are the usual mechanisms, not the knife.',
+'Superior pole vessels: a pedicle that slips retracts upwards out of sight.',
+'Trachea and oesophagus: immediately behind the ligament.',
+'Internal jugular vein and carotid: lateral, at risk from a retractor more than from dissection.'
+]
+},
+
+pitfalls:[
+{t:'Cannot find the nerve', a:'Dry field, lobe rotated well medially, middle vein tied not torn.', r:'Change landmark: low in the groove, the artery crossing, then the laryngeal entry point. On the right, think non-recurrent. Still not found: stop and call. Do not divide anything on trust.'},
+{t:'Non-recurrent nerve', a:'On the right, treat any transverse band running from the carotid sheath to the larynx as nerve until proven otherwise.', r:'Recognise it and preserve it. Dividing a “vessel” there is the injury.'},
+{t:'Nerve stretched, burnt or cut', a:'Gentle traction. No energy device within a few millimetres. Bipolar and fine ties at the ligament.', r:'Signal lost or injury seen: call. A cut nerve may be repaired by the senior. Record exactly what was seen; arrange laryngoscopy after the operation.'},
+{t:'Bleeding at Berry’s ligament', a:'Tie small vessels as you meet them; keep the field dry.', r:'Pledget and pressure, then wait. Deal with the point only when you can see it and the nerve together.'},
+{t:'Superior pedicle slips', a:'Individual ligation low on the gland, doubly tied.', r:'Pressure first. Divide the upper sternothyroid for exposure and clip the vessel under vision. No blind clamp: the external laryngeal nerve is beside it.'},
+{t:'Parathyroid devascularised', a:'Capsular dissection; keep each gland on its lateral pedicle.', r:'A gland that turns dark or comes out on the specimen is minced and placed in a pocket in sternocleidomastoid, marked with a clip, and recorded.'},
+{t:'Haematoma after the operation', a:'Valsalva check, loose strap closure, controlled extubation.', r:'Neck swelling with stridor, distress or difficulty swallowing is an airway emergency. Sit up, oxygen, call for help, and open the wound at the bedside: skin exposed, sutures cut, skin opened, strap muscles opened, wound packed (SCOOP).'},
+{t:'Trachea or oesophagus opened', a:'Stay on the gland capsule at the ligament.', r:'Call. A small tracheal hole is closed with absorbable stitches and covered with strap muscle.'},
+{t:'Extends behind the sternum', a:'Read the CT before the case.', r:'Free the upper pole first, then deliver the lower pole with a finger behind it. Call if it does not come.'},
+{t:'Looks invasive, or nodes are abnormal', a:'Examine the central compartment before starting.', r:'Call. Whether to stop at a lobectomy or go further depends on what was consented and is a senior decision.'}
+],
+call:['Nerve not identified','Nerve signal lost, or injury seen','Bleeding you cannot see the source of','Tumour invading strap muscle, trachea or nerve','Abnormal lymph nodes not expected before the operation','Trachea or oesophagus opened','Gland extends behind the sternum and will not deliver'],
+
+setup:{
+theatre:['Supine, arms tucked, shoulder support and head ring; anaesthetist agrees the degree of extension','Table head-up','Eyes protected and the tube secured away from the field','If nerve monitoring is used: monitoring tube position checked, no long-acting relaxant after induction'],
+kit:['Self-retaining retractor or skin hooks, small Langenbeck retractors','Energy device: Ligasure small jaw','Bipolar forceps, fine ties, pledgets','Nerve stimulator if monitoring','Surgicel; Redivac drain if the consultant drains','3-0 Vicryl, 4-0 Monocryl, Steristrips','10 ml 0.5% levobupivacaine'],
+standby:['Post-thyroid surgery emergency box, which travels with the patient to recovery and the ward','Tracheostomy set available in theatre']
+},
+
+consent:{
+note:`Consent for [[right]] hemithyroidectomy
+Diagnosis and indication explained: [[right thyroid nodule, FNAC indeterminate]]
+Side confirmed with patient and against previous FNAC
+Nature of operation explained: removal of half of the thyroid gland through a neck incision under general anaesthesia
+Alternatives discussed: surveillance with ultrasound, [[radiofrequency ablation]]; pros and cons of hemithyroidectomy against total thyroidectomy explained
+Benefits: definitive histological diagnosis, relief of compressive symptoms
+General risks: bleeding, wound infection, chest infection, deep vein thrombosis and pulmonary embolism
+Anaesthetic risks in brief: sore throat, nausea and vomiting, dental injury, allergic reaction; anaesthetist to discuss in detail
+Specific risks: hoarseness from recurrent laryngeal nerve injury, temporary or permanent; change in pitch and voice fatigue from superior laryngeal nerve injury; neck haematoma which may need urgent re-operation and can threaten the airway; hypothyroidism needing thyroid replacement; hypertrophic scar or keloid; seroma; low calcium, uncommon after one-sided surgery
+Chance of completion thyroidectomy if histology shows cancer explained
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Re-operation for bleeding after hemithyroidectomy','0.9%','UK registry, 24,700 operations'],
+['Re-operation for bleeding, all thyroidectomy','1.2%','UK registry, 39,014 operations'],
+['Death after thyroidectomy','0.1%','UK registry'],
+['Recurrent nerve palsy as recorded','1%','UK registry, likely under-reported'],
+['Recurrent nerve injury quoted in senior notes','Under 1% to 3%','Senior notes'],
+['Hypothyroidism after hemithyroidectomy','About 22%','Verloop 2012, from memory']
+],
+versus:'Bleeding is more likely in men, older patients, redo surgery and with lower-volume surgeons. Hypothyroidism is more likely with a higher TSH before the operation and with thyroid antibodies.'
+},
+
+notes:{
+findings:`[[Right thyroid lobe nodule 3 cm, firm, confined to the lobe]]
+[[Left lobe normal on palpation]]
+[[No enlarged lymph nodes]]
+[[No retrosternal extension]]`,
+procedure:`Supine, general anaesthesia, neck extended with shoulder support and head ring
+Aseptic technique, antiseptic left until air dry
+[[5 cm]] collar incision along skin crease [[one finger above sternal notch]], platysma divided, skin flaps raised
+Energy device: [[Ligasure small jaw]]
+Strap muscles split, [[right]] thyroid lobe mobilised
+Middle thyroid vein divided
+Superior thyroid vessels divided and ligated, [[superior pedicle doubly ligated]]
+[[External branch of superior laryngeal nerve not encountered]]
+{{[[Right]] recurrent laryngeal nerve identified and safeguarded}}
+{{[[Right superior and inferior]] parathyroid glands preserved}}
+Inferior thyroid vessels divided on the capsule
+Ligament of Berry divided under direct vision of the nerve
+Isthmus divided, [[pyramidal lobe resected]], [[right]] hemithyroidectomy done
+{{Haemostasis confirmed with head down and Valsalva manoeuvre}}
+[[Surgicel applied, no drain]]
+Strap muscles closed with [[continuous 3-0 Vicryl]], subcutaneous fat with [[3-0 Vicryl]]
+Skin with [[4-0 Monocryl and Steristrips]]
+[[10 ml 0.5% levobupivacaine to wound]]
+[[No digital compression applied during extubation]]
+{{Swab, needle and instrument counts correct}}
+Specimen sent for histology`,
+decisions:[
+['Drain','[[Redivac]] drain inserted to thyroid bed in view of [[large dead space]]'],
+['No drain','Bed dry after Valsalva, drain not placed'],
+['Nerve monitoring','Intraoperative nerve monitoring used: [[vagal and recurrent laryngeal nerve signals present before and after resection]]'],
+['Extent of resection','Hemithyroidectomy only as consented; for completion thyroidectomy if histology shows cancer']
+],
+deviations:[
+['Nerve not identified',`Dissection in tracheo-oesophageal groove
+[[Right]] recurrent laryngeal nerve unable to be identified
+Senior kindly scrubbed in`],
+['Nerve signal lost or injury seen',`[[Loss of nerve monitoring signal on right side after division of ligament of Berry]]
+Nerve [[in continuity on inspection]]
+Senior kindly scrubbed in
+For laryngoscopy post-operatively`],
+['Bleeding',`Bleeding from [[superior thyroid pedicle]]
+Controlled with [[clip under direct vision]]
+Haemostasis rechecked with head down and Valsalva manoeuvre, estimated blood loss [[__]] ml`],
+['Parathyroid autotransplanted',`[[Right inferior]] parathyroid gland devascularised
+Minced and autotransplanted into [[right sternocleidomastoid]] muscle, site marked with [[metal clip]]`],
+['Unexpected finding',`[[Tumour adherent to strap muscle / enlarged central compartment lymph nodes]]
+Discussed with [[senior]] intraoperatively
+[[Hemithyroidectomy completed as consented]]`],
+['Trachea opened',`[[2 mm]] opening in trachea at ligament of Berry
+Senior kindly scrubbed in
+Repaired with [[4-0 PDS interrupted]], covered with strap muscle, no air leak on Valsalva`],
+['Senior called',`Senior kindly scrubbed in at [[__:__]]
+[[Dr __]] continued as chief surgeon`]
+],
+postop:`Nurse head up 30 degrees
+DAT when fully conscious
+Analgesics regular and PRN
+[[BP/P Q1H x4 then Q4H if stable]]
+Observe neck for swelling, check voice and breathing with each set of obs
+Inform STAT if neck swelling, stridor, SOB or difficulty swallowing
+Post-thyroid surgery emergency box at bedside
+[[Chart drain output]]`,
+discharge:`Home [[D1]] if no neck swelling, voice and swallowing satisfactory
+Wound care advice given, [[Steristrips off at D7]]
+SL [[__ days]]
+FU surgical clinic [[2 to 4 weeks]] with histology
+TFT at [[6 to 8 weeks]]
+To return STAT if neck swelling or difficulty breathing`
+},
+
+viva:[
+['Describe the course of the recurrent laryngeal nerve.','A branch of the vagus. On the right it hooks under the subclavian artery and ascends obliquely towards the groove; on the left it hooks under the arch at the ligamentum arteriosum and ascends vertically in the groove. Each crosses the inferior thyroid artery with a variable relation, passes deep to the tubercle of Zuckerkandl and beside Berry’s ligament, and enters the larynx behind the cricothyroid joint. It supplies every intrinsic muscle except cricothyroid.'],
+['What is a non-recurrent nerve?','In about 1%, on the right, the fourth arch artery fails to form, the right subclavian arises from the descending aorta as an arteria lusoria, and the nerve passes directly from the vagus to the larynx at the level of the cricoid. It looks like a transverse vessel. A pre-operative CT showing an aberrant subclavian predicts it.'],
+['Why do you ligate the superior pole close to the gland?','To protect the external branch of the superior laryngeal nerve, the motor nerve to cricothyroid. It runs with the superior thyroid artery and crosses to the muscle near the pole. In the Cernea classification, type 1 crosses more than 1 cm above the pole, type 2a within 1 cm, and type 2b below the upper border, which is the one at most risk. Injury costs pitch and projection.'],
+['Where are the parathyroids, and why is the inferior one more variable?','Superior: from the fourth pouch, a short descent, so reliably at the back of the upper lobe, above the artery and behind the nerve. Inferior: from the third pouch with the thymus, a long descent, so anywhere from the carotid bifurcation to the mediastinum, usually on or below the lower pole in front of the nerve.'],
+['The ward calls: neck swelling an hour after thyroidectomy.','Go now. Look for difficulty swallowing, rising early-warning score, swelling, anxiety, tachypnoea and stridor. Sit the patient up, oxygen, call the anaesthetist and senior. With airway compromise, open the wound at the bedside in the SCOOP sequence, then return to theatre. After a hemithyroidectomy about 0.9% need re-operation for bleeding.'],
+['How often does hypothyroidism follow a lobectomy?','About one in five, mostly subclinical, in the meta-analysis usually quoted. A higher pre-operative TSH and thyroid antibodies raise the risk. Check thyroid function at six to eight weeks.','figure from memory; check the source'],
+['Indeterminate nodule: why a lobectomy, and what if it is cancer?','Cytology cannot separate follicular adenoma from carcinoma, so the lobe is the biopsy. If histology shows a low-risk cancer confined to the lobe, lobectomy may be the whole treatment; larger tumours, extrathyroidal extension, nodal disease or aggressive histology lead to completion thyroidectomy. The patient is warned of a second operation beforehand.']
+],
+
+sources:{
+steps:[
+'House technique: HA operation record for total thyroidectomy (HA template screenshots), adapted to one side.',
+'Senior notes: Deon’s notes, Thyroidectomy; Billy notes, endocrine.',
+'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
+anatomy:[
+'Senior notes: Deon’s notes, Thyroidectomy (parathyroid positions relative to the artery and nerve); Billy notes, endocrine (non-recurrent nerve about 1%, on the right).',
+'Cernea CR et al. Surgical anatomy of the external branch of the superior laryngeal nerve. Head Neck 1992;14:380–383.'],
+pitfalls:[
+'<a href="https://doi.org/10.1111/anae.15585">Iliff et al. Management of haematoma after thyroid surgery: consensus guidelines from DAS, BAETS and ENT UK. Anaesthesia 2022</a>: SCOOP and the emergency box.',
+'Senior notes: Deon’s notes, Thyroidectomy (ways to prevent nerve injury; retrosternal goitre).'],
+setup:[
+'HA operation record for total thyroidectomy (energy device, local anaesthetic, closure).',
+'<a href="https://doi.org/10.1111/anae.15585">DAS, BAETS and ENT UK consensus 2022</a>: post-thyroid surgery emergency box.'],
+consent:[
+'<a href="https://academic.oup.com/bjs/article/108/7/851/6145317">Doran et al. Post-thyroidectomy bleeding: analysis of risk factors from a national registry. Br J Surg 2021;108:851–857</a>.',
+'<a href="https://entandaudiologynews.com/features/ent-features/post/lessons-learned-from-running-a-national-thyroid-surgery-registry">Lessons learned from running a national thyroid surgery registry. ENT and Audiology News</a>: recorded nerve palsy rate.',
+'Verloop H et al. Risk of hypothyroidism following hemithyroidectomy: systematic review and meta-analysis. J Clin Endocrinol Metab 2012. Figure quoted from memory, not re-fetched today.',
+'Wording of the consent note follows the senior’s CMS thyroidectomy consent template.'],
+notes:['Wording follows the HA operation record for total thyroidectomy. The operation record is spelt out; the orders use common HA short forms.'],
+viva:[
+'<a href="https://doi.org/10.1111/anae.15585">DAS, BAETS and ENT UK consensus 2022</a>; <a href="https://academic.oup.com/bjs/article/108/7/851/6145317">UK registry analysis, Br J Surg 2021</a>.',
+'Senior notes: Billy notes, endocrine; Deon’s notes, Thyroidectomy. Cernea 1992.']
+},
+
+dg:{
+anat:`<figure class="dg"><svg viewBox="0 0 340 300" role="img" aria-label="Right thyroid lobe rotated medially, showing the recurrent laryngeal nerve, artery and parathyroid glands">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M110 96V280"/><path d="M150 96V280"/>
+<path d="M110 240H150M110 262H150" stroke-width="1"/>
+<path d="M100 30H160V84Q160 96 148 96H112Q100 96 100 84Z"/>
+<path d="M330 178C280 176 230 174 140 172"/>
+<path d="M70 22C76 46 84 64 98 84"/>
+<path d="M112 242L122 231" stroke-width="1"/>
+</g>
+<path d="M112 80C72 88 54 130 60 172C66 210 96 232 120 218C140 204 136 112 112 80Z" fill="var(--surface)" stroke="var(--muted-text)" stroke-width="1.5"/>
+<g fill="none" stroke="var(--accent-text)" stroke-width="2" stroke-linecap="round">
+<path d="M172 290C170 240 166 180 158 102"/>
+<path d="M92 26C98 44 106 58 120 68" stroke-dasharray="2 4" stroke-width="1.75"/>
+</g>
+<path d="M142 106L156 110" stroke="var(--text)" stroke-width="4" stroke-linecap="round"/>
+<g fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"><ellipse cx="184" cy="138" rx="8" ry="5"/><ellipse cx="128" cy="226" rx="8" ry="5"/></g>
+<text class="b" x="130" y="60" text-anchor="middle">Larynx</text>
+<text class="b" x="130" y="294" text-anchor="middle">Trachea</text>
+<text class="b" x="96" y="154" text-anchor="middle">Lobe</text>
+<text x="4" y="16">Superior vessels</text>
+<text x="128" y="18">External laryngeal nerve</text>
+<text x="176" y="108">Berry’s ligament</text>
+<text x="198" y="142">Superior parathyroid</text>
+<text x="336" y="166" text-anchor="end">Inferior thyroid artery</text>
+<text x="184" y="222">Recurrent laryngeal nerve</text>
+<text x="4" y="256">Inferior parathyroid</text>
+</svg><figcaption>Right side, seen as you operate with the lobe lifted and rotated towards the midline; head at the top. The nerve climbs in the groove beside the trachea, crosses the artery and enters the larynx at Berry’s ligament. The superior parathyroid sits above the crossing and behind the nerve; the inferior sits below it and in front.</figcaption></figure>`}
+});
+
+P.push({
+id:'perforated-peptic-ulcer', name:'Repair of perforated peptic ulcer', aka:'ppu perforated duodenal ulcer perforated gastric ulcer graham patch omental patch omentopexy perforation hollow viscus pneumoperitoneum peritonitis',
+system:'Upper GI', list:'emergency', approach:'Laparoscopic, or open',
+aim:'Close the hole, clear the soiling, take tissue from any gastric ulcer, and get out. The operation is short; the sepsis is the disease.',
+status:'Draft 0.1 · 18/11/2026 · sourced, not yet tested by you in theatre',
+
+steps:[
+{t:'Checks and position', how:'WHO checklist. Rapid-sequence general anaesthesia. Ryle’s tube and urinary catheter in. Antibiotics running. Modified Lloyd-Davies position, legs apart.', why:'The surgeon stands between the legs and looks straight up at the pylorus. The Ryle’s tube decompresses the stomach now and inflates it for the leak test later.'},
+{t:'Access', how:'Supraumbilical vertical incision, linea alba split, peritoneum opened under vision. Hasson port. Carbon dioxide to 12 mmHg.', why:'Supraumbilical sits closer to the target, and the incision extends straight into an upper midline laparotomy if you convert.'},
+{t:'Working ports', how:'10 mm left upper quadrant and 5 mm right upper quadrant ports under laparoscopic vision.', why:'From between the legs these become the right and left hands, triangulating on the pylorus.', tip:'If the liver edge falls over the duodenum, add a 5 mm epigastric port and lift it with a grasper rather than fighting it for the whole case.'},
+{t:'Sample and survey', how:'Aspirate fluid and send it for bacterial and fungal culture. Lift the liver edge. Follow the fibrin and bile staining to the anterior pylorus and D1.', why:'Cultures guide the antibiotics (WSES 2020, 1C). Fibrin plaques cluster over the hole.', tip:'Not where you expected? Look along the lesser curve, then open the gastrocolic ligament for a posterior gastric ulcer. Free gas is not always an ulcer.'},
+{t:'Decide', how:'Measure the hole, note the side of the pylorus it lies on, and feel the edge with an instrument: soft, indurated, or friable.', why:'Under 2 cm, primary repair. Over 2 cm, or a gastric ulcer that looks malignant, is a different operation. An unstable patient is converted.'},
+{t:'Biopsy a gastric ulcer', how:'Gastric ulcer only: take biopsies from the rim before closing, or excise it if the site allows.', why:'10–16% of perforated gastric ulcers are cancers. The rim is lost once it is inside the closure.'},
+{t:'Close', how:'Interrupted 3-0 Vicryl, full thickness through the anterior wall, about 5 mm back from the edge, placed along the long axis of the duodenum so the closure lies across it. Tie gently. Leave the tails long.', why:'A transverse closure does not narrow the outlet. Bites well back from the edge hold in oedematous tissue that tears at the margin.', tip:'Place every stitch before tying any. Each bite is easier to see while the hole is still open.'},
+{t:'Omental patch', how:'Choose a tongue of omentum that reaches without tension. Lay it over the closure and tie the long tails loosely over it.', why:'It seals small gaps and supports friable edges. Tied tight it necroses.', tip:'If the tongue has to be pulled to reach, it will pull off when the stomach fills. Choose another.'},
+{t:'Leak test', how:'Fill the right upper quadrant with saline, inflate the stomach with air through the Ryle’s tube, and watch for bubbles.', why:'A leak found now costs one more stitch. Found on day 4 it costs a relook.', tip:'Pinch D2 gently with a grasper so the air pressurises the repair instead of running down the duodenum.'},
+{t:'Lavage', how:'Warm saline until the return is clear, then suck dry: right and left subphrenic spaces, Morison’s pouch, both gutters and the pelvis.', why:'Contamination collects in the dependent spaces. Any residue becomes an abscess.'},
+{t:'Drains', how:'House practice: tubal drain via the left upper quadrant port to the pelvis, and via the right upper quadrant port to Morison’s pouch, each anchored with 2-0 Nylon.', why:'See “House and evidence” below. The guideline does not address drains.'},
+{t:'Close', how:'Ports out under vision. Fascia with 2-0 Vicryl at the 10 mm sites, skin with 3-0 Ethilon. Local anaesthetic to the wounds. Counts confirmed. Biopsies and cultures labelled.', why:'Watching the ports come out is the only chance to see an abdominal wall bleeder.'}
+],
+house:[
+['Approach','Laparoscopy first, convert if unsure','Laparoscopic if stable and the skills exist (WSES 2020, 2B). Open if unstable (1D).'],
+['Omental patch','Graham patch routinely','Primary repair under 2 cm (2C). No recommendation for or against a patch.'],
+['Gastric ulcer','Biopsy','Resect a large gastric ulcer when malignancy is suspected, with frozen section if available (2D).'],
+['Lavage','6 L warm saline','Not addressed by the guideline.'],
+['Drains','Two tubal drains','Not addressed by the guideline.'],
+['Antibiotics','Unit regimen','Broad spectrum (1C). Culture for bacteria and fungi (1C). Stop at 3–5 days or when markers settle (2C).'],
+['Non-operative','Not house practice','Not routine. Only in highly selected patients whose leak is sealed on water-soluble contrast (2C).']
+],
+
+anatomy:{
+points:[
+'D1: the first 5 cm of the duodenum. The first 2–3 cm, the bulb, is intraperitoneal and mobile. Anterior bulb ulcers perforate into the peritoneal cavity; posterior ones erode the gastroduodenal artery and bleed.',
+'Pylorus: a thick ring under the finger, crossed on its front by the pyloric vein of Mayo. Proximal to it the ulcer is gastric and needs tissue; distal to it, duodenal.',
+'Posterior gastric wall: a perforation here leaks into the lesser sac and is seen only after opening the gastrocolic ligament.',
+'Omentum: pedicled tongues from the right side of the greater omentum, on the right gastroepiploic arcade, reach the pylorus without tension.',
+'Spread: gastric contents run down the right paracolic gutter, so the pain can settle in the right iliac fossa and mimic appendicitis (Valentino’s appendix).'
+],
+table:{title:'Gastric ulcer site: modified Johnson', head:['Type','Site','Acid','Emergency option'], rows:[
+['I','Lesser curve at the incisura','Normal or low','Wedge excision usually feasible'],
+['II','Body, with a duodenal ulcer','High','Repair and biopsy; look for the duodenal ulcer'],
+['III','Prepyloric','High','Behaves as duodenal; excision can narrow the outlet'],
+['IV','High lesser curve, near the cardia','Low','Biopsy and patch; excision threatens the cardia'],
+['V','Anywhere','Variable','Drug-induced (NSAID, aspirin); repair and biopsy']
+]},
+danger:[
+'Posterior duodenal wall: a bite that crosses the lumen catches it and closes the duodenum.',
+'Pylorus: a long closure along the axis narrows the outlet.',
+'Gallbladder and bile duct: often stuck to the duodenum over a perforation. Adhesiolysis here is where the duct is injured.',
+'Middle colic vessels: in the transverse mesocolon, close by when an omental tongue is freed from the colon.'
+]
+},
+
+pitfalls:[
+{t:'Cannot find the perforation', a:'Systematic survey: anterior pylorus and D1, lesser curve, then the lesser sac.', r:'Not found laparoscopically: convert. Still not found: think of other causes of free gas (colon, small bowel, diverticulum) and call.'},
+{t:'Perforation 2 cm or larger', a:'Measure before you stitch. Do not keep suturing into tissue that will not hold.', r:'Omental plug, jejunal serosal patch, resection with the ampulla clear, or pyloric exclusion; duodenostomy only in extreme circumstances (WSES 2D). A senior decision: call.'},
+{t:'Looks malignant', a:'Biopsy every gastric perforation. Suspect cancer with a hard rim, a mass, or nodes.', r:'Stable, little soiling, right surgeon present: resection may be done now. Otherwise close, biopsy, stage, and resect later. Call.'},
+{t:'Sutures cut through', a:'Bites well back from the edge; tie to approximate, not to strangle.', r:'Lay omentum into the hole and tie the stitches over it without closing the defect first. The omentum is the seal.'},
+{t:'Outlet narrowed', a:'Close across the axis; keep bites short.', r:'If the pylorus will not admit a finger at the end, call: a pyloroplasty or gastrojejunostomy may be needed.'},
+{t:'Leak test positive', a:'Test every repair before leaving.', r:'Another stitch at the leaking point, re-secure the omentum, and test again.'},
+{t:'Unstable on the table', a:'Pneumoperitoneum lowers venous return in a septic patient.', r:'Desufflate and convert (WSES 1D). In septic shock with deranged physiology: damage control — close quickly, lavage, drain, temporary closure, relook (2D).'},
+{t:'Bleeding as well as perforation', a:'An anterior perforation can sit opposite a posterior bleeding ulcer.', r:'Fresh blood from the duodenum, or haematemesis after repair: suspect a kissing ulcer. Call.'},
+{t:'Adhesions to the gallbladder', a:'Blunt and sharp dissection on the duodenum, not on the gallbladder.', r:'Bile in the field that is not from the ulcer: stop and call.'}
+],
+call:['Perforation not found','Perforation 2 cm or larger, or edges that will not hold','Suspected malignancy','Unstable, or septic shock developing on the table','Outlet narrowed after repair','Bleeding from the duodenum','You are thinking about converting'],
+
+setup:{
+theatre:['Modified Lloyd-Davies, legs apart, arms out','Surgeon between the legs; camera holder on the patient’s left','Monitor at the head, over the right shoulder','Ryle’s tube in and checked; urinary catheter','Head up once the ports are in'],
+kit:['Hasson port, 10 mm and 5 mm ports','Laparoscope: check which size and angle your theatre stocks','Two graspers, two laparoscopic needle holders, scissors','3-0 Vicryl on a round-bodied needle','Suction-irrigation with several litres of warm saline','Culture bottles for bacteria and fungi; pots for rim biopsies','Two tube drains and 2-0 Nylon'],
+standby:['Open laparotomy set with self-retaining retractor','PDS loop for mass closure','Linear staplers, if resection becomes likely','Extra 5 mm port and grasper for the liver']
+},
+
+consent:{
+note:`Consent for laparoscopic repair of perforated peptic ulcer, possible open operation
+Diagnosis and indication explained: [[perforated hollow viscus on CT, likely perforated peptic ulcer, with peritonitis]]
+Nature of operation explained: keyhole operation under general anaesthesia to find and close the perforation with an omental patch, wash out the abdomen and place drains; possible conversion to open operation
+Alternative discussed: non-operative management with drip, nasogastric tube and antibiotics; [[not suitable in view of peritonitis]]
+Benefits: control of the source of infection; life-saving
+General risks: bleeding, wound infection, chest infection, deep vein thrombosis and pulmonary embolism, cardiac events
+Anaesthetic risks in brief: aspiration, possible admission to intensive care after operation; anaesthetist to discuss in detail
+Specific risks: leak from repair which may need drainage or re-operation, intra-abdominal collection, prolonged ileus, narrowing of stomach outlet, injury to nearby organs, conversion to open, larger operation including partial gastrectomy if ulcer large or suspicious, cancer found on biopsy, recurrence of ulcer
+Risk of death explained, [[Boey score __]]
+Need for H. pylori treatment, acid suppression and follow-up endoscopy explained
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Death, Boey score 0','0%','Boey 1987, Hong Kong, 259 patients'],
+['Death, Boey score 1','10%','Boey 1987'],
+['Death, Boey score 2','45.5%','Boey 1987'],
+['Death, Boey score 3','100%','Boey 1987; recent series lower'],
+['Death after surgery for perforated ulcer','5.8%','Review of 56 studies'],
+['Laparoscopy converted to open','12.4%','Review of 56 studies'],
+['Perforated gastric ulcer that is cancer','10–16%','WSES 2020'],
+['Ulcer back within a year without H. pylori eradication','38.1%','Ng 2000, Prince of Wales'],
+['Ulcer back within a year after eradication','4.8%','Ng 2000']
+],
+versus:'Boey scores one point each for major medical illness, shock before operation, and perforation over 24 hours old. It was derived in duodenal perforations; recent cohorts put score 3 nearer 40% than 100%. Quote the score, then the patient in front of you.'
+},
+
+notes:{
+findings:`[[CT: pneumoperitoneum with mural defect at D1]]
+[[Turbid fluid in all four quadrants, fibrin over right upper quadrant]]
+[[5 mm perforation at anterior D1 just distal to pylorus, edges soft]]
+[[Rest of duodenum and stomach normal]]
+[[No mass seen]]`,
+procedure:`Modified Lloyd-Davies position, general anaesthesia, skin prepped and draped
+[[Ryle's tube in situ]], urinary catheter inserted
+Supraumbilical vertical incision, linea alba split, peritoneal cavity entered by {{direct method}}
+Hasson trocar introduced, capnoperitoneum created at pressure [[12]] mmHg
+Additional [[10 mm and 5 mm working ports inserted over LUQ and RUQ]] respectively {{under laparoscopic guidance}}
+Diagnostic laparoscopy done, findings as above
+Peritoneal fluid sent for [[bacterial and fungal culture]]
+[[Initial decontamination with 2 L warm normal saline]]
+Appropriate tension-free omental tongue selected, Graham patch repair performed with [[3-0 Vicryl x4]]
+{{Repair confirmed secure, underwater bubble test negative}}
+Peritoneal lavage with total [[6 L]] warm normal saline till clear, fluid sucked dry
+[[Tubal drain inserted via LUQ port to pelvis and RUQ port to Morison's pouch, anchored with 2-0 Nylon]]
+Ports removed {{under vision}}
+Fascia closed with [[2-0 Vicryl]], skin with [[3-0 Ethilon]]
+Wound infiltrated with local anaesthetic, dressing
+{{Swab, needle and instrument counts correct}}`,
+decisions:[
+['Gastric ulcer biopsied','Edge of [[lesser curve]] gastric ulcer biopsied [[x4]] before closure, sent for histology'],
+['Closure without patch','Perforation closed primarily, no omental patch: [[edges healthy, minimal contamination]]'],
+['No drain','Minimal contamination, cavity dry, drain not placed']
+],
+deviations:[
+['Conversion to open',`Decided to convert open in view of [[uncertain pathology]]
+Upper midline laparotomy, peritoneal cavity entered
+Initial decontamination with [[2 L]] warm normal saline
+Pathology identified, exploratory laparotomy done with above findings
+[[Small bowel and large bowel down to upper rectum, no mass palpable]]
+Mass closure with [[PDS 0]], corrugated drain inserted over lower end of wound and anchored with 2-0 Nylon`],
+['Perforation not found',`Perforation not identified at laparoscopy
+Lesser sac entered via gastrocolic ligament, posterior wall of stomach inspected
+Senior kindly scrubbed in`],
+['Large or friable perforation',`[[2.5 cm]] perforation at [[D1]], edges friable, unsuitable for primary repair
+Senior kindly scrubbed in
+[[Omental plug repair / distal gastrectomy]] performed`],
+['Suspected malignancy',`[[Indurated ulcer at lesser curve with surrounding mass]]
+Rim biopsied [[x6]], sent for histology
+Discussed with [[senior]] intraoperatively
+[[Perforation closed with omental patch, for staging and definitive surgery]]`],
+['Leak test positive',`Underwater bubble test positive at [[superior aspect]] of repair
+Additional [[3-0 Vicryl]] suture placed, omental patch re-secured
+Repeat bubble test negative`],
+['Damage control',`Septic shock with [[rising noradrenaline requirement]] during procedure
+Abbreviated surgery: perforation closed, lavage, drains placed
+Temporary abdominal closure with [[negative pressure dressing]], for relook in [[24 to 48 h]]`],
+['Senior called',`Senior kindly scrubbed in at [[__:__]]
+[[Dr __]] continued as chief surgeon`]
+],
+postop:`NPO, Ryle's tube on free drainage
+IVF
+IV PPI
+IV Abx [[amoxicillin-clavulanate]], review at D3 to D5
+Analgesics regular and PRN
+[[BP/P Q1H x4 then Q4H if stable]]
+Strict I/O, inform if UO < 0.5 ml/kg/h
+Chart drain output, inform if bile-stained
+Chest physio, early mobilisation, DVT prophylaxis as assessed
+Trace peritoneal fluid culture
+Check [[H. pylori serology]]
+[[Resume sips D__ if no clinical leak]]
+Inform if T > 38, P > 100 or increasing pain`,
+discharge:`Home when DAT, afebrile, drains off, [[D5 to D7]]
+PPI full dose for [[8 weeks]]
+H. pylori eradication if positive, test of cure afterwards
+Avoid NSAIDs
+[[OGD at 6 to 8 weeks]] (gastric ulcer)
+FU surgical clinic [[2 to 4 weeks]], trace histology
+SL [[__ days]]
+To return if fever, abdominal pain or vomiting`
+},
+
+viva:[
+['Is it a Graham patch?','Strictly, rarely. Cellan-Jones (1929) used a pedicled strand of omentum; Graham (1937) used a free omental graft tied down with three sutures. Neither closed the hole first. Closing the perforation and then tying the tails over pedicled omentum is a modified Graham repair, which is what most of us do and still call a Graham patch.'],
+['What is the Boey score?','One point each for major medical illness, shock before operation, and perforation over 24 hours. Boey’s Queen Mary series of 259 duodenal perforations gave mortality of 0%, 10%, 45.5% and 100% for scores 0 to 3. It was derived in duodenal ulcers. PULP, from a Danish national cohort, discriminates better (area under the curve 0.83 against 0.70).'],
+['Who can be managed without an operation?','Crofts at the Prince of Wales randomised 83 patients in 1989: mortality was similar, but 28% of the non-operative arm needed surgery at 12 hours, two of them for perforated gastric cancer, and patients over 70 responded less well. WSES 2020 does not recommend it routinely; only in highly selected patients whose perforation is sealed on water-soluble contrast.'],
+['Why does a gastric perforation change the operation?','Cancer, size and site. 10–16% are malignant, so the rim is biopsied or excised. Site sets what is possible: an incisural ulcer can be wedged, a prepyloric excision narrows the outlet, and a high lesser-curve ulcer near the cardia is biopsied and patched. Over 2 cm, or suspicious, it is resected with frozen section where feasible.'],
+['A 3 cm duodenal perforation: your options?','Not a patch. WSES 2020 tailors it to location: resection or repair, with or without pyloric exclusion and external biliary drainage, duodenostomy only in extremis. In practice: omental plug, jejunal serosal patch, antrectomy with resection of D1 if the ampulla is clear, or pyloric exclusion with gastrojejunostomy. For a stump that will not close: Nissen’s closure to the pancreatic capsule, Bancroft’s antral mucosectomy, or a tube duodenostomy as a controlled fistula.'],
+['What is the most important part of the treatment after discharge?','Eradicating H. pylori. In Ng’s Prince of Wales trial of perforated duodenal ulcers, 81% were H. pylori positive, and ulcer relapse at one year fell from 38.1% with omeprazole alone to 4.8% after eradication. Add stopping NSAIDs, eight weeks of PPI, and endoscopy at six to eight weeks for a gastric ulcer.'],
+['Day 4: tachycardia, fever, bile in the drain.','A leak until proven otherwise. Resuscitate, image, and grade it. Contained collection: percutaneous drainage, nil by mouth, acid suppression, antibiotics. Controlled through the drain: treat as a fistula. Free leak with peritonitis: relook, knowing that re-suturing inflamed tissue rarely holds, so resection or a tube through the defect may be needed. Too unwell for theatre: endoscopic stent or clip with drainage, from case series only.','expert opinion, no trials']
+],
+
+sources:{
+steps:[
+'House technique: senior’s CMS personal template “PPU” (YO Templates).',
+'<a href="https://doi.org/10.1186/s13017-019-0283-9">Tarasconi A et al. Perforated and bleeding peptic ulcer: WSES guidelines. World J Emerg Surg 2020;15:3</a>.',
+'Your handbook UGI-04 Perforated peptic ulcer, v0.2; your teaching deck “Perforated gastric ulcer: approach and technique”.',
+'Ellison EC, Zollinger RM Jr. Zollinger’s Atlas of Surgical Operations, 10th edition, chapter 19 (closure and omentopexy).',
+'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
+anatomy:[
+'Johnson HD. Ann Surg 1965;162:996–1004; Csendes A et al. Surgery 1987;101:361–366 (type IV).',
+'Your teaching deck “Perforated gastric ulcer”.'],
+pitfalls:[
+'<a href="https://doi.org/10.1186/s13017-019-0283-9">WSES 2020</a>: large perforations, damage control, open surgery when unstable.',
+'Senior notes: Deon’s notes, management of the difficult duodenal stump; Billy notes, upper GI.',
+'Leak management tiers: your teaching deck, expert opinion.'],
+setup:['House set-up and port positions: senior’s CMS template “PPU”.'],
+consent:[
+'Boey J et al. Risk stratification in perforated duodenal ulcers. Ann Surg 1987;205:22–26.',
+'<a href="https://link.springer.com/article/10.1007/s00464-009-0765-z">Bertleff MJ, Lange JF. Laparoscopic correction of perforated peptic ulcer: first choice? A review of literature. Surg Endosc 2010</a>: conversion 12.4%, mortality 5.8%.',
+'<a href="https://doi.org/10.1186/s13017-019-0283-9">WSES 2020</a>: proportion of gastric perforations that are malignant, as quoted in your handbook and teaching deck.',
+'Ng EK et al. Eradication of H. pylori prevents recurrence after simple closure of perforated duodenal ulcer. Ann Surg 2000;231:153–158.',
+'Siu WT et al. Laparoscopic repair for perforated peptic ulcer: a randomized controlled trial. Ann Surg 2002;235:313–319.'],
+notes:['Wording follows the senior’s CMS personal template “PPU”. The operation record is spelt out; the orders use common HA short forms. Antibiotic choice from IMPACT, as in your handbook UGI-04.'],
+viva:[
+'Your teaching deck (Cellan-Jones, Graham, Boey, Crofts, PULP).',
+'Crofts TJ et al. N Engl J Med 1989;320:970–973; Møller MH et al. Acta Anaesthesiol Scand 2012;56:655–662.',
+'Senior notes: Deon’s notes, difficult duodenal stump.']
+},
+
+dg:{
+setup:`<figure class="dg"><svg viewBox="0 0 340 300" role="img" aria-label="Theatre layout and port positions for laparoscopic repair of perforated peptic ulcer">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5"><circle cx="170" cy="24" r="14"/><path d="M122 44H218Q226 44 226 52V188Q226 196 218 196H122Q114 196 114 188V52Q114 44 122 44Z"/><path d="M136 196L108 288M204 196L232 288"/><circle cx="170" cy="138" r="3"/></g>
+<g fill="var(--accent-text)"><circle cx="170" cy="124" r="6"/><circle cx="204" cy="92" r="6"/><circle cx="138" cy="92" r="4.5"/></g>
+<text class="b" x="181" y="128">A</text><text class="b" x="196" y="78">B</text><text class="b" x="146" y="78">C</text>
+<g fill="var(--surface-high)" stroke="var(--border)" stroke-width="1"><rect x="128" y="250" width="84" height="30" rx="4"/><rect x="244" y="130" width="84" height="30" rx="4"/><rect x="12" y="34" width="84" height="30" rx="4"/></g>
+<text class="b" x="170" y="269" text-anchor="middle">Surgeon</text><text class="b" x="286" y="149" text-anchor="middle">Camera</text><text class="b" x="54" y="53" text-anchor="middle">Monitor</text>
+<text x="54" y="112" text-anchor="middle">Patient’s right</text><text x="286" y="118" text-anchor="middle">Patient’s left</text>
+</svg><figcaption>Modified Lloyd-Davies, head up. <b>A</b> supraumbilical 10 mm Hasson port, camera. <b>B</b> 10 mm left upper quadrant port, the surgeon’s right hand. <b>C</b> 5 mm right upper quadrant port, the left hand. The surgeon stands between the legs facing the monitor at the right shoulder.</figcaption></figure>`,
+anat:`<figure class="dg"><svg viewBox="0 0 340 300" role="img" aria-label="Modified Graham repair of an anterior duodenal perforation: closure, then omental patch">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M8 40H118M8 112H118"/><path d="M118 40C140 34 160 24 168 12M118 112C140 120 160 132 168 142"/>
+<path d="M118 34V118" stroke-width="3"/>
+<path d="M178 40H288M178 112H288"/><path d="M288 40C310 34 326 24 334 12M288 112C310 120 326 132 334 142"/>
+<path d="M288 34V118" stroke-width="3"/>
+</g>
+<ellipse cx="88" cy="76" rx="7" ry="9" fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"/>
+<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
+<path d="M72 62H104M72 76H104M72 90H104"/>
+<path d="M104 62l10 -6M104 76l10 0M104 90l10 6M72 62l-10 -6M72 76l-10 0M72 90l-10 6" stroke-width="1" stroke-dasharray="2 3"/>
+</g>
+<path d="M226 150C226 120 236 98 252 82C262 74 272 74 274 86C276 100 266 122 262 150Z" fill="var(--surface-high)" stroke="var(--muted-text)" stroke-width="1.5"/>
+<g fill="none" stroke="var(--accent-text)" stroke-width="1.75" stroke-linecap="round">
+<path d="M246 62C252 76 262 80 276 72M242 76C252 92 266 92 280 84M246 90C256 104 268 104 278 96"/>
+</g>
+<text class="b" x="10" y="30">1 Close</text><text class="b" x="180" y="30">2 Patch</text>
+<text x="128" y="160" text-anchor="middle">Pylorus,</text><text x="128" y="174" text-anchor="middle">vein of Mayo</text>
+<text x="10" y="134">D1</text><text x="150" y="68">Antrum</text>
+<text x="10" y="196">Bites along the long axis,</text><text x="10" y="210">5 mm from the edge,</text><text x="10" y="224">anterior wall only.</text><text x="10" y="238">Closure lies across</text><text x="10" y="252">the duodenum.</text>
+<text x="180" y="196">Pedicled omental tongue</text><text x="180" y="210">laid over the closure,</text><text x="180" y="224">long tails tied loosely</text><text x="180" y="238">over it.</text>
+<text x="226" y="166">Omentum</text>
+</svg><figcaption>Anterior view; the patient’s right is on your left. The hole is closed first, then the omentum is tied down over it: a modified Graham repair. With edges too friable to close, the omentum goes into the hole and the same stitches are tied over it without closing first.</figcaption></figure>`}
+});
+
+P.push({
+id:'bleeding-duodenal-ulcer', name:'Under-running of bleeding duodenal ulcer', aka:'bleeding peptic ulcer gda gastroduodenal artery underrun under-run duodenotomy pyloroduodenotomy heineke mikulicz pyloroplasty ugib upper gi bleed rebleed laparotomy',
+system:'Upper GI', list:'emergency', approach:'Open',
+aim:'Stop the gastroduodenal artery with three stitches, without catching the bile duct, and close the duodenum without narrowing it.',
+status:'Draft 0.1 · 18/11/2026 · sourced, not yet tested by you in theatre',
+
+steps:[
+{t:'Before the knife', how:'Read the endoscopy report: ulcer site, size and Forrest grade. Blood and products in the room, massive transfusion protocol ready. Arterial line, two large-bore cannulae, Ryle’s tube, urinary catheter. Rapid-sequence general anaesthesia, supine.', why:'The report tells you where to open. Most patients reaching theatre have bled twice and are old; the anaesthetist needs to be ahead of the next bleed.', tip:'Ask for the endoscope to be in theatre. If the ulcer is not where the report says, on-table endoscopy finds it faster than you will.'},
+{t:'Incision', how:'Upper midline laparotomy. Self-retaining retractor, liver lifted.', why:'Fast access to stomach and duodenum, extendable downwards.'},
+{t:'Kocherise', how:'Divide the peritoneum lateral to D2 and lift the duodenum and head of pancreas forwards and medially.', why:'A hand behind D1 and D2 compresses the ulcer against your fingers while you set up, and it takes tension off the closure later.', tip:'Once Kocherised, a hand behind the duodenum is a tourniquet. Use it while the anaesthetist catches up.'},
+{t:'Mark the pylorus', how:'Find the pylorus by feel and by the pyloric vein of Mayo. Place stay sutures on either side of the line you will open.', why:'The incision has to cross the pylorus to reach posterior D1 and to close as a pyloroplasty.'},
+{t:'Pyloroduodenotomy', how:'Longitudinal incision across the pylorus onto anterior D1, about 4–5 cm. Suck out the clot. Finger on the bleeding point.', why:'Posterior D1, where the gastroduodenal artery ulcers sit, is directly behind this incision.', tip:'No bleeding point in D1? Extend onto the antrum and look at the stomach, or scope on the table.'},
+{t:'Under-run the artery', how:'Heavy non-absorbable suture on a stout round-bodied needle: one stitch cranial and one caudal to the vessel in the ulcer base, then a U-stitch on the medial side.', why:'The gastroduodenal artery fills from above and, through the pancreaticoduodenal arcades, from below. The medial U-stitch takes the transverse pancreatic branch. One stitch stops one inflow.', tip:'Keep the bites in the ulcer base and away from its lateral side. The bile duct runs just to the right of the artery.'},
+{t:'Check', how:'Release the finger and the hand behind. Ask the anaesthetist to let the pressure come up. Look for bleeding and for bile in the ulcer base.', why:'A stitch tested at a systolic of 80 has not been tested. Bile in the base means the duct has been caught or opened.', tip:'Take an antral biopsy for H. pylori through the opening. Testing after a bleed is often falsely negative; tissue in a pot now is worth having.'},
+{t:'Close as a pyloroplasty', how:'Pull the stay sutures apart so the longitudinal incision becomes a transverse line. Close it transversely, Heineke–Mikulicz, with interrupted 3-0 PDS.', why:'A transverse closure widens the outlet instead of narrowing it.'},
+{t:'Wash and drain', how:'Irrigate with warm saline and suck dry. House drain to the subhepatic space.', why:'Blood in the peritoneum is a culture medium, and a drain there will show bile or blood early.'},
+{t:'Close', how:'Mass closure with a PDS loop, skin with staples. Counts confirmed. Record blood loss and units transfused.', why:'These patients are old, anaemic and on steroids or antithrombotics more often than not: the abdominal wall has to hold through a long ileus.'}
+],
+house:[
+['When to operate','After endoscopy fails','After repeated endoscopic failure (WSES 2020, 1D). WSES also operates without a second endoscopy if hypotensive or the ulcer is over 2 cm (1D); ESGE and ACG repeat endoscopy, then embolise.'],
+['Embolisation','Depends on availability','An alternative where available (2D). Prince of Wales: rebleeding 34% after embolisation against 13% after surgery; death 25% against 30%, not significant.'],
+['Locating the bleed','Duodenotomy guided by the report','Intra-operative endoscopy to locate the source (2D).'],
+['Operation','Under-run and pyloroplasty','Choose by location, size and vessel (2C). Triple ligation of the gastroduodenal artery.'],
+['Acid surgery','Not added','Under-running plus PPI and H. pylori eradication is the norm. WSES cites one database analysis in which vagotomy and drainage had lower mortality.'],
+['After surgery','High-dose PPI','High-dose PPI infusion for 72 hours (2B), then 6–8 weeks of PPI (1B).']
+],
+
+anatomy:{
+points:[
+'Gastroduodenal artery: from the common hepatic artery, it descends behind D1 between the duodenum and the neck of the pancreas, then divides into the right gastroepiploic and superior pancreaticoduodenal arteries.',
+'Two-way inflow: from above through the common hepatic, and from below through the pancreaticoduodenal arcades from the superior mesenteric. Hence a stitch above and a stitch below.',
+'Transverse pancreatic branch: enters the ulcer base from the medial side. Hence the U-stitch.',
+'Common bile duct: runs behind D1 to the right of the gastroduodenal artery, then through the head of the pancreas to the ampulla on the medial wall of D2.',
+'Left gastric artery: supplies the lesser curve. High lesser-curve ulcers and Dieulafoy lesions bleed from its branches.'
+],
+table:{title:'Where it bleeds from', head:['Ulcer','Vessel','Operation'], rows:[
+['Posterior D1','Gastroduodenal artery','Pyloroduodenotomy, three-point under-running, Heineke–Mikulicz closure'],
+['Lesser curve, incisura','Left or right gastric branches','Wedge excision, or biopsy and under-running'],
+['Distal lesser curve, antrum','Right gastric branches','Distal gastrectomy if excision is not possible'],
+['High lesser curve, near the cardia','Left gastric','Gastrotomy, biopsy, oversew from inside'],
+['Body or greater curve','Gastroepiploic or short gastric','Wedge excision']
+]},
+danger:[
+'Common bile duct: deep or lateral bites in the ulcer base. Bile in the base or jaundice afterwards gives it away.',
+'Pancreas and pancreatic duct: the base of a penetrating posterior ulcer is pancreas. Do not excise it; under-run it.',
+'Ampulla: on the medial wall of D2. Matters if the incision extends down or D1 is resected.',
+'Inferior vena cava: directly behind the duodenum during Kocherisation. Stay on the front of it.'
+]
+},
+
+pitfalls:[
+{t:'No bleeding point in D1', a:'Read the report; open where it says.', r:'Look at the stomach through an extended incision, or scope on the table. Consider a Dieulafoy lesion high on the lesser curve, a Mallory–Weiss tear, or varices.'},
+{t:'Field full of blood', a:'Kocherise first so a hand can compress from behind.', r:'Finger in the ulcer, two suckers, wait for the anaesthetist. Then place the stitches one at a time under vision.'},
+{t:'One stitch, then rebleeding', a:'Three points every time: cranial, caudal, medial U-stitch.', r:'Rebleeding after surgery: embolisation, or relook. Call.'},
+{t:'Bile in the ulcer base', a:'Bites in the ulcer base, not lateral to it.', r:'Stop and call. The duct may need a cholangiogram and a T-tube, done by a senior.'},
+{t:'Giant penetrating ulcer', a:'Expect it when the endoscopy shows an ulcer over 2 cm on the posterior wall.', r:'Under-run the base and leave it on the pancreas. If the duodenum cannot be closed, a distal gastrectomy with a difficult-stump closure (Nissen’s, Bancroft’s, or a tube duodenostomy). A senior decision.'},
+{t:'Outlet narrowed or closure under tension', a:'Kocherise fully; close transversely.', r:'If it will not close without tension, call: a gastrojejunostomy or resection may be safer.'},
+{t:'Coagulopathic and cold', a:'Massive transfusion protocol with plasma, platelets, calcium and warming from the start.', r:'Damage control in haemorrhagic shock with deranged physiology (WSES 2D): stitches, pack, temporary closure, ICU, relook.'},
+{t:'Gastric ulcer, not duodenal', a:'Every bleeding gastric ulcer is a possible cancer.', r:'Excise it, or biopsy it and under-run (WSES 2C).'}
+],
+call:['Every case: this operation is done with a senior','No bleeding source found in D1','Bile in the ulcer base','Ulcer too large or duodenum unsafe to close','Bleeding not controlled by three-point under-running','Coagulopathy or haemodynamic collapse'],
+
+setup:{
+theatre:['Supine, arms out','Arterial line and two large-bore cannulae; warming on','Cross-matched blood in the room; massive transfusion protocol activated','Ryle’s tube and urinary catheter','Endoscopy stack in theatre for on-table OGD; interventional radiology aware'],
+kit:['Laparotomy set with self-retaining retractor','Long instruments, two suckers, Babcocks','Stay sutures','Heavy non-absorbable suture on a stout round-bodied needle for the ulcer base: check what your unit uses','3-0 PDS for the pyloroplasty','Tube drain and 2-0 Nylon','PDS loop and skin stapler'],
+standby:['Gastroscope in theatre','Linear staplers for resection','Cholangiogram catheter and T-tube','Packs for damage control']
+},
+
+consent:{
+note:`Consent for laparotomy, pyloroduodenotomy and under-running of bleeding duodenal ulcer, possible partial gastrectomy
+Diagnosis and indication explained: [[bleeding posterior D1 ulcer, rebleeding after endoscopic treatment x2]]
+Nature of operation explained: open operation under general anaesthesia to stitch the bleeding vessel through an opening in the duodenum and close it so as to widen the stomach outlet
+Alternatives discussed: repeat endoscopy, embolisation by radiologist; [[not available / failed / unstable]]
+Benefits: control of life-threatening bleeding
+General risks: bleeding, wound infection and wound breakdown, chest infection, deep vein thrombosis and pulmonary embolism, cardiac events
+Anaesthetic risks in brief: aspiration, admission to intensive care, blood transfusion; anaesthetist to discuss in detail
+Specific risks: rebleeding needing further procedure, leak from the duodenal closure, injury to bile duct or pancreas, pancreatitis, intra-abdominal collection, prolonged ileus, larger operation including partial gastrectomy, death
+Blood transfusion consent obtained
+[[Next of kin informed]]
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Rebleeding after endoscopic haemostasis','8.2%','Prince of Wales, 1,144 ulcers'],
+['Lasting control with a second endoscopy after rebleeding','73%','Lau 1999, 35 of 48'],
+['Complications, surgery for rebleeding','36%','Lau 1999, 16 of 44'],
+['Complications, endoscopic retreatment','15%','Lau 1999, 7 of 48'],
+['Death within 30 days, surgery for rebleeding','18%','Lau 1999, 8 of 44'],
+['Rebleeding after surgery','13%','Wong 2011, Prince of Wales'],
+['Rebleeding after embolisation','34%','Wong 2011'],
+['Death, surgery against embolisation','30% and 25%','Wong 2011, not significant']
+],
+versus:'Most deaths in ulcer bleeding are not from blood loss: in 10,428 bleeds at the Prince of Wales, 6.2% died and 80% of those deaths were from other illness. Say it to the family; it is the honest framing of the risk.'
+},
+
+notes:{
+findings:`[[OGD: Forrest Ia ulcer 2 cm at posterior D1, rebleeding after endoscopic treatment x2]]
+[[Fresh blood and clot in stomach and duodenum]]
+[[2 cm posterior D1 ulcer with spurting vessel in base]]
+[[Stomach and rest of duodenum normal, no other source]]
+[[No perforation]]`,
+procedure:`Supine, general anaesthesia, skin prepped and draped
+Upper midline laparotomy, peritoneal cavity entered
+Findings as above
+Duodenum Kocherised
+Stay sutures placed, longitudinal pyloroduodenotomy performed
+Clot evacuated, bleeding controlled with digital pressure
+Ulcer base under-run with [[heavy non-absorbable suture]]: stitches cranial and caudal to gastroduodenal artery, U-stitch medially for transverse pancreatic branch
+{{Haemostasis confirmed with blood pressure restored, no bile in ulcer base}}
+[[Antral biopsy taken for H. pylori]]
+Pyloroduodenotomy closed transversely in Heineke-Mikulicz manner with [[3-0 PDS interrupted]]
+Abdomen irrigated with warm normal saline, sucked dry
+[[Tubal drain inserted to subhepatic space, anchored with 2-0 Nylon]]
+Mass closure with [[PDS 1 loop]], skin with [[staples]]
+{{Swab, needle and instrument counts correct}}
+Estimated blood loss [[__]] ml, [[__]] units packed cells transfused intraoperatively`,
+decisions:[
+['On-table OGD','On-table OGD performed to localise bleeding source: [[posterior D1 ulcer]] confirmed'],
+['Gastric ulcer excised','Bleeding ulcer at [[incisura]], wedge excision performed, sent for histology'],
+['Gastric ulcer biopsied and under-run','Bleeding ulcer at [[high lesser curve]], gastrotomy, edge biopsied x[[4]], ulcer under-run, gastrotomy closed'],
+['No drain','Field dry, drain not placed']
+],
+deviations:[
+['Source not in D1',`No bleeding source seen in D1
+[[On-table OGD performed]], bleeding source [[Dieulafoy lesion at high lesser curve]] identified
+[[Gastrotomy, lesion under-run]]`],
+['Giant ulcer, resection',`Giant posterior D1 ulcer [[3 cm]] penetrating pancreas, duodenum unsuitable for closure
+Senior kindly scrubbed in
+Ulcer base under-run and left on pancreas
+[[Distal gastrectomy with Billroth II reconstruction]], duodenal stump closed by [[__]] technique`],
+['Bile in ulcer base',`Bile noted at ulcer base after under-running
+Senior kindly scrubbed in
+[[Cholangiogram via cystic duct / choledochotomy]] performed`],
+['Damage control',`Ongoing coagulopathy and hypothermia, [[__]] units transfused
+Bleeding controlled with under-running, abdomen packed
+Temporary abdominal closure with [[negative pressure dressing]], for ICU and relook in [[24 to 48 h]]`],
+['Senior called',`Senior kindly scrubbed in at [[__:__]]
+[[Dr __]] continued as chief surgeon`]
+],
+postop:`[[ICU / HDU]] care
+NPO, Ryle's tube on free drainage
+IVF
+[[IV PPI 80 mg bolus then 8 mg/h for 72h]]
+Transfuse to Hb [[70 to 90 g/L]]
+CBC [[Q12H x 48h]], clotting
+[[BP/P Q1H]], strict I/O
+Chart drain output, inform if blood or bile
+Inform STAT if haematemesis, fresh melaena, P > 100, SBP < 100 or Hb drop
+Hold [[antithrombotics]], plan restart with [[cardiology]]
+Mechanical DVT prophylaxis until bleeding settled
+Trace H. pylori result`,
+discharge:`Home when DAT, Hb stable, [[D7 to D10]]
+Oral PPI BD [[to D14]], then daily for [[6 to 8 weeks]]
+H. pylori eradication if positive, test of cure afterwards
+Avoid NSAIDs
+Restart [[aspirin]] as planned, with PPI
+FU surgical clinic [[2 to 4 weeks]]
+To return if black stools, vomiting blood or dizziness`
+},
+
+viva:[
+['Why three stitches?','The gastroduodenal artery is fed from both ends: from above through the common hepatic, and from below through the pancreaticoduodenal arcades. A stitch cranial and a stitch caudal to the vessel stop both. The medial U-stitch takes the transverse pancreatic branch entering the base. One stitch controls one inflow and the ulcer rebleeds.'],
+['Who goes to theatre, who to radiology, and who back to endoscopy?','Lau at the Prince of Wales (1999) randomised rebleeding ulcers after endoscopic control: a second endoscopy gave lasting control in 73%, with fewer complications than surgery (15% against 36%); deaths were not significantly different. Shock and ulcers over 2 cm predicted failure. So: re-scope most; embolise where available; operate on the unstable, the large posterior ulcer, and failed embolisation. WSES operates sooner than ESGE and ACG on the hypotensive or the large ulcer.'],
+['Name the pyloroplasties.','Heineke–Mikulicz: longitudinal incision across the pylorus closed transversely, the common one. Finney: a side-to-side gastroduodenostomy with the incision through the pylorus, for a scarred outlet. Jaboulay: a side-to-side gastroduodenostomy that leaves the pylorus intact.'],
+['Is there still a place for vagotomy?','Rarely. PPI and H. pylori eradication do the job of acid reduction for most patients, and minimal surgery in old, unstable patients carries less morbidity. Keep it for the patient with refractory or recurrent ulceration despite good compliance, with vagotomy and drainage or antrectomy. WSES notes one database analysis in which vagotomy and drainage had lower mortality, so expect to be asked.'],
+['After the bleed, do you restart aspirin?','For secondary prevention, yes, with a PPI, within three to five days. Sung’s trial at the Prince of Wales: continuing aspirin after endoscopic haemostasis doubled 30-day rebleeding (10.3% against 5.4%) but cut 8-week mortality from 12.9% to 1.3%. Stopping aspirin for a stent or a stroke costs lives.'],
+['What is a Dieulafoy lesion?','A large-calibre submucosal artery that erodes through a small mucosal defect, usually high on the lesser curve within 6 cm of the cardia. It bleeds briskly and is easy to miss once it stops, because there is no ulcer to see. Treated endoscopically with clips or band ligation; surgically by wedge excision or under-running through a gastrotomy.'],
+['The duodenum will not close. What now?','Antrectomy and a Billroth II, with the stump closed by Nissen’s technique (the anterior wall sewn to the pancreatic capsule over the ulcer base), Bancroft’s (antral mucosectomy so the stump is closed above the scar), or a tube duodenostomy as a controlled fistula. A Roux limb anastomosed to the defect is the other option.']
+],
+
+sources:{
+steps:[
+'Senior notes: Billy notes, upper GI (Kocherisation, longitudinal pyloroduodenotomy, three-point under-running, Heineke–Mikulicz closure); Deon’s notes, non-variceal upper GI bleed.',
+'Your handbook UGI-03 Peptic ulcer bleed, v0.2.',
+'<a href="https://doi.org/10.1186/s13017-019-0283-9">Tarasconi A et al. Perforated and bleeding peptic ulcer: WSES guidelines. World J Emerg Surg 2020;15:3</a>.',
+'Lee CW, Sarosi GA. Emergency ulcer surgery. Surg Clin North Am 2011;91:1001–1013.',
+'No senior CMS template for this operation was among the photos. The wording follows the house style of the others.',
+'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
+anatomy:['Your handbook UGI-03 (operation by ulcer site); senior notes, Billy notes, upper GI.'],
+pitfalls:[
+'<a href="https://doi.org/10.1186/s13017-019-0283-9">WSES 2020</a>: damage control, gastric ulcer biopsy or excision.',
+'Senior notes: Deon’s notes, management of the difficult duodenal stump.'],
+setup:['Your handbook UGI-02 and UGI-03 (transfusion, endoscopy and radiology pathway).'],
+consent:[
+'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1773129">Wong SK et al. Prediction of therapeutic failure after adrenaline injection plus heater probe treatment in patients with bleeding peptic ulcer. Gut 2002;50:322–325</a>.',
+'<a href="https://www.qxmd.com/r/10072409">Lau JY et al. Endoscopic retreatment compared with surgery in patients with recurrent bleeding after initial endoscopic control of bleeding ulcers. N Engl J Med 1999;340:751–756</a>.',
+'Wong TC et al. A comparison of angiographic embolization with surgery after failed endoscopic hemostasis. Gastrointest Endosc 2011;73:900–908. Figures as quoted in your handbook UGI-03.',
+'Sung JJ et al. Causes of mortality in patients with peptic ulcer bleeding. Am J Gastroenterol 2010;105:84–89.'],
+notes:['House style from the senior templates. The operation record is spelt out; the orders use common HA short forms. PPI regimen from Lau 2000 and WSES 2020; transfusion target from your handbook UGI-02.'],
+viva:[
+'Lau 1999; Sung JJ et al. Continuation of low-dose aspirin therapy in peptic ulcer bleeding. Ann Intern Med 2010;152:1–9.',
+'Senior notes: Billy notes, upper GI (pyloroplasties, acid-reduction operations); Deon’s notes, difficult duodenal stump.']
+},
+
+dg:{
+anat:`<figure class="dg"><svg viewBox="0 0 340 330" role="img" aria-label="Opened pyloroduodenotomy with three-point under-running of the gastroduodenal artery, and the Heineke-Mikulicz closure">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M20 30C70 22 150 22 200 30V186C150 194 70 194 20 186Z"/>
+<path d="M160 24V192" stroke-width="3"/>
+</g>
+<path d="M58 28C66 70 70 140 64 188" stroke="var(--muted-text)" stroke-width="2.5" stroke-dasharray="6 4" fill="none" stroke-linecap="round"/>
+<path d="M120 26V190" stroke="var(--accent-text)" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+<path d="M146 108H158" stroke="var(--accent-text)" stroke-width="1.5" stroke-dasharray="3 3"/>
+<ellipse cx="118" cy="108" rx="30" ry="24" fill="var(--surface)" stroke="var(--text)" stroke-width="1.5"/>
+<g fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round">
+<path d="M102 90Q120 78 138 90"/><path d="M102 126Q120 138 138 126"/>
+<path d="M138 98Q152 108 138 118M138 98V118"/>
+</g>
+<g font-weight="600" fill="var(--text)"><text x="104" y="80">1</text><text x="104" y="148">2</text><text x="154" y="94">3</text></g>
+<g stroke="var(--muted-text)" stroke-width="1"><path d="M124 46L206 58M158 108H206M62 192V202M162 146H206"/></g>
+<text class="b" x="10" y="16">Pyloroduodenotomy, opened</text>
+<text x="28" y="46">D1</text><text x="166" y="46">Antrum</text>
+<text x="210" y="56">Gastroduodenal</text><text x="210" y="70">artery</text>
+<text x="210" y="104">Transverse</text><text x="210" y="118">pancreatic branch</text>
+<text x="210" y="150">Pylorus</text>
+<text x="10" y="216">Common bile duct: behind,</text><text x="10" y="230">to the right of the artery</text>
+<text class="b" x="10" y="258">Three points</text>
+<text x="10" y="274">1 Cranial to the vessel</text><text x="10" y="288">2 Caudal to the vessel</text><text x="10" y="302">3 Medial U-stitch</text>
+<text class="b" x="206" y="216">Heineke–Mikulicz</text><text x="206" y="230">closed across</text>
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5"><path d="M206 254C240 250 262 246 266 244C270 246 292 250 326 254M206 318C240 322 262 326 266 328C270 326 292 322 326 318"/></g>
+<path d="M266 250V322" stroke="var(--accent-text)" stroke-width="2"/>
+<g stroke="var(--accent-text)" stroke-width="1.5"><path d="M260 260H272M260 272H272M260 284H272M260 296H272M260 308H272"/></g>
+</svg><figcaption>Anterior view of the opened pylorus and D1; the patient’s right is on your left and the head is at the top. The artery runs behind the ulcer from above to below; the bile duct lies to its right, so lateral bites are the dangerous ones. The longitudinal opening is then closed across the duodenum, which widens the outlet.</figcaption></figure>`}
+});
+
+P.push({
+id:'ogd-haemostasis', name:'OGD and endoscopic haemostasis', aka:'ogd egd gastroscopy upper endoscopy ugib upper gi bleed haematemesis melaena forrest clip adrenaline heater probe hemospray tc-325 otsc',
+system:'Endoscopy', list:'both', approach:'Endoscopic',
+aim:'See everything from cricopharyngeus to D2, find the lesion, grade it, and leave nothing that will rebleed.',
+status:'Draft 0.1 · 18/11/2026 · sourced, not yet tested by you in the endoscopy room',
+houseTitle:'Practice and evidence', houseLead:'What the guidelines and the Hong Kong trials say, for the questions that come up on every bleed.', houseHead:['Question','Practice','Evidence'],
+
+steps:[
+{t:'Checks', how:'Indication, consent, fasting, antithrombotics noted. In a bleed: resuscitated first, Glasgow-Blatchford score recorded, PPI started, erythromycin 250 mg IV 30–120 minutes before if bleeding is active or severe. Time-out.', why:'Erythromycin empties the stomach of blood, so you can see. An unstable patient is scoped in theatre with an anaesthetist, not in the endoscopy room.', tip:'Check the QTc before erythromycin.'},
+{t:'Position and sedation', how:'Left lateral, neck slightly flexed, mouth guard in. Sedation as planned, with oxygen and continuous saturation monitoring. Suction working before the scope goes in.', why:'Left lateral lets secretions drain out of the mouth instead of into the airway. A patient vomiting blood who cannot protect the airway is intubated first.'},
+{t:'Intubate', how:'Pass the scope over the tongue in the midline under direct vision, to the upper oesophageal sphincter. Advance gently as the patient swallows.', why:'Blind pushing finds the piriform fossa, the commonest site of perforation in diagnostic endoscopy.', tip:'Ask the patient to swallow as the tip reaches the sphincter. It opens for a second; that is when you advance.'},
+{t:'Oesophagus', how:'Insufflate and examine on the way down. Note the Z-line and the diaphragmatic pinch as distances from the incisors. Look for varices.', why:'Varices change the whole pathway: vasoactive drug, antibiotics, banding. Know before you treat anything else.'},
+{t:'Stomach and duodenum', how:'Suck the pool, look at the antrum and pylorus, enter D1 and inspect its anterior and posterior walls, then turn right and advance into D2.', why:'Posterior D1 is where the gastroduodenal artery ulcers are; the ampulla on the medial wall of D2 marks the end of the examination.', tip:'In a bleed, clot lies in the fundus with the patient on the left side. Examine the lesser curve, antrum and duodenum first, then tilt the patient to move the clot.'},
+{t:'Retroflex', how:'Back in the antrum, retroflex and look at the angulus, lesser curve, cardia and fundus. Straighten and withdraw.', why:'The cardia, the fundus and the high lesser curve are blind spots in the forward view, and that is where Dieulafoy lesions and Cameron erosions hide.'},
+{t:'Grade the lesion', how:'Size, site and Forrest class. Treat Ia, Ib and IIa. For IIb, lift the clot and treat what is beneath. No endotherapy for IIc or III.', why:'Treatment is decided by the risk of rebleeding, which the Forrest class predicts.'},
+{t:'Haemostasis', how:'Adrenaline 1:10,000 injected around the vessel to slow it, then a second definitive method: clips on the vessel, or a contact thermal probe with firm pressure. Never adrenaline alone.', why:'Dual therapy rebleeds less than injection alone (WSES 2020, 2B). Adrenaline works by tamponade and vasoconstriction, and both wear off.', tip:'Before pushing a device out, advance the catheter once to see where in the image it emerges, and bring the lesion to that spot.'},
+{t:'Escalate if needed', how:'Over-the-scope clip for a large ulcer, a large vessel or rebleeding. Haemostatic powder (TC-325) for diffuse or refractory bleeding, as a bridge.', why:'Ulcers over 2 cm, vessels over 2 mm and posterior D1 ulcers fail standard therapy more often. Powder buys time; it does not treat the vessel.'},
+{t:'Biopsy', how:'Antral and body biopsies for H. pylori. Biopsy the edge of any gastric ulcer once bleeding has stopped, or plan a repeat endoscopy.', why:'A negative test during a bleed is often false. Every gastric ulcer is a possible cancer until histology says otherwise.'},
+{t:'Withdraw', how:'Suck out the air from the stomach and re-inspect the oesophagus on the way out. Photograph the landmarks and the treated lesion.', why:'A distended stomach is uncomfortable and makes vomiting and aspiration more likely in recovery.'}
+],
+house:[
+['How soon?','Within 24 hours of presentation, after resuscitation','High-risk patients within 12 hours (WSES 2020, 1C). Prince of Wales trial in Glasgow-Blatchford 12 or more: endoscopy within 6 hours was not better (30-day death 8.9% against 6.6%).'],
+['PPI before endoscopy?','Start it, but do not let it delay the scope','Start as soon as possible (WSES 2B). Prince of Wales trial: reduced the need for endotherapy from 28% to 19%, without changing rebleeding, surgery or death.'],
+['Erythromycin?','Before endoscopy in active or severe bleeding','Recommended (WSES 2B).'],
+['Which method?','Two methods for active bleeding or a visible vessel','Dual-modality haemostasis (WSES 2B). Adrenaline is never enough alone (ESGE 2021).'],
+['Haemostatic powder?','Refractory bleeding, as a bridge','ESGE limits it to refractory bleeding; ACG allows it for active bleeding. Hong Kong-led trial: 30-day control 90% against 81% with standard therapy.'],
+['After haemostasis?','High-dose PPI for 72 hours','Recommended (WSES 2B). Prince of Wales trial: 30-day rebleeding 6.7% against 22.5% without it.'],
+['Second look?','Only if it rebleeds','Not routine (ESGE 2021).']
+],
+
+anatomy:{
+points:[
+'Distances from the incisors: cricopharyngeus at about 15 cm, the aortic arch and left main bronchus at about 25 cm, the diaphragm and oesophagogastric junction at about 40 cm.',
+'Oesophagogastric junction: the top of the gastric folds. The Z-line is the squamocolumnar junction; the diaphragmatic pinch is the hiatus. A gap between pinch and junction is a hiatus hernia.',
+'Stomach: the fundus and cardia are seen properly only in retroflexion. The angulus is best seen in retroflexion or on the way out.',
+'D1: the bulb, with anterior and posterior walls. At the superior duodenal angle the scope turns right and down into D2, where the ampulla sits on the medial wall.',
+'Bleeding sources by site: posterior D1, gastroduodenal artery; lesser curve, left gastric branches; high lesser curve, Dieulafoy lesion; oesophagogastric junction, Mallory–Weiss tear; hiatus hernia, Cameron erosions.'
+],
+table:{title:'Forrest classification', head:['Class','Appearance','Rebleed risk','Action'], num:2, rows:[
+['Ia','Spurting','Over 50%','Treat'],
+['Ib','Oozing','Over 50%','Treat'],
+['IIa','Non-bleeding visible vessel','Over 40%','Treat'],
+['IIb','Adherent clot','Over 20%','Lift and treat beneath'],
+['IIc','Flat pigmented spot','Low','No endotherapy'],
+['III','Clean base','Low','No endotherapy']
+]},
+danger:[
+'Piriform fossa: perforation from blind intubation.',
+'Thin-walled D1 and a deep ulcer base: perforation from repeated thermal treatment. Two of 48 patients retreated endoscopically in the Prince of Wales trial perforated.',
+'Airway: aspiration of blood in the sedated patient.',
+'Over-sedation: the elderly, the hypovolaemic, and anyone with liver disease.'
+]
+},
+
+pitfalls:[
+{t:'Cannot see for blood', a:'Erythromycin beforehand; a large-channel scope; a water pump.', r:'Reposition the patient, irrigate and suction. No view and still bleeding: CT angiography, radiology or surgery. Call.'},
+{t:'Adherent clot', a:'Pre-inject adrenaline around the clot base.', r:'Lift it with irrigation or a cold snare and treat the vessel beneath. If it cannot be lifted, high-dose PPI.'},
+{t:'Bleeding gets worse after treatment', a:'Clip or probe placed squarely on the vessel, not beside it.', r:'More adrenaline to slow it, then clips or an over-the-scope clip; powder as a bridge. Call the surgeon and radiology while you work.'},
+{t:'Large posterior D1 ulcer', a:'Over 2 cm, or a vessel over 2 mm, predicts failure.', r:'Consider an over-the-scope clip first. Warn the surgeon and radiology early, before it rebleeds.'},
+{t:'Lesion missed', a:'Retroflex every time; enter D2 every time.', r:'Negative endoscopy with ongoing bleeding: repeat it, or CT angiography.'},
+{t:'Varices', a:'Look at the oesophagus and cardia first; look for liver stigmata before you start.', r:'Band ligation; vasoactive drug and antibiotics if not already given. A different pathway: call.'},
+{t:'Perforation', a:'Gentle intubation; restraint with thermal treatment in a thin wall.', r:'Sudden loss of view, distension or surgical emphysema. Close a small defect with clips, minimise insufflation, call the surgeon, CT, nil by mouth.'},
+{t:'Over-sedation', a:'Titrate slowly; lower doses in the elderly.', r:'Stop, support the airway and oxygenate. Flumazenil or naloxone. Abandon the procedure if needed.'},
+{t:'Negative H. pylori test in a bleed', a:'Biopsy as well as rapid urease testing.', r:'Treat a negative result as provisional; retest later.'}
+],
+call:['Active bleeding not controlled after two methods','Large posterior D1 ulcer, or a vessel over 2 mm','Unstable during the procedure','Suspected perforation','Varices when not set up for them','No view, and still bleeding'],
+
+setup:{
+theatre:['Left lateral on a trolley that tilts; mouth guard','Oxygen, suction ready, continuous saturation and blood pressure monitoring','Anaesthetist for the unstable patient, active haematemesis or a threatened airway','Reversal agents drawn up'],
+kit:['Gastroscope; a large-channel therapeutic scope for a bleed','Water pump and two suction lines','Injection needle with adrenaline 1:10,000','Through-the-scope clips','Heater probe or bipolar probe','Biopsy forceps, rapid urease test, specimen pots','Transparent cap'],
+standby:['Over-the-scope clip','Haemostatic powder (TC-325)','Band ligator','Balloon tamponade tube','Flumazenil and naloxone']
+},
+
+consent:{
+note:`Consent for OGD, possible biopsy and endoscopic treatment of bleeding, under [[sedation]]
+Indication explained: [[haematemesis and melaena, Glasgow-Blatchford score __]]
+Nature of procedure explained: flexible camera passed through the mouth to examine the gullet, stomach and duodenum; biopsies; treatment of a bleeding point with injection, clips or heat
+Alternatives discussed: [[none appropriate for active bleeding / CT for diagnosis]]
+Benefits: diagnosis and treatment of bleeding, may avoid an operation
+Sedation risks: drowsiness, slowed breathing, low oxygen, aspiration; no driving or signing documents for 24 hours
+Specific risks: sore throat, bloating, injury to teeth or lips, bleeding particularly after biopsy or treatment, perforation which may need an operation, failure to stop bleeding needing repeat endoscopy, embolisation or surgery, a lesion may be missed, heart or lung complications
+Risks as charted in consent form acknowledged
+Patient showed good understanding, questions answered
+Consent signed`,
+figures:[
+['Heart and lung complications, mostly from sedation','1 in 170 to 1 in 10,000','ASGE 2012'],
+['Death after upper endoscopy','1 in 10,000','ASGE 2012, 140,000 procedures'],
+['Bleeding after diagnostic OGD','About 0.1%','ASGE'],
+['Perforation','0.01–0.7%','ASGE, diagnostic to therapeutic'],
+['Initial haemostasis achieved','98.6%','Prince of Wales, 1,144 ulcers'],
+['Rebleeding after endoscopic haemostasis','8.2%','Prince of Wales'],
+['Rebleeding at 30 days with high-dose PPI after treatment','6.7%','Lau 2000, against 22.5% without']
+],
+versus:'For a diagnostic OGD under sedation, the sedation carries most of the risk. For a bleed, the risk of not scoping is far larger than the risk of scoping.'
+},
+
+notes:{
+findings:`[[Oesophagus: normal, no varices]]
+[[OGJ at 40 cm, Z-line regular, no hiatus hernia]]
+[[Stomach: altered blood in fundus, no lesion on retroflexion]]
+[[D1: 1.5 cm ulcer on posterior wall with non-bleeding visible vessel (Forrest IIa)]]
+[[D2: normal]]`,
+procedure:`[[Left lateral position, IV midazolam __ mg and pethidine __ mg]], SpO2 monitored, O2 via nasal cannula
+Mouth guard inserted, scope passed under direct vision
+Oesophagus, stomach and duodenum examined [[to D2]], retroflexion performed
+Findings as above
+[[Adrenaline 1:10,000 injected around vessel, total __ ml]]
+[[Haemoclips x__ applied to visible vessel]]
+{{Haemostasis achieved, no bleeding on observation}}
+[[Antral and body biopsies taken for rapid urease test and histology]]
+Stomach decompressed on withdrawal
+{{Patient tolerated procedure, vital signs stable}}`,
+decisions:[
+['Adherent clot lifted','Adherent clot pre-injected with adrenaline and removed with [[cold snare]], [[visible vessel]] beneath treated with [[haemoclips x2]]'],
+['No treatment needed','[[Clean-based ulcer (Forrest III)]], low risk of rebleeding, no endoscopic treatment required'],
+['Gastric ulcer biopsied','Edge of [[incisural]] gastric ulcer biopsied x[[4]] to exclude malignancy'],
+['Biopsy deferred','Biopsy deferred in view of [[active bleeding]], for repeat OGD in 6 to 8 weeks']
+],
+deviations:[
+['Haemostasis not achieved',`Persistent [[spurting]] despite adrenaline injection and haemoclips x[[__]]
+[[TC-325 haemostatic powder applied as bridge]]
+Surgeon and interventional radiologist informed
+Senior kindly attended`],
+['View obscured',`Large amount of fresh blood and clot in stomach, view obscured
+[[Patient repositioned, irrigation and suction performed]]
+Bleeding source not identified
+For [[CT angiography]]`],
+['Perforation',`Perforation [[__ mm]] at [[D1]] recognised during [[thermal treatment]]
+Closed with [[through-the-scope clips x__]], insufflation minimised
+Surgeon informed, for CT and NPO`],
+['Varices found',`[[Grade __]] varices at distal oesophagus with [[stigmata of recent bleeding]]
+Band ligation x[[__]] applied
+[[Terlipressin and IV ceftriaxone started]]`],
+['Suspicious lesion',`[[Ulcerated mass at __]]
+Biopsies x[[6]] taken
+[[Tattoo placed]]`],
+['Procedure abandoned',`Procedure abandoned in view of [[desaturation / agitation]], scope withdrawn
+Anaesthetist informed`]
+],
+postop:`[[NPO 4 hours, then DAT]]
+[[BP/P Q1H x4 then Q4H]]
+[[IV PPI 80 mg bolus then 8 mg/h for 72h]]
+CBC [[Q12H x 48h]]
+Transfuse to Hb [[70 to 90 g/L]]
+Inform if haematemesis, fresh melaena, P > 100, SBP < 100 or Hb drop > 20 g/L
+Hold [[antithrombotics]], plan restart D[[__]]
+No second-look OGD unless rebleeding
+Trace rapid urease test and histology`,
+discharge:`Oral PPI BD [[to D14]], then daily for [[__ weeks]]
+H. pylori eradication if positive, test of cure afterwards
+[[Repeat OGD at 6 to 8 weeks for gastric ulcer]]
+Restart [[aspirin]] at D[[3 to 5]], with PPI
+Avoid NSAIDs
+FU [[surgical clinic]] [[4 to 6 weeks]]
+To return if black stools, vomiting blood or dizziness`
+},
+
+viva:[
+['Give the Forrest classification and what you do with each.','Ia spurting and Ib oozing: treat. IIa non-bleeding visible vessel: treat. IIb adherent clot: lift it and treat beneath, or give high-dose PPI if it will not lift. IIc flat pigmented spot and III clean base: no endotherapy. Untreated rebleeding runs over 50% for class I, over 40% for IIa and over 20% for IIb.'],
+['Glasgow-Blatchford or Rockall?','Glasgow-Blatchford before endoscopy, to decide who needs intervention: urea, haemoglobin, systolic pressure, pulse, melaena, syncope, liver disease and heart failure. A score of 0 or 1 can go home for outpatient endoscopy. The full Rockall needs the endoscopic findings and predicts rebleeding and death; AIMS65 predicts death.'],
+['How quickly should a bleed be scoped?','Within 24 hours of presentation, once resuscitated. Lau’s Prince of Wales trial (NEJM 2020) randomised high-risk patients, Glasgow-Blatchford 12 or more, to endoscopy within 6 hours or at 6–24 hours: 30-day mortality was 8.9% against 6.6%, not significantly different. Earlier is not better if it means scoping an unresuscitated patient.'],
+['Why not adrenaline alone?','It works by volume tamponade and vasoconstriction, and both wear off. Adding a second method, clips or contact thermal, reduces rebleeding, surgery and death compared with injection alone. A single method that treats the vessel itself is comparable to dual therapy.'],
+['It rebleeds the next day. What now?','Repeat the endoscopy: in Lau’s 1999 trial it gave lasting control in 73%, with fewer complications than surgery. Shock at rebleeding and ulcers over 2 cm predicted failure; involve the surgeon and radiology early in those. If the second endoscopy fails: embolisation where available, otherwise surgery.'],
+['The varices are bleeding. What changes?','Vasoactive drug (terlipressin, somatostatin or octreotide) for 2–5 days and ceftriaxone before endoscopy, band ligation within 12 hours, a restrictive transfusion target of 70–80 g/L, no tranexamic acid, and consideration of TIPS for high-risk or refractory bleeding (Baveno VII).'],
+['A patient on aspirin for a coronary stent has a treated ulcer. Do you stop it?','Continue it, or restart within three to five days, with a PPI. Sung’s Prince of Wales trial: continuing aspirin doubled 30-day rebleeding (10.3% against 5.4%) but cut 8-week mortality from 12.9% to 1.3%. Dual antiplatelets: keep the aspirin, restart the second agent within five days.']
+],
+
+sources:{
+steps:[
+'Your handbook UGI-02 Upper GI bleed and UGI-03 Peptic ulcer bleed, v0.2.',
+'Gralnek IM et al. Endoscopic diagnosis and management of nonvariceal upper gastrointestinal hemorrhage: ESGE guideline update 2021. Endoscopy 2021;53:300–332.',
+'<a href="https://doi.org/10.1186/s13017-019-0283-9">Tarasconi A et al. WSES guidelines 2020</a>: timing, erythromycin, PPI, dual-modality haemostasis.',
+'Senior notes: Deon’s notes, non-variceal upper GI bleed (positioning and clot); Billy notes, endoscopy.',
+'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
+anatomy:[
+'Senior notes: Billy notes, upper GI (distances from the incisors); Deon’s notes, non-variceal upper GI bleed (Forrest rebleeding rates).',
+'Your handbook UGI-03.'],
+pitfalls:[
+'Your handbook UGI-02 and UGI-03 (over-the-scope clip criteria, varices pathway, false-negative H. pylori tests).',
+'<a href="https://www.qxmd.com/r/10072409">Lau JY et al. N Engl J Med 1999;340:751–756</a>: perforation with thermal retreatment.'],
+setup:['Your handbook UGI-02 and UGI-03; senior notes, Deon’s notes, non-variceal upper GI bleed.'],
+consent:[
+'<a href="https://www.asge.org/home/resources/publications/guidelines/practice-guidelines/adverse-events-of-upper-gi-endoscopy">ASGE Standards of Practice Committee. Adverse events of upper GI endoscopy. Gastrointest Endosc 2012;76:707–718</a>.',
+'<a href="https://learn.asge.org/AssetListing/Improving-Quality-and-Safety-in-the-Endoscopy-Unit-On-Demand-3790/ASGE-Adverse-Events-EGD-30421">ASGE course summary of adverse events of EGD</a>: bleeding and perforation ranges.',
+'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1773129">Wong SK et al. Gut 2002;50:322–325</a>: initial haemostasis and rebleeding.',
+'Lau JY et al. Effect of intravenous omeprazole on recurrent bleeding after endoscopic treatment of bleeding peptic ulcers. N Engl J Med 2000;343:310–316.'],
+notes:['Endoscopy report in house style. The orders use common HA short forms. PPI and transfusion targets from your handbook UGI-02 and UGI-03.'],
+viva:[
+'Lau JYW et al. Timing of endoscopy for acute upper gastrointestinal bleeding. N Engl J Med 2020;382:1299–1308.',
+'Lau JY et al. N Engl J Med 1999; Sung JJ et al. Ann Intern Med 2010;152:1–9.',
+'de Franchis R et al. Baveno VII. J Hepatol 2022;76:959–974. Blatchford O et al. Lancet 2000;356:1318–1321.']
+},
+
+dg:{
+anat:`<figure class="dg"><svg viewBox="0 0 340 330" role="img" aria-label="Upper GI landmarks for endoscopy, with distances from the incisors and common bleeding sites">
+<g fill="none" stroke="var(--muted-text)" stroke-width="1.5">
+<path d="M150 10V172M166 10V170"/>
+<path d="M166 170C176 150 210 136 240 146C290 160 312 214 300 256C290 292 250 306 210 300C176 296 150 290 128 282L112 278"/>
+<path d="M150 172C150 214 162 236 190 240C168 244 140 252 120 262L112 262"/>
+<path d="M112 262H80C62 262 56 272 56 290V324M112 278H84C74 278 70 284 70 292V324"/>
+</g>
+<path d="M112 258V282" stroke="var(--text)" stroke-width="3"/>
+<g stroke="var(--muted-text)" stroke-width="1"><path d="M144 40H172M144 96H172M144 166H172"/></g>
+<g fill="var(--accent-text)"><circle cx="158" cy="172" r="4.5"/><circle cx="154" cy="200" r="4.5"/><circle cx="186" cy="238" r="4.5"/><circle cx="96" cy="270" r="4.5"/></g>
+<g font-weight="600" fill="var(--text)"><text x="170" y="186">1</text><text x="164" y="204">2</text><text x="194" y="230">3</text><text x="78" y="275">4</text></g>
+<circle cx="70" cy="306" r="2.5" fill="var(--text)"/>
+<text class="b" x="138" y="44" text-anchor="end">15 cm</text><text x="138" y="58" text-anchor="end">Cricopharyngeus</text>
+<text class="b" x="138" y="100" text-anchor="end">25 cm</text><text x="138" y="114" text-anchor="end">Aortic arch</text>
+<text class="b" x="138" y="164" text-anchor="end">40 cm</text><text x="138" y="178" text-anchor="end">OGJ</text>
+<text x="176" y="26">Oesophagus</text>
+<text class="b" x="226" y="176">Fundus</text>
+<text class="b" x="246" y="240">Body</text>
+<text x="156" y="278">Antrum</text>
+<text x="118" y="304" text-anchor="middle">Pylorus</text>
+<text class="b" x="96" y="254" text-anchor="middle">D1</text>
+<text class="b" x="50" y="300" text-anchor="end">D2</text>
+<text x="76" y="320">Ampulla</text>
+</svg><figcaption>Schematic, not to scale; distances from the incisors. Where the common lesions bleed: <b>1</b> Mallory–Weiss tear at the oesophagogastric junction. <b>2</b> Dieulafoy lesion, high on the lesser curve. <b>3</b> Lesser-curve ulcer at the angulus, from left gastric branches. <b>4</b> Posterior D1 ulcer, from the gastroduodenal artery. The fundus and cardia are seen properly only in retroflexion.</figcaption></figure>`}
+});
 
 /* ── helpers ── */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -536,6 +1909,7 @@ const store={get(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch
 
 /* ── state ── */
 let filter='all', query='', tab='steps';
+const LIST={emergency:'Emergency',elective:'Elective',both:'Elective and emergency'};
 const TABS=[['steps','Steps'],['anatomy','Anatomy'],['pitfalls','Pitfalls'],['setup','Set-up'],['consent','Consent'],['notes','Post-op note'],['viva','Viva']];
 
 /* ── home ── */
@@ -551,14 +1925,13 @@ function home(){
 }
 function list(){
   const q=query.trim().toLowerCase();
-  const hit=(name,aka,l)=>(filter==='all'||l===filter)&&(!q||(name+' '+(aka||'')).toLowerCase().includes(q));
-  const ready=P.filter(p=>hit(p.name,p.aka,p.list)), soon=SOON.filter(s=>hit(s[0],'',s[2]));
+  const hit=(name,aka,l)=>(filter==='all'||l===filter||l==='both')&&(!q||(name+' '+(aka||'')).toLowerCase().includes(q));
+  const ready=P.filter(p=>hit(p.name,p.aka,p.list)), soon=[];
   let h='';
   const bySys={}; ready.forEach(p=>(bySys[p.system]=bySys[p.system]||[]).push(p));
-  Object.keys(bySys).forEach(s=>{h+=`<div class="sys"><span class="tag">${esc(s)}</span>${bySys[s].map(p=>`<a class="prow" href="#${p.id}"><span><span class="nm">${esc(p.name)}</span><span class="mt">${p.list==='emergency'?'Emergency':'Elective'} · ${esc(p.approach)}</span></span>${ic('caret-right')}</a>`).join('')}</div>`;});
+  Object.keys(bySys).forEach(s=>{h+=`<div class="sys"><span class="tag">${esc(s)}</span>${bySys[s].map(p=>`<a class="prow" href="#${p.id}"><span><span class="nm">${esc(p.name)}</span><span class="mt">${LIST[p.list]} · ${esc(p.approach)}</span></span>${ic('caret-right')}</a>`).join('')}</div>`;});
   if(soon.length) h+=`<div class="sys"><span class="tag">Batch one · in preparation</span>${soon.map(s=>`<div class="prow soon"><span><span class="nm">${esc(s[0])}</span><span class="mt">${esc(s[1])} · ${s[2]==='emergency'?'Emergency':'Elective'}</span></span></div>`).join('')}</div>`;
   if(!ready.length&&!soon.length) h=`<div class="empty"><span class="tag">Nothing here yet</span>No procedure matches. Clear the search or switch list.</div>`;
-  else if(!ready.length&&filter==='elective'&&!q) h=`<div class="empty" style="padding-bottom:0"><span class="tag">No elective pages yet</span>The first three arrive with batch one.</div>`+h;
   $('#list').innerHTML=h;
 }
 
@@ -567,25 +1940,26 @@ function panes(p){
   const s=p.sources||{};
   const steps=`<p class="lead">Tap a step for the reason and the time-saver.</p>
   ${p.steps.map((x,i)=>`<details class="stp"><summary><span class="no mono">${String(i+1).padStart(2,'0')}</span><span class="sb"><span class="st">${esc(x.t)}</span><span class="how">${esc(x.how)}</span></span>${ic('caret-down','sm')}</summary><div class="more"><p class="why"><b>Why.</b> ${esc(x.why)}</p>${x.tip?`<div class="tip">${ic('lightbulb')}<span>${esc(x.tip)}</span></div>`:''}</div></details>`).join('')}
-  <details class="acc" style="margin-top:var(--space-6)"><summary>House and evidence${ic('caret-down','sm')}</summary><div class="acc-body"><p style="margin:0 0 var(--space-2)">Do it the consultant’s way. Know what the guideline says when asked.</p><div class="table-wrap"><table class="t"><thead><tr><th>Step</th><th>House</th><th>Guideline</th></tr></thead><tbody>${p.house.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${num(r[2])}</td></tr>`).join('')}</tbody></table></div></div></details>${srcs(s.steps)}`;
+  <details class="acc" style="margin-top:var(--space-6)"><summary>${esc(p.houseTitle||'House and evidence')}${ic('caret-down','sm')}</summary><div class="acc-body"><p style="margin:0 0 var(--space-2)">${esc(p.houseLead||'Do it the consultant’s way. Know what the guideline says when asked.')}</p><div class="table-wrap"><table class="t"><thead><tr>${(p.houseHead||['Step','House','Guideline']).map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${p.house.map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${num(r[2])}</td></tr>`).join('')}</tbody></table></div></div></details>${srcs(s.steps)}`;
   const a=p.anatomy;
-  const anatomy=`${DG.anat}<h3>What matters</h3>${ul(a.points)}
-  <h3>Where the tip lies</h3><div class="table-wrap"><table class="t"><thead><tr><th>Position</th><th class="n">Share</th><th>Presentation</th></tr></thead><tbody>${a.positions.map(r=>`<tr><td>${esc(r[0])}</td><td class="n">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>
+  const T=a.table;
+  const anatomy=`${p.dg&&p.dg.anat||''}<h3>What matters</h3>${ul(a.points)}
+  ${T?`<h3>${esc(T.title)}</h3><div class="table-wrap"><table class="t"><thead><tr>${T.head.map((h,i)=>`<th${T.num!=null&&i===T.num?' class="n"':''}>${esc(h)}</th>`).join('')}</tr></thead><tbody>${T.rows.map(r=>`<tr>${r.map((c,i)=>`<td${T.num!=null&&i===T.num?' class="n"':''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`:''}
   <h3>Danger zones</h3>${ul(a.danger)}${srcs(s.anatomy)}`;
   const pitfalls=`<p class="lead">Each one: how to avoid it, then what to do when it has already happened.</p>
   ${p.pitfalls.map(x=>`<div class="pit"><h4>${esc(x.t)}${x.u?` <span class="unc">· ${esc(x.u)}</span>`:''}</h4><p class="kv"><b>Avoid.</b> ${esc(x.a)}</p><p class="kv"><b>Rescue.</b> ${num(x.r)}</p></div>`).join('')}
   <h3>Stop and call</h3><p class="lead">In the note this reads “senior kindly scrubbed in”. In theatre it reads as judgement.</p>${ul(p.call)}${srcs(s.pitfalls)}`;
   const u=p.setup;
-  const setup=`${DG.ports}<h3>Theatre</h3>${ul(u.theatre)}<h3>Ask for</h3>${ul(u.kit)}<h3>Have in the room</h3>${ul(u.standby)}${srcs(s.setup)}`;
+  const setup=`${p.dg&&p.dg.setup||''}<h3>Theatre</h3>${ul(u.theatre)}<h3>Ask for</h3>${ul(u.kit)}<h3>Have in the room</h3>${ul(u.standby)}${srcs(s.setup)}`;
   const c=p.consent;
   const consent=`<p class="legend"><span class="hl">Shaded</span> text changes with the patient. Type it into CMS as the record of what you discussed.</p>${noteBlock('Consent discussion',c.note)}
-  <h3>Figures to quote</h3><div class="table-wrap"><table class="t"><thead><tr><th>Risk</th><th class="n">Rate</th><th>Source</th></tr></thead><tbody>${c.figures.map(r=>`<tr><td>${esc(r[0])}</td><td class="n">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div><p class="kv">${num(c.versus)}</p>${srcs(s.consent)}`;
+  <h3>Figures to quote</h3><div class="table-wrap"><table class="t"><thead><tr><th>Risk</th><th class="n">Rate</th><th>Source</th></tr></thead><tbody>${c.figures.map(r=>`<tr><td>${esc(r[0])}</td><td class="n">${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('')}</tbody></table></div>${c.versus?`<p class="kv">${num(c.versus)}</p>`:''}${srcs(s.consent)}`;
   const n=p.notes;
   const notes=`<p class="legend"><span class="hl">Shaded</span>: amend to the case. <span class="sf">Dotted underline</span>: a safety claim, true only if you did it.</p>
   ${noteBlock('Findings',n.findings)}${noteBlock('Procedure record',n.procedure)}
   <h3>Decision lines</h3><p class="lead">Swap one in where you made the choice.</p>${n.decisions.map(d=>noteBlock(d[0],d[1])).join('')}
   <h3>When it did not go to plan</h3><p class="lead">Replace the matching lines of the record. What happened, what you did, who came.</p>${n.deviations.map(d=>`<details class="acc"><summary>${esc(d[0])}${ic('caret-down','sm')}</summary><div class="acc-body" style="color:var(--text)">${noteBlock(d[0],d[1],true)}</div></details>`).join('')}
-  <h3>Orders</h3>${noteBlock('Post-op orders',n.postop)}${n.postopAlt?noteBlock(n.postopAlt[0],n.postopAlt[1]):''}${noteBlock('Discharge and follow-up',n.discharge)}${srcs(s.notes)}`;
+  <h3>Orders</h3>${noteBlock('Post-op orders',n.postop)}${noteBlock('Discharge and follow-up',n.discharge)}${srcs(s.notes)}`;
   const viva=`<p class="lead">What a senior asks across the table, and an examiner asks across a desk. Answer aloud before you open one.</p>${p.viva.map(v=>`<details class="acc qa"><summary>${esc(v[0])}${ic('caret-down','sm')}</summary><div class="acc-body">${num(v[1])}${v[2]?` <span class="unc">· ${esc(v[2])}</span>`:''}</div></details>`).join('')}${srcs(s.viva)}`;
   return {steps,anatomy,pitfalls,setup,consent,notes,viva};
 }
@@ -594,7 +1968,7 @@ function proc(p){
   cur=p; $('#back').hidden=false; document.title=p.name+' — HST Atlas';
   for(const k in NOTES) delete NOTES[k];
   const pn=panes(p);
-  $('#app').innerHTML=`<div class="phead"><div class="meta"><span class="pill ${p.list==='emergency'?'pill-warning':'pill-ocean'}">${p.list==='emergency'?'Emergency':'Elective'}</span><span class="pill pill-ocean">${esc(p.approach)}</span></div><h1>${esc(p.name)}</h1><p class="aim">${esc(p.aim)}</p><p class="status">${num(p.status)}</p></div>
+  $('#app').innerHTML=`<div class="phead"><div class="meta"><span class="pill ${p.list==='emergency'?'pill-warning':'pill-ocean'}">${LIST[p.list]}</span><span class="pill pill-ocean">${esc(p.approach)}</span></div><h1>${esc(p.name)}</h1><p class="aim">${esc(p.aim)}</p><p class="status">${num(p.status)}</p></div>
   <div class="tabs sticky" role="tablist" aria-label="Sections">${TABS.map(([k,l])=>`<button class="tab" role="tab" id="t-${k}" data-tab="${k}" aria-controls="p-${k}">${l}</button>`).join('')}</div>
   ${TABS.map(([k])=>`<div class="pane" role="tabpanel" id="p-${k}" aria-labelledby="t-${k}" hidden>${pn[k]}</div>`).join('')}
   <p class="disclaimer">Decision support only — verify against local protocols. No patient-identifiable data.</p>`;
