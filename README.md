@@ -32,7 +32,10 @@ In note text, `[[...]]` marks a default to amend and `{{...}}` marks a safety cl
 
 ## Status
 
-Draft pages, 17/11/2026: laparoscopic appendicectomy, laparoscopic cholecystectomy, open inguinal hernia repair, hemithyroidectomy.
+Draft pages:
+
+- 17/11/2026: laparoscopic appendicectomy, laparoscopic cholecystectomy, open inguinal hernia repair, hemithyroidectomy
+- 18/11/2026: repair of perforated peptic ulcer, under-running of bleeding duodenal ulcer, OGD and endoscopic haemostasis
 
 Decision support only — verify against local protocols.
 

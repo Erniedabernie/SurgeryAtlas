@@ -10,7 +10,8 @@ from pathlib import Path
 src = Path(__file__).parent / "src"
 read = lambda p: Path(p).read_text(encoding="utf-8")
 
-order = ["lap-appendicectomy", "lap-cholecystectomy", "open-inguinal-hernia", "hemithyroidectomy"]
+order = ["lap-appendicectomy", "lap-cholecystectomy", "open-inguinal-hernia", "hemithyroidectomy",
+         "perforated-peptic-ulcer", "bleeding-duodenal-ulcer", "ogd-haemostasis"]
 files = sorted(glob.glob(str(src / "data" / "*.js")),
                key=lambda f: (order.index(Path(f).stem) if Path(f).stem in order else 99, f))
 data = "const P = [];\n" + "\n".join(read(f) for f in files)
