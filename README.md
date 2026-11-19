@@ -9,16 +9,40 @@ No patient data is stored or entered anywhere in the app.
 
 ## Contents
 
-| File | Purpose |
+| Path | Purpose |
 |---|---|
-| `index.html` | The whole app: markup, styles, content and diagrams |
+| `index.html` | The built app. This is what GitHub Pages serves. Do not edit it by hand |
+| `src/data/*.js` | One file per procedure: steps, anatomy, pitfalls, set-up, consent, post-op note, viva, sources, diagrams |
+| `src/app.js`, `src/app.css`, `src/body.html` | The shell: lists, tabs, rendering |
+| `src/head.html`, `src/defs.html` | Page head with the base stylesheet; the mark and icon symbols |
+| `build.py` | Joins `src/` into `index.html` |
 | `manifest.webmanifest`, `icon-*.png`, `apple-touch-icon.png`, `favicon.*` | Home-screen install and icons |
 
-Design and scope decisions are recorded in the build spec kept with the project files.
+## Editing
+
+Change a file in `src/`, then run:
+
+```bash
+python3 build.py
+```
+
+To add a procedure, copy a file in `src/data/`, change its `id`, and add the id to `order` in `build.py`.
+
+In note text, `[[...]]` marks a default to amend and `{{...}}` marks a safety claim.
+
+A reference entry is a one-screen page for an operation you watch or are examined on but do not write up. Give it `depth:'ref'` and the fields `what`, `when`, `outline`, `points`, `viva`, `sources` and `dg.ref`; see `src/data/total-gastrectomy.js`.
+
+## Corrections
+
+Every tab ends with "Suggest a correction". It opens a new issue in this repository with the page, tab and version filled in. Write what is wrong and what it should say; the issue list is the queue of fixes.
 
 ## Status
 
-Pilot: laparoscopic appendicectomy (draft 0.2, 17/11/2026). Next: laparoscopic cholecystectomy, open inguinal hernia repair, hemithyroidectomy.
+Draft pages:
+
+- 17/11/2026: laparoscopic appendicectomy, laparoscopic cholecystectomy, open inguinal hernia repair, hemithyroidectomy
+- 18/11/2026: repair of perforated peptic ulcer, under-running of bleeding duodenal ulcer, OGD and endoscopic haemostasis
+- 19/11/2026: laparoscopic wedge resection of gastric GIST, gastrojejunostomy and feeding jejunostomy, laparoscopic distal gastrectomy with D2 lymphadenectomy; reference entry for total and completion gastrectomy
 
 Decision support only — verify against local protocols.
 
