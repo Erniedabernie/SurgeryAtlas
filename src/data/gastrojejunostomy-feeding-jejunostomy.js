@@ -161,7 +161,7 @@ viva:[
 sources:{
 steps:[
 'House technique: senior’s CMS personal template “GJ + Feeding J” (YO Templates).',
-'<a href="https://doi.org/10.1016/j.gie.2009.10.010">Jeurnink SM et al. Surgical gastrojejunostomy or endoscopic stent placement for the palliation of malignant gastric outlet obstruction (SUSTENT study): a multicenter randomized trial. Gastrointest Endosc 2010;71:490–499</a>.',
+'Jeurnink SM et al. Surgical gastrojejunostomy or endoscopic stent placement for the palliation of malignant gastric outlet obstruction (SUSTENT study): a multicenter randomized trial. Gastrointest Endosc 2010;71:490–499.',
 'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
 anatomy:['Adler DG, Baron TH. Endoscopic palliation of malignant gastric outlet obstruction using self-expanding metal stents (GOOSS). Am J Gastroenterol 2002;97:72–78.'],
 pitfalls:['<a href="https://doi.org/10.21037/jgo.2018.10.10">Stomach-partitioning gastrojejunostomy is better than conventional gastrojejunostomy in palliative care of gastric outlet obstruction for gastric or pancreatic cancer: a meta-analysis. J Gastrointest Oncol 2019</a>.','Kumagai K et al. Partial stomach-partitioning gastrojejunostomy versus conventional gastrojejunostomy for malignant gastroduodenal obstruction: systematic review and meta-analysis. Langenbecks Arch Surg 2016.'],

@@ -169,7 +169,7 @@ viva:[
 sources:{
 steps:[
 'House technique: senior’s CMS personal template “Gastric Wedge Resection” (YO Templates).',
-'<a href="https://doi.org/10.1016/j.annonc.2021.09.005">Casali PG et al. Gastrointestinal stromal tumours: ESMO–EURACAN–GENTURIS clinical practice guidelines. Ann Oncol 2022;33:20–33</a>.',
+'Casali PG et al. Gastrointestinal stromal tumours: ESMO–EURACAN–GENTURIS clinical practice guidelines. Ann Oncol 2022;33:20–33.',
 'Tips marked with a lamp are craft points. Treat them as unverified until you have tried them.'],
 anatomy:[
 'Miettinen M, Lasota J. Gastrointestinal stromal tumors: review on morphology, molecular pathology, prognosis, and differential diagnosis. Arch Pathol Lab Med 2006;130:1466–1478.',

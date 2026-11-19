@@ -43,6 +43,7 @@ Draft pages:
 - 17/11/2026: laparoscopic appendicectomy, laparoscopic cholecystectomy, open inguinal hernia repair, hemithyroidectomy
 - 18/11/2026: repair of perforated peptic ulcer, under-running of bleeding duodenal ulcer, OGD and endoscopic haemostasis
 - 19/11/2026: laparoscopic wedge resection of gastric GIST, gastrojejunostomy and feeding jejunostomy, laparoscopic distal gastrectomy with D2 lymphadenectomy; reference entry for total and completion gastrectomy
+- 19/11/2026: laparotomy for adhesive small bowel obstruction, Hartmann’s procedure, emergency groin hernia repair, drainage of perianal abscess, trauma laparotomy and damage control
 
 Decision support only — verify against local protocols.
 

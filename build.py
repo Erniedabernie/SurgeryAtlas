@@ -12,7 +12,8 @@ read = lambda p: Path(p).read_text(encoding="utf-8")
 
 order = ["lap-appendicectomy", "lap-cholecystectomy", "open-inguinal-hernia", "hemithyroidectomy",
          "perforated-peptic-ulcer", "bleeding-duodenal-ulcer", "ogd-haemostasis",
-         "lap-gastric-wedge", "gastrojejunostomy-feeding-jejunostomy", "lap-d2-distal-gastrectomy", "total-gastrectomy"]
+         "lap-gastric-wedge", "gastrojejunostomy-feeding-jejunostomy", "lap-d2-distal-gastrectomy", "total-gastrectomy",
+         "laparotomy-sbo", "hartmanns-procedure", "emergency-groin-hernia", "perianal-abscess", "trauma-laparotomy"]
 files = sorted(glob.glob(str(src / "data" / "*.js")),
                key=lambda f: (order.index(Path(f).stem) if Path(f).stem in order else 99, f))
 data = "const P = [];\n" + "\n".join(read(f) for f in files)
