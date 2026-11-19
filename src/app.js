@@ -33,10 +33,18 @@ function list(){
   const ready=P.filter(p=>hit(p.name,p.aka,p.list)), soon=[];
   let h='';
   const bySys={}; ready.forEach(p=>(bySys[p.system]=bySys[p.system]||[]).push(p));
-  Object.keys(bySys).forEach(s=>{h+=`<div class="sys"><span class="tag">${esc(s)}</span>${bySys[s].map(p=>`<a class="prow" href="#${p.id}"><span><span class="nm">${esc(p.name)}</span><span class="mt">${LIST[p.list]} · ${esc(p.approach)}</span></span>${ic('caret-right')}</a>`).join('')}</div>`;});
+  Object.keys(bySys).forEach(s=>{h+=`<div class="sys"><span class="tag">${esc(s)}</span>${bySys[s].map(p=>`<a class="prow" href="#${p.id}"><span><span class="nm">${esc(p.name)}</span><span class="mt">${p.depth==='ref'?'Reference · ':''}${LIST[p.list]} · ${esc(p.approach)}</span></span>${ic('caret-right')}</a>`).join('')}</div>`;});
   if(soon.length) h+=`<div class="sys"><span class="tag">Batch one · in preparation</span>${soon.map(s=>`<div class="prow soon"><span><span class="nm">${esc(s[0])}</span><span class="mt">${esc(s[1])} · ${s[2]==='emergency'?'Emergency':'Elective'}</span></span></div>`).join('')}</div>`;
   if(!ready.length&&!soon.length) h=`<div class="empty"><span class="tag">Nothing here yet</span>No procedure matches. Clear the search or switch list.</div>`;
   $('#list').innerHTML=h;
+}
+
+/* ── suggest a correction ── */
+const REPO='https://github.com/Erniedabernie/SurgeryAtlas';
+function fix(p,part){
+  const title=`${p.name} · ${part}: `;
+  const body=`**Page:** ${p.name}\n**Part:** ${part}\n**Version:** ${p.status}\n\n**What is wrong:**\n\n\n**What it should say:**\n\n\n**Source, if any:**\n`;
+  return `<a class="fix" href="${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}" target="_blank" rel="noopener">${ic('pencil-simple','sm')}Suggest a correction to ${esc(part.toLowerCase())}</a>`;
 }
 
 /* ── procedure ── */
@@ -74,10 +82,23 @@ function proc(p){
   const pn=panes(p);
   $('#app').innerHTML=`<div class="phead"><div class="meta"><span class="pill ${p.list==='emergency'?'pill-warning':'pill-ocean'}">${LIST[p.list]}</span><span class="pill pill-ocean">${esc(p.approach)}</span></div><h1>${esc(p.name)}</h1><p class="aim">${esc(p.aim)}</p><p class="status">${num(p.status)}</p></div>
   <div class="tabs sticky" role="tablist" aria-label="Sections">${TABS.map(([k,l])=>`<button class="tab" role="tab" id="t-${k}" data-tab="${k}" aria-controls="p-${k}">${l}</button>`).join('')}</div>
-  ${TABS.map(([k])=>`<div class="pane" role="tabpanel" id="p-${k}" aria-labelledby="t-${k}" hidden>${pn[k]}</div>`).join('')}
+  ${TABS.map(([k,l])=>`<div class="pane" role="tabpanel" id="p-${k}" aria-labelledby="t-${k}" hidden>${pn[k]}${fix(p,l)}</div>`).join('')}
   <p class="disclaimer">Decision support only — verify against local protocols. No patient-identifiable data.</p>`;
   setTab(tab,false);
   $$('.tab').forEach(b=>b.addEventListener('click',()=>setTab(b.dataset.tab,true)));
+}
+/* ── reference entry: one screen, no consent or note ── */
+function refPage(p){
+  cur=p; $('#back').hidden=false; document.title=p.name+' — HST Atlas';
+  $('#app').innerHTML=`<div class="phead"><div class="meta"><span class="pill ${p.list==='emergency'?'pill-warning':'pill-ocean'}">${LIST[p.list]}</span><span class="pill pill-ocean">${esc(p.approach)}</span><span class="pill pill-ref">Reference</span></div><h1>${esc(p.name)}</h1><p class="aim">${esc(p.what)}</p><p class="status">${num(p.status)}</p></div>
+  <div class="pane ref">
+  <h3>When it is used</h3>${ul(p.when)}
+  <h3>Outline</h3><ol class="outline">${p.outline.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>
+  ${p.dg&&p.dg.ref?`<h3>Diagram</h3>${p.dg.ref}`:''}
+  <h3>What matters</h3>${ul(p.points)}
+  <h3>Viva</h3>${p.viva.map(v=>`<details class="acc qa"><summary>${esc(v[0])}${ic('caret-down','sm')}</summary><div class="acc-body">${num(v[1])}${v[2]?` <span class="unc">· ${esc(v[2])}</span>`:''}</div></details>`).join('')}
+  ${srcs(p.sources)}${fix(p,'Reference entry')}</div>
+  <p class="disclaimer">Decision support only — verify against local protocols. No patient-identifiable data.</p>`;
 }
 function setTab(k,scroll){
   tab=k;
@@ -99,7 +120,7 @@ document.addEventListener('click',e=>{
 function route(){
   const id=(location.hash||'').replace('#','');
   const p=P.find(x=>x.id===id);
-  if(p){ proc(p); } else { home(); }
+  if(p){ p.depth==='ref'?refPage(p):proc(p); } else { home(); }
   window.scrollTo(0,0);
 }
 window.addEventListener('hashchange',()=>{tab='steps';route();});
