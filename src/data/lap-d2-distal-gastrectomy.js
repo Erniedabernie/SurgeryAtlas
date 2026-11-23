@@ -1,5 +1,5 @@
 P.push({
-id:'lap-d2-distal-gastrectomy', name:'Laparoscopic distal gastrectomy with D2 lymphadenectomy', aka:'ladg ldg lap drg radical gastrectomy subtotal gastrectomy d2 gastric cancer adenocarcinoma stomach roux-en-y billroth lymphadenectomy lymph node stations jgca',
+id:'lap-d2-distal-gastrectomy', team:'EGI', name:'Laparoscopic distal gastrectomy with D2 lymphadenectomy', aka:'ladg ldg lap drg radical gastrectomy subtotal gastrectomy d2 gastric cancer adenocarcinoma stomach roux-en-y billroth lymphadenectomy lymph node stations jgca',
 system:'Upper GI', list:'elective', approach:'Laparoscopic-assisted',
 aim:'Remove the distal two thirds of the stomach with the D2 nodes en bloc and a clear proximal margin. Then build a Roux-en-Y that will not leak, kink or reflux.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

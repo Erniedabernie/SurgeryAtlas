@@ -1,5 +1,5 @@
 P.push({
-id:'lap-appendicectomy', name:'Laparoscopic appendicectomy', aka:'appendix appendectomy lap appen appendicitis rif',
+id:'lap-appendicectomy', team:'GEN', name:'Laparoscopic appendicectomy', aka:'appendix appendectomy lap appen appendicitis rif',
 system:'Colorectal and small bowel', list:'emergency', approach:'Laparoscopic',
 aim:'Source control. Remove the appendix, clear the contamination, and miss nothing else in the right iliac fossa or pelvis.',
 status:'Draft 0.3 · 17/11/2026 · sourced, not yet tested by you in theatre',

@@ -1,5 +1,5 @@
 P.push({
-id:'trauma-laparotomy', name:'Trauma laparotomy and damage control', aka:'trauma laparotomy damage control surgery dcs dcl exploratory laparotomy haemorrhage four quadrant packing pringle splenectomy liver packing temporary abdominal closure open abdomen laparostomy lethal triad massive transfusion',
+id:'trauma-laparotomy', team:'GEN', name:'Trauma laparotomy and damage control', aka:'trauma laparotomy damage control surgery dcs dcl exploratory laparotomy haemorrhage four quadrant packing pringle splenectomy liver packing temporary abdominal closure open abdomen laparostomy lethal triad massive transfusion',
 system:'Trauma and emergency', list:'emergency', approach:'Open, long midline',
 aim:'Stop the bleeding, stop the contamination, and get the patient to intensive care before hypothermia, acidosis and coagulopathy win. Repair comes later.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

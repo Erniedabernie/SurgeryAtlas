@@ -1,5 +1,5 @@
 P.push({
-id:'total-gastrectomy', name:'Total and completion gastrectomy', aka:'total gastrectomy completion gastrectomy remnant gastric cancer oesophagojejunostomy oj roux-en-y proximal gastric cancer cdh1 hereditary diffuse linitis plastica d2',
+id:'total-gastrectomy', team:'EGI', name:'Total and completion gastrectomy', aka:'total gastrectomy completion gastrectomy remnant gastric cancer oesophagojejunostomy oj roux-en-y proximal gastric cancer cdh1 hereditary diffuse linitis plastica d2',
 system:'Upper GI', list:'elective', approach:'Open or laparoscopic', depth:'ref',
 status:'Reference · 19/11/2026 · sourced, not yet tested by you in theatre',
 what:'Removal of the whole stomach, or of the remnant after an earlier gastrectomy, with the D2 nodes, reconstructed with a Roux-en-Y oesophagojejunostomy.',

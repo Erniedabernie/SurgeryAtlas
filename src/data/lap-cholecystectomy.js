@@ -1,5 +1,5 @@
 P.push({
-id:'lap-cholecystectomy', name:'Laparoscopic cholecystectomy', aka:'chole lap chole gallbladder gallstones cholecystitis calot',
+id:'lap-cholecystectomy', team:'HBP', name:'Laparoscopic cholecystectomy', aka:'chole lap chole gallbladder gallstones cholecystitis calot',
 system:'Hepatobiliary', list:'both', approach:'Laparoscopic',
 aim:'Remove the gallbladder without touching the bile duct. Every step exists to prove which two structures you are about to divide.',
 status:'Draft 0.1 · 17/11/2026 · sourced, not yet tested by you in theatre',

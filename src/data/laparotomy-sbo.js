@@ -1,5 +1,5 @@
 P.push({
-id:'laparotomy-sbo', name:'Laparotomy for adhesive small bowel obstruction', aka:'asbo sbo small bowel obstruction adhesiolysis adhesions band laparotomy bowel resection viability gastrografin water-soluble contrast closed loop strangulation laparoscopic adhesiolysis',
+id:'laparotomy-sbo', team:'GEN', name:'Laparotomy for adhesive small bowel obstruction', aka:'asbo sbo small bowel obstruction adhesiolysis adhesions band laparotomy bowel resection viability gastrografin water-soluble contrast closed loop strangulation laparoscopic adhesiolysis',
 system:'Colorectal and small bowel', list:'emergency', approach:'Open, or laparoscopic in selected patients',
 aim:'Find the transition point, release what is causing the obstruction, decide which bowel will live, and get out without making holes. Divide only the adhesions you need to.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

@@ -1,5 +1,5 @@
 P.push({
-id:'open-inguinal-hernia', name:'Open inguinal hernia repair', aka:'lichtenstein groin hernia mesh inguinal herniorrhaphy hernioplasty',
+id:'open-inguinal-hernia', team:'GEN', name:'Open inguinal hernia repair', aka:'lichtenstein groin hernia mesh inguinal herniorrhaphy hernioplasty',
 system:'Hernia', list:'elective', approach:'Open, Lichtenstein',
 aim:'A tension-free mesh behind an intact cord, with three nerves seen and none caught. Recurrence and chronic pain are both decided in theatre.',
 status:'Draft 0.1 · 17/11/2026 · sourced, not yet tested by you in theatre',

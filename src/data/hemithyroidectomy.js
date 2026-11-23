@@ -1,5 +1,5 @@
 P.push({
-id:'hemithyroidectomy', name:'Hemithyroidectomy', aka:'thyroid lobectomy thyroidectomy thyroid nodule goitre isthmusectomy',
+id:'hemithyroidectomy', team:'ECS', name:'Hemithyroidectomy', aka:'thyroid lobectomy thyroidectomy thyroid nodule goitre isthmusectomy',
 system:'Endocrine', list:'elective', approach:'Open, cervical',
 aim:'One lobe and the isthmus out, with the recurrent laryngeal nerve seen along its course and both parathyroids left alive on their pedicles.',
 status:'Draft 0.1 · 17/11/2026 · sourced, not yet tested by you in theatre',

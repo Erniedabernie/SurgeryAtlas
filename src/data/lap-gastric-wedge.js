@@ -1,5 +1,5 @@
 P.push({
-id:'lap-gastric-wedge', name:'Laparoscopic wedge resection of gastric GIST', aka:'gist gastrointestinal stromal tumour submucosal tumour smt subepithelial wedge resection partial gastrectomy local resection leiomyoma schwannoma imatinib',
+id:'lap-gastric-wedge', team:'EGI', name:'Laparoscopic wedge resection of gastric GIST', aka:'gist gastrointestinal stromal tumour submucosal tumour smt subepithelial wedge resection partial gastrectomy local resection leiomyoma schwannoma imatinib',
 system:'Upper GI', list:'elective', approach:'Laparoscopic',
 aim:'Take the tumour out whole, inside its pseudocapsule, with a rim of normal wall, without narrowing the stomach. Rupture turns a patient who would be cured into a high-risk one.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

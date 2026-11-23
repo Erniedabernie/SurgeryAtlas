@@ -1,5 +1,5 @@
 P.push({
-id:'hartmanns-procedure', name:'Hartmann’s procedure', aka:'hartmann hartmanns sigmoid colectomy end colostomy perforated diverticulitis hinchey faecal peritonitis purulent obstructing left colon cancer large bowel obstruction rectal stump',
+id:'hartmanns-procedure', team:'CRS', name:'Hartmann’s procedure', aka:'hartmann hartmanns sigmoid colectomy end colostomy perforated diverticulitis hinchey faecal peritonitis purulent obstructing left colon cancer large bowel obstruction rectal stump',
 system:'Colorectal and small bowel', list:'emergency', approach:'Open, after diagnostic laparoscopy',
 aim:'Remove the diseased left colon, close the rectum and bring out an end colostomy. It controls sepsis or obstruction without an anastomosis in a patient who could not survive a leak.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

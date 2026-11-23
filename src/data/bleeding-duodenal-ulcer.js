@@ -1,5 +1,5 @@
 P.push({
-id:'bleeding-duodenal-ulcer', name:'Under-running of bleeding duodenal ulcer', aka:'bleeding peptic ulcer gda gastroduodenal artery underrun under-run duodenotomy pyloroduodenotomy heineke mikulicz pyloroplasty ugib upper gi bleed rebleed laparotomy',
+id:'bleeding-duodenal-ulcer', team:'EGI', name:'Under-running of bleeding duodenal ulcer', aka:'bleeding peptic ulcer gda gastroduodenal artery underrun under-run duodenotomy pyloroduodenotomy heineke mikulicz pyloroplasty ugib upper gi bleed rebleed laparotomy',
 system:'Upper GI', list:'emergency', approach:'Open',
 aim:'Stop the gastroduodenal artery with three stitches, without catching the bile duct, and close the duodenum without narrowing it.',
 status:'Draft 0.1 · 18/11/2026 · sourced, not yet tested by you in theatre',

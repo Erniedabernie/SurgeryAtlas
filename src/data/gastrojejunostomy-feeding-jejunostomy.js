@@ -1,5 +1,5 @@
 P.push({
-id:'gastrojejunostomy-feeding-jejunostomy', name:'Gastrojejunostomy and feeding jejunostomy', aka:'gj gjj gastroenterostomy bypass palliative gastric outlet obstruction goo unresectable gastric cancer pancreatic cancer periampullary feeding j fj witzel jejunostomy stomach partitioning devine double bypass',
+id:'gastrojejunostomy-feeding-jejunostomy', team:'EGI', name:'Gastrojejunostomy and feeding jejunostomy', aka:'gj gjj gastroenterostomy bypass palliative gastric outlet obstruction goo unresectable gastric cancer pancreatic cancer periampullary feeding j fj witzel jejunostomy stomach partitioning devine double bypass',
 system:'Upper GI', list:'both', approach:'Open, upper mini-laparotomy',
 aim:'Get a patient with a blocked outlet eating again, and leave a route for feeding while they recover. It is palliation: the shortest safe operation is the right one.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

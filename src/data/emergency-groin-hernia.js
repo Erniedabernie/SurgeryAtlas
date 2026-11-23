@@ -1,5 +1,5 @@
 P.push({
-id:'emergency-groin-hernia', name:'Emergency repair of incarcerated or strangulated groin hernia', aka:'strangulated hernia incarcerated hernia obstructed inguinal hernia femoral hernia richter maydl reduction en masse lockwood mcevedy lotheissen hernioscopy bowel resection mesh emergency groin',
+id:'emergency-groin-hernia', team:'GEN', name:'Emergency repair of incarcerated or strangulated groin hernia', aka:'strangulated hernia incarcerated hernia obstructed inguinal hernia femoral hernia richter maydl reduction en masse lockwood mcevedy lotheissen hernioscopy bowel resection mesh emergency groin',
 system:'Hernia', list:'emergency', approach:'Open; inguinal or preperitoneal',
 aim:'Relieve the constriction, look at the bowel before it slips back, resect what is dead, and repair the defect, with mesh unless the field is contaminated.',
 status:'Draft 0.1 · 19/11/2026 · sourced, not yet tested by you in theatre',

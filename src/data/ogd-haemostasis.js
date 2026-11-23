@@ -1,5 +1,5 @@
 P.push({
-id:'ogd-haemostasis', name:'OGD and endoscopic haemostasis', aka:'ogd egd gastroscopy upper endoscopy ugib upper gi bleed haematemesis melaena forrest clip adrenaline heater probe hemospray tc-325 otsc',
+id:'ogd-haemostasis', team:'EGI', name:'OGD and endoscopic haemostasis', aka:'ogd egd gastroscopy upper endoscopy ugib upper gi bleed haematemesis melaena forrest clip adrenaline heater probe hemospray tc-325 otsc',
 system:'Endoscopy', list:'both', approach:'Endoscopic',
 aim:'See everything from cricopharyngeus to D2, find the lesion, grade it, and leave nothing that will rebleed.',
 status:'Draft 0.1 · 18/11/2026 · sourced, not yet tested by you in the endoscopy room',

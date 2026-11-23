@@ -1,5 +1,5 @@
 P.push({
-id:'perforated-peptic-ulcer', name:'Repair of perforated peptic ulcer', aka:'ppu perforated duodenal ulcer perforated gastric ulcer graham patch omental patch omentopexy perforation hollow viscus pneumoperitoneum peritonitis',
+id:'perforated-peptic-ulcer', team:'EGI', name:'Repair of perforated peptic ulcer', aka:'ppu perforated duodenal ulcer perforated gastric ulcer graham patch omental patch omentopexy perforation hollow viscus pneumoperitoneum peritonitis',
 system:'Upper GI', list:'emergency', approach:'Laparoscopic, or open',
 aim:'Close the hole, clear the soiling, take tissue from any gastric ulcer, and get out. The operation is short; the sepsis is the disease.',
 status:'Draft 0.1 · 18/11/2026 · sourced, not yet tested by you in theatre',
